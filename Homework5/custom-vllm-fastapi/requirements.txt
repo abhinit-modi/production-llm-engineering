@@ -1,0 +1,6 @@
+fastapi
+vllm
+pydantic
+uvicorn
+sseclient
+openai

@@ -1,0 +1,10 @@
+trl
+transformers[torch]
+datasets
+wandb
+python-dotenv
+scikit-learn
+deepspeed>=0.9.3
+accelerate
+
+

@@ -1,0 +1,7 @@
+torch
+transformers
+datasets
+peft
+trainer
+bitsandbytes
+six

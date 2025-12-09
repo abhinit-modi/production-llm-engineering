@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://releases.transloadit.com/uppy/v4.18.0/uppy.min.js"></script><link rel="stylesheet" href="https://releases.transloadit.com/uppy/v4.18.0/uppy.min.css" />
+    <link href='https://static-media.hotmart.com/ONSKt6wkpanHxd43WVtc95JAqow=/32x32/https://uploads.teachablecdn.com/attachments/tWxNx3KyTLyLV1pb5erl_f6e9c582-b22b-45c5-a64e-a9105824fb01_1067x1067+%282%29.png' rel='icon' type='image/png'>
+
+<link href='https://static-media.hotmart.com/Z5SsS_jNIcQYJM40LRO9d0NlYAs=/72x72/https://uploads.teachablecdn.com/attachments/tWxNx3KyTLyLV1pb5erl_f6e9c582-b22b-45c5-a64e-a9105824fb01_1067x1067+%282%29.png' rel='apple-touch-icon' type='image/png'>
+
+<link href='https://static-media.hotmart.com/YzC74HThgmwRSS1kE0ZmQqgg4wI=/144x144/https://uploads.teachablecdn.com/attachments/tWxNx3KyTLyLV1pb5erl_f6e9c582-b22b-45c5-a64e-a9105824fb01_1067x1067+%282%29.png' rel='apple-touch-icon' type='image/png'>
+
+<link href='https://static-media.hotmart.com/awLOhWvE59hL13Tr_TBV0adNb0Q=/320x345/https://uploads.teachablecdn.com/attachments/m3n87jMRySTutfGehjcu_7c8735a1-55f8-4501-8581-e05756e43028_1280x1205.png' rel='apple-touch-startup-image' type='image/png'>
+
+<link href='https://static-media.hotmart.com/31wCOqse_K5x9w_tR2GsuQaBTkU=/640x690/https://uploads.teachablecdn.com/attachments/m3n87jMRySTutfGehjcu_7c8735a1-55f8-4501-8581-e05756e43028_1280x1205.png' rel='apple-touch-startup-image' type='image/png'>
+
+<meta name='apple-mobile-web-app-capable' content='yes' />
+<meta charset="UTF-8">
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="L4mFDv5dywABBPHKCZqHz6rmucoz5e4hhVyuyJMGfRyXVheFp7X09aq4z2Y0Tk_YAfeQI-JQ4jjizaHEzRP3uQ" />
+<link rel="stylesheet" href="https://fedora.teachablecdn.com/assets/bootstrap-748e653be2be27c8e709ced95eab64a05c870fcc9544b56e33dfe1a9a539317d.css" data-turbolinks-track="true" /><link href="https://teachable-themeable.learning.teachable.com/themecss/production/base.css?_=d92436c82044&amp;brand_course_heading=%23FFFFFF&amp;brand_heading=%23333333&amp;brand_homepage_heading=%23FFFFFF&amp;brand_navbar_fixed_text=%23FFFFFF&amp;brand_navbar_text=%23FFFFFF&amp;brand_primary=%23070A10&amp;brand_secondary=%2300B2FF&amp;brand_text=%23333333&amp;font=Lato&amp;logged_out_homepage_background_image_overlay=0.0&amp;logged_out_homepage_background_image_url=https%3A%2F%2Fuploads.teachablecdn.com%2Fattachments%2Fm3n87jMRySTutfGehjcu_7c8735a1-55f8-4501-8581-e05756e43028_1280x1205.png&amp;show_login=true&amp;show_signup=true" rel="stylesheet" data-turbolinks-track="true"></link>
+<title>Project 5 | The AiEdge</title>
+<meta name="description" content="Self-Paced">
+<link rel="canonical" href="https://learn.theaiedge.io/courses/2791880/lectures/61523849">
+<meta property="og:description" content="Self-Paced">
+<meta property="og:image" content="https://uploads.teachablecdn.com/attachments/rClnUFcdQ3mQDVOg5mfw_pict2.png">
+<meta property="og:title" content="Project 5">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://learn.theaiedge.io/courses/2791880/lectures/61523849">
+<meta name="brand_video_player_color" content="#5D77A2">
+<meta name="site_title" content="The AiEdge">
+<style>.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 500px; 
+}
+
+
+.file-upload-wrapper {
+    position: relative;
+    width: 300px;
+    margin-bottom: 10px;
+}
+.file-upload-input {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.file-upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+    width: 100%;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.file-upload-label:hover {
+    background-color: #e9e9e9;
+}
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block; /* Makes it easier to center */
+    margin: 10px auto; /* Auto margins work with a block display */
+}
+.submit-button:hover {
+    background-color: #45a049;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.status-message {
+    margin-top: 20px;
+    color: #555;
+    font-size: 16px;
+}
+
+Content-Security-Policy: script-src 'self' 'unsafe-inline'
+
+.accordion {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.accordion-item {
+    /* Removed border for a seamless look */
+}
+
+.accordion-button {
+    background-color: #f0f0f0; /* Light grey for a subtle look */
+    color: #333; /* Dark text for contrast */
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none; /* No borders for a cleaner look */
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: background-color 0.4s ease, font-weight 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #e0e0e0; /* Slightly darker on hover for feedback */
+}
+
+.accordion-button:before {
+    content: '\002B';
+    color: #333;
+    font-weight: bold;
+    float: right;
+}
+
+.accordion-button.active {
+    font-weight: bold;
+    background-color: #d0d0d0; /* Subtly highlight the active section */
+}
+
+.accordion-button.active:before {
+    content: "\2212"; /* Change to minus for active state */
+}
+
+.accordion-content {
+    padding: 20px;
+    display: none;
+    background-color: #ffffff; /* Pure white for content to stand out */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+</style>
+<script src='//fast.wistia.com/assets/external/E-v1.js'></script>
+<script
+  src='https://www.recaptcha.net/recaptcha/api.js'
+  async
+  defer></script>
+
+
+
+      <meta name="asset_host" content="https://fedora.teachablecdn.com">
+     <script>
+  (function() {
+    function isNativeWebView() {
+      return !!window.ReactNativeWebView;
+    }
+    if (isNativeWebView()) {
+      const origCreateElement = Document.prototype.createElement;
+      Document.prototype.createElement = function() {
+        const el = origCreateElement.apply(this, arguments);
+        if (arguments[0].toLowerCase() === 'video') {
+          const observer = new MutationObserver(() => {
+            if (
+              el.src &&
+              el.src.startsWith('data:video') &&
+              el.autoplay &&
+              el.style.display === "none"
+            ) {
+              el.removeAttribute('autoplay');
+              el.autoplay = false;
+              el.style.display = 'none';
+              observer.disconnect();
+            }
+          });
+          observer.observe(el, { attributes: true, attributeFilter: ['src', 'autoplay', 'style'] });
+        }
+        return el;
+      };
+    }
+  })();
+</script>
+<script src="https://fedora.teachablecdn.com/packs/student-globals--1b9bb399c9fefbb1b77f.js"></script><script src="https://fedora.teachablecdn.com/packs/student-legacy--7e3a7a01b5fc20ef86c4.js"></script><script src="https://fedora.teachablecdn.com/packs/student--fba067d52c21b9f30336.js"></script>
+<meta id='iris-url' data-iris-url=https://eventable.internal.teachable.com />
+<script type="text/javascript">
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])},heap.load("318805607");
+  window.heapShouldTrackUser = true;
+</script>
+
+
+<script type="text/javascript">
+  var _user_id = '118340384'; // Set to the user's ID, username, or email address, or '' if not yet known.
+  var _session_id = '13e875344f5f820a0b5dee851d54a22d'; // Set to a unique session ID for the visitor's current browsing session.
+
+  var _sift = window._sift = window._sift || [];
+  _sift.push(['_setAccount', '2e541754ec']);
+  _sift.push(['_setUserId', _user_id]);
+  _sift.push(['_setSessionId', _session_id]);
+  _sift.push(['_trackPageview']);
+
+  (function() {
+    function ls() {
+      var e = document.createElement('script');
+      e.src = 'https://cdn.sift.com/s.js';
+      document.body.appendChild(e);
+    }
+    if (window.attachEvent) {
+      window.attachEvent('onload', ls);
+    } else {
+      window.addEventListener('load', ls, false);
+    }
+  })();
+</script>
+
+
+<!-- latex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16569515081"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16569515081');
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function updateLatex() {
+            const targetDiv = document.querySelector('div.course-mainbar.lecture-content');
+            if (targetDiv) {
+                renderMathInElement(targetDiv, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false},
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        // function updateLatex() {
+        //     renderMathInElement(document.body, {
+        //         // delimiters: [
+        //         //     {left: "$$", right: "$$", display: true},
+        //         //     {left: "$", right: "$", display: false},
+        //         //     {left: "\\(", right: "\\)", display: false},
+        //         //     {left: "\\[", right: "\\]", display: true}
+        //         // ],
+        //         // throwOnError: false
+        //     });
+        // }
+
+        updateLatex(); // Initial update
+
+        // Mutation Observer to watch for DOM changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                updateLatex(); // Update LaTeX for each change detected
+            });
+        });
+
+        // Configuration of the observer:
+        const config = { childList: true, subtree: true };
+
+        // Target node for observing
+        const targetNode = document.body;
+
+        // Pass in the target node and the observer options
+        observer.observe(targetNode, config);
+    });
+    
+// const latexProtectionExtension = function() {
+//   let latexExpressions = [];
+
+//   return [
+//     {
+//       type: 'lang',
+//       // regex: /(\$\$?|\[|\\\[|\\\().*?(\$\$?|\]|\\\]|\\\))/gs,
+//       regex:/(\$\$?|\\\(|\\\[)[\s\S]*?(\$\$?|\\\)|\\\])|(\\\(.+?\\\))/gs,
+//       replace: function(match) {
+//         let placeholder = `latexPlaceholder${latexExpressions.length}endPlaceholder`;
+//         latexExpressions.push(match.replace(/_/g, 'UNDERSCOREPLACEHOLDER'));
+//           console.log(match)
+//         console.log(match.replace(/_/g, 'UNDERSCOREPLACEHOLDER'))
+//           console.log(placeholder)
+//         return placeholder;
+//       }
+//     },
+//     {
+//       type: 'output',
+//       filter: function(text) {
+//         // Replace placeholders with original LaTeX expressions and restore underscores
+//         text = text.replace(/latexPlaceholder(\d+)endPlaceholder/g, function(match, index) {
+//           console.log(latexExpressions[index].replace(/UNDERSCOREPLACEHOLDER/g, '_'))
+//           return latexExpressions[index].replace(/UNDERSCOREPLACEHOLDER/g, '_');
+//         });
+//         return text;
+//       }
+//     }
+//   ];
+// };
+const latexProtectionExtension = function() {
+  let latexExpressions = [];
+  return [
+    {
+      type: 'lang',
+      // regex: /(\$\$?|\\\(|\\\[)[\s\S]*?(\$\$?|\\\)|\\\])/g,
+      // regex:/(\$\$?|\\\(|\\\[)[\s\S]*?(\$\$?|\\\)|\\\])|(\\\(.+?\\\))/gs,
+      regex:/(\$\$?|\\\(|\\\[)[\s\S]*?(\$\$?|\\\)|\\\])|(\\\(.+?\\\))/gs,
+      replace: function(match) {
+        let placeholder = `latexPlaceholder${latexExpressions.length}endPlaceholder`;
+        latexExpressions.push(match);
+        return placeholder;
+      }
+    },
+    {
+      type: 'output',
+      filter: function(text) {
+        return text.replace(/latexPlaceholder(\d+)endPlaceholder/g, function(match, index) {
+          return latexExpressions[index];
+        });
+      }
+    }
+  ];
+};
+// Register the extension with Showdown
+showdown.extension('latexProtection', latexProtectionExtension);
+
+</script>
+<!-- latex -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/monokai.min.css">
+<!-- Highlight.js Library -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+
+<!-- Custom CSS for Line Numbers -->
+<style>
+pre {
+  position: relative;
+}
+pre {
+  counter-reset: line;
+  white-space: pre-wrap;
+}
+pre > span {
+  counter-increment: line;
+  display: block;
+}
+pre > span:before {
+  content: counter(line);
+  display: inline-block;
+  width: 3em; /* Width of the line numbers area */
+  text-align: right;
+  margin-right: 0.5em;
+  color: #999; /* Color of line numbers */
+}
+</style>
+
+<!-- Script to Initialize Highlight.js and Add Line Numbers -->
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const applyHighlighting = () => {
+        document.querySelectorAll('pre').forEach((block) => {
+            if (!block.classList.contains('hljs')) { // Check if highlighting is already applied
+                block.classList.add('language-python');
+                hljs.highlightElement(block);
+                const codeHtml = block.innerHTML.trim().split('\n').map(line => `<span>${line}</span>`).join('');
+                block.innerHTML = codeHtml;
+            }
+        });
+    };
+
+    applyHighlighting(); // Apply highlighting and line numbers initially
+
+    // Mutation Observer to watch for DOM changes and re-apply highlighting
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            applyHighlighting(); // Re-apply highlighting and line numbers
+        });
+    });
+
+    // Configuration of the observer:
+    const config = { childList: true, subtree: true };
+
+    // Target node for observing
+    const targetNode = document.body;
+
+    // Pass in the target node and the observer options
+    observer.observe(targetNode, config);
+});
+</script>
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SL8LSCXHSV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SL8LSCXHSV', {
+    'user_id': '118340384',
+    'school_id': '1424582',
+    'school_domain': 'learn.theaiedge.io'
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('set', 'linker', {'domains': ['learn.theaiedge.io',  'sso.teachable.com', 'checkout.teachable.com']});
+  gtag('js', new Date());
+
+  var gtag_integration = 'G-WSK43MQQ3E'
+  gtag('config', 'G-WSK43MQQ3E', { 'groups': 'GA4' });
+</script>
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"NRBR-08e3a2ada38dc55a529","applicationID":"1065060701","transactionName":"dAxdTUFZXVQEQh0JAFQXRktWRR5LCV9F","queueTime":0,"applicationTime":233,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"1103368432",accountID:"4102727",trustKey:"27503",xpid:"UAcHU1FRDxABVFdXBwcHUVQA",licenseKey:"NRBR-08e3a2ada38dc55a529",applicationID:"1065060701"};;/*! For license information please see nr-loader-spa-1.295.0.min.js.LICENSE.txt */
+(()=>{var e,t,r={8122:(e,t,r)=>{"use strict";r.d(t,{a:()=>i});var n=r(944);function i(e,t){try{if(!e||"object"!=typeof e)return(0,n.R)(3);if(!t||"object"!=typeof t)return(0,n.R)(4);const r=Object.create(Object.getPrototypeOf(t),Object.getOwnPropertyDescriptors(t)),o=0===Object.keys(r).length?e:r;for(let a in o)if(void 0!==e[a])try{if(null===e[a]){r[a]=null;continue}Array.isArray(e[a])&&Array.isArray(t[a])?r[a]=Array.from(new Set([...e[a],...t[a]])):"object"==typeof e[a]&&"object"==typeof t[a]?r[a]=i(e[a],t[a]):r[a]=e[a]}catch(e){r[a]||(0,n.R)(1,e)}return r}catch(e){(0,n.R)(2,e)}}},2555:(e,t,r)=>{"use strict";r.d(t,{D:()=>s,f:()=>a});var n=r(384),i=r(8122);const o={beacon:n.NT.beacon,errorBeacon:n.NT.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0};function a(e){try{return!!e.licenseKey&&!!e.errorBeacon&&!!e.applicationID}catch(e){return!1}}const s=e=>(0,i.a)(e,o)},9324:(e,t,r)=>{"use strict";r.d(t,{F3:()=>i,Xs:()=>o,Yq:()=>a,xv:()=>n});const n="1.295.0",i="PROD",o="CDN",a="^2.0.0-alpha.18"},6154:(e,t,r)=>{"use strict";r.d(t,{A4:()=>s,OF:()=>d,RI:()=>i,WN:()=>h,bv:()=>o,gm:()=>a,lR:()=>f,m:()=>u,mw:()=>c,sb:()=>l});var n=r(1863);const i="undefined"!=typeof window&&!!window.document,o="undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis.navigator instanceof WorkerNavigator),a=i?window:"undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis),s="complete"===a?.document?.readyState,c=Boolean("hidden"===a?.document?.visibilityState),u=""+a?.location,d=/iPad|iPhone|iPod/.test(a.navigator?.userAgent),l=d&&"undefined"==typeof SharedWorker,f=(()=>{const e=a.navigator?.userAgent?.match(/Firefox[/\s](\d+\.\d+)/);return Array.isArray(e)&&e.length>=2?+e[1]:0})(),h=Date.now()-(0,n.t)()},7295:(e,t,r)=>{"use strict";r.d(t,{Xv:()=>a,gX:()=>i,iW:()=>o});var n=[];function i(e){if(!e||o(e))return!1;if(0===n.length)return!0;for(var t=0;t<n.length;t++){var r=n[t];if("*"===r.hostname)return!1;if(s(r.hostname,e.hostname)&&c(r.pathname,e.pathname))return!1}return!0}function o(e){return void 0===e.hostname}function a(e){if(n=[],e&&e.length)for(var t=0;t<e.length;t++){let r=e[t];if(!r)continue;0===r.indexOf("http://")?r=r.substring(7):0===r.indexOf("https://")&&(r=r.substring(8));const i=r.indexOf("/");let o,a;i>0?(o=r.substring(0,i),a=r.substring(i)):(o=r,a="");let[s]=o.split(":");n.push({hostname:s,pathname:a})}}function s(e,t){return!(e.length>t.length)&&t.indexOf(e)===t.length-e.length}function c(e,t){return 0===e.indexOf("/")&&(e=e.substring(1)),0===t.indexOf("/")&&(t=t.substring(1)),""===e||e===t}},3241:(e,t,r)=>{"use strict";r.d(t,{W:()=>o});var n=r(6154);const i="newrelic";function o(e={}){try{n.gm.dispatchEvent(new CustomEvent(i,{detail:e}))}catch(e){}}},1687:(e,t,r)=>{"use strict";r.d(t,{Ak:()=>u,Ze:()=>f,x3:()=>d});var n=r(3241),i=r(7836),o=r(3606),a=r(860),s=r(2646);const c={};function u(e,t){const r={staged:!1,priority:a.P3[t]||0};l(e),c[e].get(t)||c[e].set(t,r)}function d(e,t){e&&c[e]&&(c[e].get(t)&&c[e].delete(t),p(e,t,!1),c[e].size&&h(e))}function l(e){if(!e)throw new Error("agentIdentifier required");c[e]||(c[e]=new Map)}function f(e="",t="feature",r=!1){if(l(e),!e||!c[e].get(t)||r)return p(e,t);c[e].get(t).staged=!0,h(e)}function h(e){const t=Array.from(c[e]);t.every((([e,t])=>t.staged))&&(t.sort(((e,t)=>e[1].priority-t[1].priority)),t.forEach((([t])=>{c[e].delete(t),p(e,t)})))}function p(e,t,r=!0){const a=e?i.ee.get(e):i.ee,c=o.i.handlers;if(!a.aborted&&a.backlog&&c){if((0,n.W)({agentIdentifier:e,type:"lifecycle",name:"drain",feature:t}),r){const e=a.backlog[t],r=c[t];if(r){for(let t=0;e&&t<e.length;++t)g(e[t],r);Object.entries(r).forEach((([e,t])=>{Object.values(t||{}).forEach((t=>{t[0]?.on&&t[0]?.context()instanceof s.y&&t[0].on(e,t[1])}))}))}}a.isolatedBacklog||delete c[t],a.backlog[t]=null,a.emit("drain-"+t,[])}}function g(e,t){var r=e[1];Object.values(t[r]||{}).forEach((t=>{var r=e[0];if(t[0]===r){var n=t[1],i=e[3],o=e[2];n.apply(i,o)}}))}},7836:(e,t,r)=>{"use strict";r.d(t,{P:()=>s,ee:()=>c});var n=r(384),i=r(8990),o=r(2646),a=r(5607);const s="nr@context:".concat(a.W),c=function e(t,r){var n={},a={},d={},l=!1;try{l=16===r.length&&u.initializedAgents?.[r]?.runtime.isolatedBacklog}catch(e){}var f={on:p,addEventListener:p,removeEventListener:function(e,t){var r=n[e];if(!r)return;for(var i=0;i<r.length;i++)r[i]===t&&r.splice(i,1)},emit:function(e,r,n,i,o){!1!==o&&(o=!0);if(c.aborted&&!i)return;t&&o&&t.emit(e,r,n);var s=h(n);g(e).forEach((e=>{e.apply(s,r)}));var u=v()[a[e]];u&&u.push([f,e,r,s]);return s},get:m,listeners:g,context:h,buffer:function(e,t){const r=v();if(t=t||"feature",f.aborted)return;Object.entries(e||{}).forEach((([e,n])=>{a[n]=t,t in r||(r[t]=[])}))},abort:function(){f._aborted=!0,Object.keys(f.backlog).forEach((e=>{delete f.backlog[e]}))},isBuffering:function(e){return!!v()[a[e]]},debugId:r,backlog:l?{}:t&&"object"==typeof t.backlog?t.backlog:{},isolatedBacklog:l};return Object.defineProperty(f,"aborted",{get:()=>{let e=f._aborted||!1;return e||(t&&(e=t.aborted),e)}}),f;function h(e){return e&&e instanceof o.y?e:e?(0,i.I)(e,s,(()=>new o.y(s))):new o.y(s)}function p(e,t){n[e]=g(e).concat(t)}function g(e){return n[e]||[]}function m(t){return d[t]=d[t]||e(f,t)}function v(){return f.backlog}}(void 0,"globalEE"),u=(0,n.Zm)();u.ee||(u.ee=c)},2646:(e,t,r)=>{"use strict";r.d(t,{y:()=>n});class n{constructor(e){this.contextId=e}}},9908:(e,t,r)=>{"use strict";r.d(t,{d:()=>n,p:()=>i});var n=r(7836).ee.get("handle");function i(e,t,r,i,o){o?(o.buffer([e],i),o.emit(e,t,r)):(n.buffer([e],i),n.emit(e,t,r))}},3606:(e,t,r)=>{"use strict";r.d(t,{i:()=>o});var n=r(9908);o.on=a;var i=o.handlers={};function o(e,t,r,o){a(o||n.d,i,e,t,r)}function a(e,t,r,i,o){o||(o="feature"),e||(e=n.d);var a=t[o]=t[o]||{};(a[r]=a[r]||[]).push([e,i])}},3878:(e,t,r)=>{"use strict";function n(e,t){return{capture:e,passive:!1,signal:t}}function i(e,t,r=!1,i){window.addEventListener(e,t,n(r,i))}function o(e,t,r=!1,i){document.addEventListener(e,t,n(r,i))}r.d(t,{DD:()=>o,jT:()=>n,sp:()=>i})},5607:(e,t,r)=>{"use strict";r.d(t,{W:()=>n});const n=(0,r(9566).bz)()},9566:(e,t,r)=>{"use strict";r.d(t,{LA:()=>s,ZF:()=>c,bz:()=>a,el:()=>u});var n=r(6154);const i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";function o(e,t){return e?15&e[t]:16*Math.random()|0}function a(){const e=n.gm?.crypto||n.gm?.msCrypto;let t,r=0;return e&&e.getRandomValues&&(t=e.getRandomValues(new Uint8Array(30))),i.split("").map((e=>"x"===e?o(t,r++).toString(16):"y"===e?(3&o()|8).toString(16):e)).join("")}function s(e){const t=n.gm?.crypto||n.gm?.msCrypto;let r,i=0;t&&t.getRandomValues&&(r=t.getRandomValues(new Uint8Array(e)));const a=[];for(var s=0;s<e;s++)a.push(o(r,i++).toString(16));return a.join("")}function c(){return s(16)}function u(){return s(32)}},2614:(e,t,r)=>{"use strict";r.d(t,{BB:()=>a,H3:()=>n,g:()=>u,iL:()=>c,tS:()=>s,uh:()=>i,wk:()=>o});const n="NRBA",i="SESSION",o=144e5,a=18e5,s={STARTED:"session-started",PAUSE:"session-pause",RESET:"session-reset",RESUME:"session-resume",UPDATE:"session-update"},c={SAME_TAB:"same-tab",CROSS_TAB:"cross-tab"},u={OFF:0,FULL:1,ERROR:2}},1863:(e,t,r)=>{"use strict";function n(){return Math.floor(performance.now())}r.d(t,{t:()=>n})},7485:(e,t,r)=>{"use strict";r.d(t,{D:()=>i});var n=r(6154);function i(e){if(0===(e||"").indexOf("data:"))return{protocol:"data"};try{const t=new URL(e,location.href),r={port:t.port,hostname:t.hostname,pathname:t.pathname,search:t.search,protocol:t.protocol.slice(0,t.protocol.indexOf(":")),sameOrigin:t.protocol===n.gm?.location?.protocol&&t.host===n.gm?.location?.host};return r.port&&""!==r.port||("http:"===t.protocol&&(r.port="80"),"https:"===t.protocol&&(r.port="443")),r.pathname&&""!==r.pathname?r.pathname.startsWith("/")||(r.pathname="/".concat(r.pathname)):r.pathname="/",r}catch(e){return{}}}},944:(e,t,r)=>{"use strict";r.d(t,{R:()=>i});var n=r(3241);function i(e,t){"function"==typeof console.debug&&(console.debug("New Relic Warning: https://github.com/newrelic/newrelic-browser-agent/blob/main/docs/warning-codes.md#".concat(e),t),(0,n.W)({agentIdentifier:null,drained:null,type:"data",name:"warn",feature:"warn",data:{code:e,secondary:t}}))}},5701:(e,t,r)=>{"use strict";r.d(t,{B:()=>o,t:()=>a});var n=r(3241);const i=new Set,o={};function a(e,t){const r=t.agentIdentifier;o[r]??={},e&&"object"==typeof e&&(i.has(r)||(t.ee.emit("rumresp",[e]),o[r]=e,i.add(r),(0,n.W)({agentIdentifier:r,loaded:!0,drained:!0,type:"lifecycle",name:"load",feature:void 0,data:e})))}},8990:(e,t,r)=>{"use strict";r.d(t,{I:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t,r){if(n.call(e,t))return e[t];var i=r();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},6389:(e,t,r)=>{"use strict";function n(e,t=500,r={}){const n=r?.leading||!1;let i;return(...r)=>{n&&void 0===i&&(e.apply(this,r),i=setTimeout((()=>{i=clearTimeout(i)}),t)),n||(clearTimeout(i),i=setTimeout((()=>{e.apply(this,r)}),t))}}function i(e){let t=!1;return(...r)=>{t||(t=!0,e.apply(this,r))}}r.d(t,{J:()=>i,s:()=>n})},1910:(e,t,r)=>{"use strict";r.d(t,{i:()=>o});var n=r(944);const i=new Map;function o(...e){return e.every((e=>{if(i.has(e))return i.get(e);const t="function"==typeof e&&e.toString().includes("[native code]");return t||(0,n.R)(64,e?.name||e?.toString()),i.set(e,t),t}))}},3304:(e,t,r)=>{"use strict";r.d(t,{A:()=>o});var n=r(7836);const i=()=>{const e=new WeakSet;return(t,r)=>{if("object"==typeof r&&null!==r){if(e.has(r))return;e.add(r)}return r}};function o(e){try{return JSON.stringify(e,i())??""}catch(e){try{n.ee.emit("internal-error",[e])}catch(e){}return""}}},3496:(e,t,r)=>{"use strict";function n(e){return!e||!(!e.licenseKey||!e.applicationID)}function i(e,t){return!e||e.licenseKey===t.info.licenseKey&&e.applicationID===t.info.applicationID}r.d(t,{A:()=>i,I:()=>n})},5289:(e,t,r)=>{"use strict";r.d(t,{GG:()=>o,Qr:()=>s,sB:()=>a});var n=r(3878);function i(){return"undefined"==typeof document||"complete"===document.readyState}function o(e,t){if(i())return e();(0,n.sp)("load",e,t)}function a(e){if(i())return e();(0,n.DD)("DOMContentLoaded",e)}function s(e){if(i())return e();(0,n.sp)("popstate",e)}},384:(e,t,r)=>{"use strict";r.d(t,{NT:()=>a,US:()=>d,Zm:()=>s,bQ:()=>u,dV:()=>c,pV:()=>l});var n=r(6154),i=r(1863),o=r(1910);const a={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net"};function s(){return n.gm.NREUM||(n.gm.NREUM={}),void 0===n.gm.newrelic&&(n.gm.newrelic=n.gm.NREUM),n.gm.NREUM}function c(){let e=s();return e.o||(e.o={ST:n.gm.setTimeout,SI:n.gm.setImmediate||n.gm.setInterval,CT:n.gm.clearTimeout,XHR:n.gm.XMLHttpRequest,REQ:n.gm.Request,EV:n.gm.Event,PR:n.gm.Promise,MO:n.gm.MutationObserver,FETCH:n.gm.fetch,WS:n.gm.WebSocket},(0,o.i)(...Object.values(e.o))),e}function u(e,t){let r=s();r.initializedAgents??={},t.initializedAt={ms:(0,i.t)(),date:new Date},r.initializedAgents[e]=t}function d(e,t){s()[e]=t}function l(){return function(){let e=s();const t=e.info||{};e.info={beacon:a.beacon,errorBeacon:a.errorBeacon,...t}}(),function(){let e=s();const t=e.init||{};e.init={...t}}(),c(),function(){let e=s();const t=e.loader_config||{};e.loader_config={...t}}(),s()}},2843:(e,t,r)=>{"use strict";r.d(t,{u:()=>i});var n=r(3878);function i(e,t=!1,r,i){(0,n.DD)("visibilitychange",(function(){if(t)return void("hidden"===document.visibilityState&&e());e(document.visibilityState)}),r,i)}},8139:(e,t,r)=>{"use strict";r.d(t,{u:()=>f});var n=r(7836),i=r(3434),o=r(8990),a=r(6154);const s={},c=a.gm.XMLHttpRequest,u="addEventListener",d="removeEventListener",l="nr@wrapped:".concat(n.P);function f(e){var t=function(e){return(e||n.ee).get("events")}(e);if(s[t.debugId]++)return t;s[t.debugId]=1;var r=(0,i.YM)(t,!0);function f(e){r.inPlace(e,[u,d],"-",p)}function p(e,t){return e[1]}return"getPrototypeOf"in Object&&(a.RI&&h(document,f),c&&h(c.prototype,f),h(a.gm,f)),t.on(u+"-start",(function(e,t){var n=e[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var i=(0,o.I)(n,l,(function(){var e={object:function(){if("function"!=typeof n.handleEvent)return;return n.handleEvent.apply(n,arguments)},function:n}[typeof n];return e?r(e,"fn-",null,e.name||"anonymous"):n}));this.wrapped=e[1]=i}})),t.on(d+"-start",(function(e){e[1]=this.wrapped||e[1]})),t}function h(e,t,...r){let n=e;for(;"object"==typeof n&&!Object.prototype.hasOwnProperty.call(n,u);)n=Object.getPrototypeOf(n);n&&t(n,...r)}},3434:(e,t,r)=>{"use strict";r.d(t,{Jt:()=>o,YM:()=>c});var n=r(7836),i=r(5607);const o="nr@original:".concat(i.W);var a=Object.prototype.hasOwnProperty,s=!1;function c(e,t){return e||(e=n.ee),r.inPlace=function(e,t,n,i,o){n||(n="");const a="-"===n.charAt(0);for(let s=0;s<t.length;s++){const c=t[s],u=e[c];d(u)||(e[c]=r(u,a?c+n:n,i,c,o))}},r.flag=o,r;function r(t,r,n,s,c){return d(t)?t:(r||(r=""),nrWrapper[o]=t,function(e,t,r){if(Object.defineProperty&&Object.keys)try{return Object.keys(e).forEach((function(r){Object.defineProperty(t,r,{get:function(){return e[r]},set:function(t){return e[r]=t,t}})})),t}catch(e){u([e],r)}for(var n in e)a.call(e,n)&&(t[n]=e[n])}(t,nrWrapper,e),nrWrapper);function nrWrapper(){var o,a,d,l;let f;try{a=this,o=[...arguments],d="function"==typeof n?n(o,a):n||{}}catch(t){u([t,"",[o,a,s],d],e)}i(r+"start",[o,a,s],d,c);const h=performance.now();let p=h;try{return l=t.apply(a,o),p=performance.now(),l}catch(e){throw p=performance.now(),i(r+"err",[o,a,e],d,c),f=e,f}finally{const e=p-h,t={duration:e,isLongTask:e>=50,methodName:s,thrownError:f};t.isLongTask&&i("long-task",[t],d,c),i(r+"end",[o,a,l,t],d,c)}}}function i(r,n,i,o){if(!s||t){var a=s;s=!0;try{e.emit(r,n,i,t,o)}catch(t){u([t,r,n,i],e)}s=a}}}function u(e,t){t||(t=n.ee);try{t.emit("internal-error",e)}catch(e){}}function d(e){return!(e&&"function"==typeof e&&e.apply&&!e[o])}},9300:(e,t,r)=>{"use strict";r.d(t,{T:()=>n});const n=r(860).K7.ajax},3333:(e,t,r)=>{"use strict";r.d(t,{$v:()=>u,TZ:()=>n,Zp:()=>i,kd:()=>c,mq:()=>s,nf:()=>a,qN:()=>o});const n=r(860).K7.genericEvents,i=["auxclick","click","copy","keydown","paste","scrollend"],o=["focus","blur"],a=4,s=1e3,c=["PageAction","UserAction","BrowserPerformance"],u={MARKS:"experimental.marks",MEASURES:"experimental.measures",RESOURCES:"experimental.resources"}},6774:(e,t,r)=>{"use strict";r.d(t,{T:()=>n});const n=r(860).K7.jserrors},993:(e,t,r)=>{"use strict";r.d(t,{A$:()=>o,ET:()=>a,TZ:()=>s,p_:()=>i});var n=r(860);const i={ERROR:"ERROR",WARN:"WARN",INFO:"INFO",DEBUG:"DEBUG",TRACE:"TRACE"},o={OFF:0,ERROR:1,WARN:2,INFO:3,DEBUG:4,TRACE:5},a="log",s=n.K7.logging},3785:(e,t,r)=>{"use strict";r.d(t,{R:()=>c,b:()=>u});var n=r(9908),i=r(1863),o=r(860),a=r(8154),s=r(993);function c(e,t,r={},c=s.p_.INFO,u,d=(0,i.t)()){(0,n.p)(a.xV,["API/logging/".concat(c.toLowerCase(),"/called")],void 0,o.K7.metrics,e),(0,n.p)(s.ET,[d,t,r,c,u],void 0,o.K7.logging,e)}function u(e){return"string"==typeof e&&Object.values(s.p_).some((t=>t===e.toUpperCase().trim()))}},8154:(e,t,r)=>{"use strict";r.d(t,{z_:()=>o,XG:()=>s,TZ:()=>n,rs:()=>i,xV:()=>a});r(6154),r(9566),r(384);const n=r(860).K7.metrics,i="sm",o="cm",a="storeSupportabilityMetrics",s="storeEventMetrics"},6630:(e,t,r)=>{"use strict";r.d(t,{T:()=>n});const n=r(860).K7.pageViewEvent},782:(e,t,r)=>{"use strict";r.d(t,{T:()=>n});const n=r(860).K7.pageViewTiming},6344:(e,t,r)=>{"use strict";r.d(t,{BB:()=>d,G4:()=>o,Qb:()=>l,TZ:()=>i,Ug:()=>a,_s:()=>s,bc:()=>u,yP:()=>c});var n=r(2614);const i=r(860).K7.sessionReplay,o={RECORD:"recordReplay",PAUSE:"pauseReplay",ERROR_DURING_REPLAY:"errorDuringReplay"},a=.12,s={DomContentLoaded:0,Load:1,FullSnapshot:2,IncrementalSnapshot:3,Meta:4,Custom:5},c={[n.g.ERROR]:15e3,[n.g.FULL]:3e5,[n.g.OFF]:0},u={RESET:{message:"Session was reset",sm:"Reset"},IMPORT:{message:"Recorder failed to import",sm:"Import"},TOO_MANY:{message:"429: Too Many Requests",sm:"Too-Many"},TOO_BIG:{message:"Payload was too large",sm:"Too-Big"},CROSS_TAB:{message:"Session Entity was set to OFF on another tab",sm:"Cross-Tab"},ENTITLEMENTS:{message:"Session Replay is not allowed and will not be started",sm:"Entitlement"}},d=5e3,l={API:"api"}},5270:(e,t,r)=>{"use strict";r.d(t,{Aw:()=>s,CT:()=>c,SR:()=>a,rF:()=>u});var n=r(384),i=r(7767),o=r(6154);function a(e){return!!(0,n.dV)().o.MO&&(0,i.V)(e)&&!0===e?.session_trace.enabled}function s(e){return!0===e?.session_replay.preload&&a(e)}function c(e,t){const r=t.correctAbsoluteTimestamp(e);return{originalTimestamp:e,correctedTimestamp:r,timestampDiff:e-r,originTime:o.WN,correctedOriginTime:t.correctedOriginTime,originTimeDiff:Math.floor(o.WN-t.correctedOriginTime)}}function u(e,t){try{if("string"==typeof t?.type){if("password"===t.type.toLowerCase())return"*".repeat(e?.length||0);if(void 0!==t?.dataset?.nrUnmask||t?.classList?.contains("nr-unmask"))return e}}catch(e){}return"string"==typeof e?e.replace(/[\S]/g,"*"):"*".repeat(e?.length||0)}},3738:(e,t,r)=>{"use strict";r.d(t,{He:()=>i,Kp:()=>s,Lc:()=>u,Rz:()=>d,TZ:()=>n,bD:()=>o,d3:()=>a,jx:()=>l,uP:()=>c});const n=r(860).K7.sessionTrace,i="bstResource",o="resource",a="-start",s="-end",c="fn"+a,u="fn"+s,d="pushState",l=1e3},3962:(e,t,r)=>{"use strict";r.d(t,{AM:()=>o,O2:()=>c,Qu:()=>u,TZ:()=>s,ih:()=>d,pP:()=>a,tC:()=>i});var n=r(860);const i=["click","keydown","submit","popstate"],o="api",a="initialPageLoad",s=n.K7.softNav,c={INITIAL_PAGE_LOAD:"",ROUTE_CHANGE:1,UNSPECIFIED:2},u={INTERACTION:1,AJAX:2,CUSTOM_END:3,CUSTOM_TRACER:4},d={IP:"in progress",FIN:"finished",CAN:"cancelled"}},7378:(e,t,r)=>{"use strict";r.d(t,{$p:()=>x,BR:()=>b,Kp:()=>R,L3:()=>y,Lc:()=>c,NC:()=>o,SG:()=>d,TZ:()=>i,U6:()=>p,UT:()=>m,d3:()=>w,dT:()=>f,e5:()=>A,gx:()=>v,l9:()=>l,oW:()=>h,op:()=>g,rw:()=>u,tH:()=>E,uP:()=>s,wW:()=>T,xq:()=>a});var n=r(384);const i=r(860).K7.spa,o=["click","submit","keypress","keydown","keyup","change"],a=999,s="fn-start",c="fn-end",u="cb-start",d="api-ixn-",l="remaining",f="interaction",h="spaNode",p="jsonpNode",g="fetch-start",m="fetch-done",v="fetch-body-",b="jsonp-end",y=(0,n.dV)().o.ST,w="-start",R="-end",x="-body",T="cb"+R,A="jsTime",E="fetch"},4234:(e,t,r)=>{"use strict";r.d(t,{W:()=>o});var n=r(7836),i=r(1687);class o{constructor(e,t){this.agentIdentifier=e,this.ee=n.ee.get(e),this.featureName=t,this.blocked=!1}deregisterDrain(){(0,i.x3)(this.agentIdentifier,this.featureName)}}},7767:(e,t,r)=>{"use strict";r.d(t,{V:()=>i});var n=r(6154);const i=e=>n.RI&&!0===e?.privacy.cookies_enabled},1741:(e,t,r)=>{"use strict";r.d(t,{W:()=>o});var n=r(944),i=r(4261);class o{#e(e,...t){if(this[e]!==o.prototype[e])return this[e](...t);(0,n.R)(35,e)}addPageAction(e,t){return this.#e(i.hG,e,t)}register(e){return this.#e(i.eY,e)}recordCustomEvent(e,t){return this.#e(i.fF,e,t)}setPageViewName(e,t){return this.#e(i.Fw,e,t)}setCustomAttribute(e,t,r){return this.#e(i.cD,e,t,r)}noticeError(e,t){return this.#e(i.o5,e,t)}setUserId(e){return this.#e(i.Dl,e)}setApplicationVersion(e){return this.#e(i.nb,e)}setErrorHandler(e){return this.#e(i.bt,e)}addRelease(e,t){return this.#e(i.k6,e,t)}log(e,t){return this.#e(i.$9,e,t)}start(){return this.#e(i.d3)}finished(e){return this.#e(i.BL,e)}recordReplay(){return this.#e(i.CH)}pauseReplay(){return this.#e(i.Tb)}addToTrace(e){return this.#e(i.U2,e)}setCurrentRouteName(e){return this.#e(i.PA,e)}interaction(){return this.#e(i.dT)}wrapLogger(e,t,r){return this.#e(i.Wb,e,t,r)}measure(e,t){return this.#e(i.V1,e,t)}}},4261:(e,t,r)=>{"use strict";r.d(t,{$9:()=>d,BL:()=>c,CH:()=>p,Dl:()=>R,Fw:()=>w,PA:()=>v,Pl:()=>n,Tb:()=>f,U2:()=>a,V1:()=>A,Wb:()=>T,bt:()=>y,cD:()=>b,d3:()=>x,dT:()=>u,eY:()=>g,fF:()=>h,hG:()=>o,hw:()=>i,k6:()=>s,nb:()=>m,o5:()=>l});const n="api-",i=n+"ixn-",o="addPageAction",a="addToTrace",s="addRelease",c="finished",u="interaction",d="log",l="noticeError",f="pauseReplay",h="recordCustomEvent",p="recordReplay",g="register",m="setApplicationVersion",v="setCurrentRouteName",b="setCustomAttribute",y="setErrorHandler",w="setPageViewName",R="setUserId",x="start",T="wrapLogger",A="measure"},5205:(e,t,r)=>{"use strict";r.d(t,{j:()=>S});var n=r(384),i=r(1741);var o=r(2555),a=r(3333);const s=e=>{if(!e||"string"!=typeof e)return!1;try{document.createDocumentFragment().querySelector(e)}catch{return!1}return!0};var c=r(2614),u=r(944),d=r(8122);const l="[data-nr-mask]",f=e=>(0,d.a)(e,(()=>{const e={feature_flags:[],experimental:{marks:!1,measures:!1,resources:!1},mask_selector:"*",block_selector:"[data-nr-block]",mask_input_options:{color:!1,date:!1,"datetime-local":!1,email:!1,month:!1,number:!1,range:!1,search:!1,tel:!1,text:!1,time:!1,url:!1,week:!1,textarea:!1,select:!1,password:!0}};return{ajax:{deny_list:void 0,block_internal:!0,enabled:!0,autoStart:!0},api:{allow_registered_children:!0,duplicate_registered_data:!1},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},get feature_flags(){return e.feature_flags},set feature_flags(t){e.feature_flags=t},generic_events:{enabled:!0,autoStart:!0},harvest:{interval:30},jserrors:{enabled:!0,autoStart:!0},logging:{enabled:!0,autoStart:!0},metrics:{enabled:!0,autoStart:!0},obfuscate:void 0,page_action:{enabled:!0},page_view_event:{enabled:!0,autoStart:!0},page_view_timing:{enabled:!0,autoStart:!0},performance:{get capture_marks(){return e.feature_flags.includes(a.$v.MARKS)||e.experimental.marks},set capture_marks(t){e.experimental.marks=t},get capture_measures(){return e.feature_flags.includes(a.$v.MEASURES)||e.experimental.measures},set capture_measures(t){e.experimental.measures=t},capture_detail:!0,resources:{get enabled(){return e.feature_flags.includes(a.$v.RESOURCES)||e.experimental.resources},set enabled(t){e.experimental.resources=t},asset_types:[],first_party_domains:[],ignore_newrelic:!0}},privacy:{cookies_enabled:!0},proxy:{assets:void 0,beacon:void 0},session:{expiresMs:c.wk,inactiveMs:c.BB},session_replay:{autoStart:!0,enabled:!1,preload:!1,sampling_rate:10,error_sampling_rate:100,collect_fonts:!1,inline_images:!1,fix_stylesheets:!0,mask_all_inputs:!0,get mask_text_selector(){return e.mask_selector},set mask_text_selector(t){s(t)?e.mask_selector="".concat(t,",").concat(l):""===t||null===t?e.mask_selector=l:(0,u.R)(5,t)},get block_class(){return"nr-block"},get ignore_class(){return"nr-ignore"},get mask_text_class(){return"nr-mask"},get block_selector(){return e.block_selector},set block_selector(t){s(t)?e.block_selector+=",".concat(t):""!==t&&(0,u.R)(6,t)},get mask_input_options(){return e.mask_input_options},set mask_input_options(t){t&&"object"==typeof t?e.mask_input_options={...t,password:!0}:(0,u.R)(7,t)}},session_trace:{enabled:!0,autoStart:!0},soft_navigations:{enabled:!0,autoStart:!0},spa:{enabled:!0,autoStart:!0},ssl:void 0,user_actions:{enabled:!0,elementAttributes:["id","className","tagName","type"]}}})());var h=r(6154),p=r(9324);let g=0;const m={buildEnv:p.F3,distMethod:p.Xs,version:p.xv,originTime:h.WN},v={appMetadata:{},customTransaction:void 0,denyList:void 0,disabled:!1,entityManager:void 0,harvester:void 0,isolatedBacklog:!1,isRecording:!1,loaderType:void 0,maxBytes:3e4,obfuscator:void 0,onerror:void 0,ptid:void 0,releaseIds:{},session:void 0,timeKeeper:void 0,jsAttributesMetadata:{bytes:0},get harvestCount(){return++g}},b=e=>{const t=(0,d.a)(e,v),r=Object.keys(m).reduce(((e,t)=>(e[t]={value:m[t],writable:!1,configurable:!0,enumerable:!0},e)),{});return Object.defineProperties(t,r)};var y=r(5701);const w=e=>{const t=e.startsWith("http");e+="/",r.p=t?e:"https://"+e};var R=r(7836),x=r(3241);const T={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0},A=e=>(0,d.a)(e,T),E=new Set;function S(e,t={},r,a){let{init:s,info:c,loader_config:u,runtime:d={},exposed:l=!0}=t;if(!c){const e=(0,n.pV)();s=e.init,c=e.info,u=e.loader_config}e.init=f(s||{}),e.loader_config=A(u||{}),c.jsAttributes??={},h.bv&&(c.jsAttributes.isWorker=!0),e.info=(0,o.D)(c);const p=e.init,g=[c.beacon,c.errorBeacon];E.has(e.agentIdentifier)||(p.proxy.assets&&(w(p.proxy.assets),g.push(p.proxy.assets)),p.proxy.beacon&&g.push(p.proxy.beacon),function(e){const t=(0,n.pV)();Object.getOwnPropertyNames(i.W.prototype).forEach((r=>{const n=i.W.prototype[r];if("function"!=typeof n||"constructor"===n)return;let o=t[r];e[r]&&!1!==e.exposed&&"micro-agent"!==e.runtime?.loaderType&&(t[r]=(...t)=>{const n=e[r](...t);return o?o(...t):n})}))}(e),(0,n.US)("activatedFeatures",y.B),e.runSoftNavOverSpa&&=!0===p.soft_navigations.enabled&&p.feature_flags.includes("soft_nav")),d.denyList=[...p.ajax.deny_list||[],...p.ajax.block_internal?g:[]],d.ptid=e.agentIdentifier,d.loaderType=r,e.runtime=b(d),E.has(e.agentIdentifier)||(e.ee=R.ee.get(e.agentIdentifier),e.exposed=l,(0,x.W)({agentIdentifier:e.agentIdentifier,drained:!!y.B?.[e.agentIdentifier],type:"lifecycle",name:"initialize",feature:void 0,data:e.config})),E.add(e.agentIdentifier)}},8374:(e,t,r)=>{r.nc=(()=>{try{return document?.currentScript?.nonce}catch(e){}return""})()},860:(e,t,r)=>{"use strict";r.d(t,{$J:()=>d,K7:()=>c,P3:()=>u,XX:()=>i,Yy:()=>s,df:()=>o,qY:()=>n,v4:()=>a});const n="events",i="jserrors",o="browser/blobs",a="rum",s="browser/logs",c={ajax:"ajax",genericEvents:"generic_events",jserrors:i,logging:"logging",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionReplay:"session_replay",sessionTrace:"session_trace",softNav:"soft_navigations",spa:"spa"},u={[c.pageViewEvent]:1,[c.pageViewTiming]:2,[c.metrics]:3,[c.jserrors]:4,[c.spa]:5,[c.ajax]:6,[c.sessionTrace]:7,[c.softNav]:8,[c.sessionReplay]:9,[c.logging]:10,[c.genericEvents]:11},d={[c.pageViewEvent]:a,[c.pageViewTiming]:n,[c.ajax]:n,[c.spa]:n,[c.softNav]:n,[c.metrics]:i,[c.jserrors]:i,[c.sessionTrace]:o,[c.sessionReplay]:o,[c.logging]:s,[c.genericEvents]:"ins"}}},n={};function i(e){var t=n[e];if(void 0!==t)return t.exports;var o=n[e]={exports:{}};return r[e](o,o.exports,i),o.exports}i.m=r,i.d=(e,t)=>{for(var r in t)i.o(t,r)&&!i.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},i.f={},i.e=e=>Promise.all(Object.keys(i.f).reduce(((t,r)=>(i.f[r](e,t),t)),[])),i.u=e=>({212:"nr-spa-compressor",249:"nr-spa-recorder",478:"nr-spa"}[e]+"-1.295.0.min.js"),i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),e={},t="NRBA-1.295.0.PROD:",i.l=(r,n,o,a)=>{if(e[r])e[r].push(n);else{var s,c;if(void 0!==o)for(var u=document.getElementsByTagName("script"),d=0;d<u.length;d++){var l=u[d];if(l.getAttribute("src")==r||l.getAttribute("data-webpack")==t+o){s=l;break}}if(!s){c=!0;var f={478:"sha512-V1Ymdr6VvRAf7X+rToM23eSSQ0XOGFcqhIh4AlKUPXyWrzcESyjh12RkYA1LXX0xAs+mGKC5QeWNusHHjYdsIw==",249:"sha512-Ki3lI5RL53JKkI9k9dHhpJaBqWzxjeWxe4O0eXXl4zTkDtNzYftg1O3xpaIR9/MQTvlanIc+oVMcUneksSUHEA==",212:"sha512-cUuhujuL1Ex8eXwM/2ndqN+AzQLV7Biq65hncKlbmQL5fk2umiHlXGPzIGhZc/8N2CBARy4KmI1w6Nvf3IBNLA=="};(s=document.createElement("script")).charset="utf-8",s.timeout=120,i.nc&&s.setAttribute("nonce",i.nc),s.setAttribute("data-webpack",t+o),s.src=r,0!==s.src.indexOf(window.location.origin+"/")&&(s.crossOrigin="anonymous"),f[a]&&(s.integrity=f[a])}e[r]=[n];var h=(t,n)=>{s.onerror=s.onload=null,clearTimeout(p);var i=e[r];if(delete e[r],s.parentNode&&s.parentNode.removeChild(s),i&&i.forEach((e=>e(n))),t)return t(n)},p=setTimeout(h.bind(null,void 0,{type:"timeout",target:s}),12e4);s.onerror=h.bind(null,s.onerror),s.onload=h.bind(null,s.onload),c&&document.head.appendChild(s)}},i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.p="https://js-agent.newrelic.com/",(()=>{var e={38:0,788:0};i.f.j=(t,r)=>{var n=i.o(e,t)?e[t]:void 0;if(0!==n)if(n)r.push(n[2]);else{var o=new Promise(((r,i)=>n=e[t]=[r,i]));r.push(n[2]=o);var a=i.p+i.u(t),s=new Error;i.l(a,(r=>{if(i.o(e,t)&&(0!==(n=e[t])&&(e[t]=void 0),n)){var o=r&&("load"===r.type?"missing":r.type),a=r&&r.target&&r.target.src;s.message="Loading chunk "+t+" failed.\n("+o+": "+a+")",s.name="ChunkLoadError",s.type=o,s.request=a,n[1](s)}}),"chunk-"+t,t)}};var t=(t,r)=>{var n,o,[a,s,c]=r,u=0;if(a.some((t=>0!==e[t]))){for(n in s)i.o(s,n)&&(i.m[n]=s[n]);if(c)c(i)}for(t&&t(r);u<a.length;u++)o=a[u],i.o(e,o)&&e[o]&&e[o][0](),e[o]=0},r=self["webpackChunk:NRBA-1.295.0.PROD"]=self["webpackChunk:NRBA-1.295.0.PROD"]||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})(),(()=>{"use strict";i(8374);var e=i(9566),t=i(1741);class r extends t.W{agentIdentifier=(0,e.LA)(16)}var n=i(860);const o=Object.values(n.K7);var a=i(5205);var s=i(9908),c=i(1863),u=i(4261),d=i(3241),l=i(944),f=i(5701),h=i(8154);function p(e,t,i,o){const a=o||i;!a||a[e]&&a[e]!==r.prototype[e]||(a[e]=function(){(0,s.p)(h.xV,["API/"+e+"/called"],void 0,n.K7.metrics,i.ee),(0,d.W)({agentIdentifier:i.agentIdentifier,drained:!!f.B?.[i.agentIdentifier],type:"data",name:"api",feature:u.Pl+e,data:{}});try{return t.apply(this,arguments)}catch(e){(0,l.R)(23,e)}})}function g(e,t,r,n,i){const o=e.info;null===r?delete o.jsAttributes[t]:o.jsAttributes[t]=r,(i||null===r)&&(0,s.p)(u.Pl+n,[(0,c.t)(),t,r],void 0,"session",e.ee)}var m=i(1687),v=i(4234),b=i(5289),y=i(6154),w=i(5270),R=i(7767),x=i(6389);class T extends v.W{constructor(e,t){super(e.agentIdentifier,t),this.abortHandler=void 0,this.featAggregate=void 0,this.onAggregateImported=void 0,this.deferred=Promise.resolve(),!1===e.init[this.featureName].autoStart?this.deferred=new Promise(((t,r)=>{this.ee.on("manual-start-all",(0,x.J)((()=>{(0,m.Ak)(e.agentIdentifier,this.featureName),t()})))})):(0,m.Ak)(e.agentIdentifier,t)}importAggregator(e,t,r={}){if(this.featAggregate)return;let o;this.onAggregateImported=new Promise((e=>{o=e}));const a=async()=>{let a;await this.deferred;try{if((0,R.V)(e.init)){const{setupAgentSession:t}=await i.e(478).then(i.bind(i,2955));a=t(e)}}catch(e){(0,l.R)(20,e),this.ee.emit("internal-error",[e]),this.featureName===n.K7.sessionReplay&&this.abortHandler?.()}try{if(!this.#t(this.featureName,a,e.init))return(0,m.Ze)(this.agentIdentifier,this.featureName),void o(!1);const{Aggregate:n}=await t();this.featAggregate=new n(e,r),e.runtime.harvester.initializedAggregates.push(this.featAggregate),o(!0)}catch(e){(0,l.R)(34,e),this.abortHandler?.(),(0,m.Ze)(this.agentIdentifier,this.featureName,!0),o(!1),this.ee&&this.ee.abort()}};y.RI?(0,b.GG)((()=>a()),!0):a()}#t(e,t,r){switch(e){case n.K7.sessionReplay:return(0,w.SR)(r)&&!!t;case n.K7.sessionTrace:return!!t;default:return!0}}}var A=i(6630),E=i(2614);class S extends T{static featureName=A.T;constructor(e){var t;super(e,A.T),this.setupInspectionEvents(e.agentIdentifier),t=e,p(u.Fw,(function(e,r){"string"==typeof e&&("/"!==e.charAt(0)&&(e="/"+e),t.runtime.customTransaction=(r||"http://custom.transaction")+e,(0,s.p)(u.Pl+u.Fw,[(0,c.t)()],void 0,void 0,t.ee))}),t),this.ee.on("api-send-rum",((e,t)=>(0,s.p)("send-rum",[e,t],void 0,this.featureName,this.ee))),this.importAggregator(e,(()=>i.e(478).then(i.bind(i,1983))))}setupInspectionEvents(e){const t=(t,r)=>{t&&(0,d.W)({agentIdentifier:e,timeStamp:t.timeStamp,loaded:"complete"===t.target.readyState,type:"window",name:r,data:t.target.location+""})};(0,b.sB)((e=>{t(e,"DOMContentLoaded")})),(0,b.GG)((e=>{t(e,"load")})),(0,b.Qr)((e=>{t(e,"navigate")})),this.ee.on(E.tS.UPDATE,((t,r)=>{(0,d.W)({agentIdentifier:e,type:"lifecycle",name:"session",data:r})}))}}var _=i(384);var N=i(2843),O=i(3878),I=i(782);class P extends T{static featureName=I.T;constructor(e){super(e,I.T),y.RI&&((0,N.u)((()=>(0,s.p)("docHidden",[(0,c.t)()],void 0,I.T,this.ee)),!0),(0,O.sp)("pagehide",(()=>(0,s.p)("winPagehide",[(0,c.t)()],void 0,I.T,this.ee))),this.importAggregator(e,(()=>i.e(478).then(i.bind(i,9917)))))}}class j extends T{static featureName=h.TZ;constructor(e){super(e,h.TZ),y.RI&&document.addEventListener("securitypolicyviolation",(e=>{(0,s.p)(h.xV,["Generic/CSPViolation/Detected"],void 0,this.featureName,this.ee)})),this.importAggregator(e,(()=>i.e(478).then(i.bind(i,8351))))}}var k=i(6774),C=i(3304);class L{constructor(e,t,r,n,i){this.name="UncaughtError",this.message="string"==typeof e?e:(0,C.A)(e),this.sourceURL=t,this.line=r,this.column=n,this.__newrelic=i}}function M(e){return K(e)?e:new L(void 0!==e?.message?e.message:e,e?.filename||e?.sourceURL,e?.lineno||e?.line,e?.colno||e?.col,e?.__newrelic,e?.cause)}function H(e){const t="Unhandled Promise Rejection: ";if(!e?.reason)return;if(K(e.reason)){try{e.reason.message.startsWith(t)||(e.reason.message=t+e.reason.message)}catch(e){}return M(e.reason)}const r=M(e.reason);return(r.message||"").startsWith(t)||(r.message=t+r.message),r}function D(e){if(e.error instanceof SyntaxError&&!/:\d+$/.test(e.error.stack?.trim())){const t=new L(e.message,e.filename,e.lineno,e.colno,e.error.__newrelic,e.cause);return t.name=SyntaxError.name,t}return K(e.error)?e.error:M(e)}function K(e){return e instanceof Error&&!!e.stack}function U(e,t,r,i,o=(0,c.t)()){"string"==typeof e&&(e=new Error(e)),(0,s.p)("err",[e,o,!1,t,r.runtime.isRecording,void 0,i],void 0,n.K7.jserrors,r.ee)}var F=i(3496),W=i(993),B=i(3785);function G(e,{customAttributes:t={},level:r=W.p_.INFO}={},n,i,o=(0,c.t)()){(0,B.R)(n.ee,e,t,r,i,o)}function V(e,t,r,i,o=(0,c.t)()){(0,s.p)(u.Pl+u.hG,[o,e,t,i],void 0,n.K7.genericEvents,r.ee)}function z(e){p(u.eY,(function(t){return function(e,t){const r={};let i,o;(0,l.R)(54,"newrelic.register"),e.init.api.allow_registered_children||(i=()=>(0,l.R)(55));t&&(0,F.I)(t)||(i=()=>(0,l.R)(48,t));const a={addPageAction:(n,i={})=>{u(V,[n,{...r,...i},e],t)},log:(n,i={})=>{u(G,[n,{...i,customAttributes:{...r,...i.customAttributes||{}}},e],t)},noticeError:(n,i={})=>{u(U,[n,{...r,...i},e],t)},setApplicationVersion:e=>{r["application.version"]=e},setCustomAttribute:(e,t)=>{r[e]=t},setUserId:e=>{r["enduser.id"]=e},metadata:{customAttributes:r,target:t,get connected(){return o||Promise.reject(new Error("Failed to connect"))}}};i?i():o=new Promise(((n,i)=>{try{const o=e.runtime?.entityManager;let s=!!o?.get().entityGuid,c=o?.getEntityGuidFor(t.licenseKey,t.applicationID),u=!!c;if(s&&u)t.entityGuid=c,n(a);else{const d=setTimeout((()=>i(new Error("Failed to connect - Timeout"))),15e3);function l(r){(0,F.A)(r,e)?s||=!0:t.licenseKey===r.licenseKey&&t.applicationID===r.applicationID&&(u=!0,t.entityGuid=r.entityGuid),s&&u&&(clearTimeout(d),e.ee.removeEventListener("entity-added",l),n(a))}e.ee.emit("api-send-rum",[r,t]),e.ee.on("entity-added",l)}}catch(f){i(f)}}));const u=async(t,r,a)=>{if(i)return i();const u=(0,c.t)();(0,s.p)(h.xV,["API/register/".concat(t.name,"/called")],void 0,n.K7.metrics,e.ee);try{await o;const n=e.init.api.duplicate_registered_data;(!0===n||Array.isArray(n)&&n.includes(a.entityGuid))&&t(...r,void 0,u),t(...r,a.entityGuid,u)}catch(e){(0,l.R)(50,e)}};return a}(e,t)}),e)}class Z extends T{static featureName=k.T;constructor(e){var t;super(e,k.T),t=e,p(u.o5,((e,r)=>U(e,r,t)),t),function(e){p(u.bt,(function(t){e.runtime.onerror=t}),e)}(e),function(e){let t=0;p(u.k6,(function(e,r){++t>10||(this.runtime.releaseIds[e.slice(-200)]=(""+r).slice(-200))}),e)}(e),z(e);try{this.removeOnAbort=new AbortController}catch(e){}this.ee.on("internal-error",((t,r)=>{this.abortHandler&&(0,s.p)("ierr",[M(t),(0,c.t)(),!0,{},e.runtime.isRecording,r],void 0,this.featureName,this.ee)})),y.gm.addEventListener("unhandledrejection",(t=>{this.abortHandler&&(0,s.p)("err",[H(t),(0,c.t)(),!1,{unhandledPromiseRejection:1},e.runtime.isRecording],void 0,this.featureName,this.ee)}),(0,O.jT)(!1,this.removeOnAbort?.signal)),y.gm.addEventListener("error",(t=>{this.abortHandler&&(0,s.p)("err",[D(t),(0,c.t)(),!1,{},e.runtime.isRecording],void 0,this.featureName,this.ee)}),(0,O.jT)(!1,this.removeOnAbort?.signal)),this.abortHandler=this.#r,this.importAggregator(e,(()=>i.e(478).then(i.bind(i,2176))))}#r(){this.removeOnAbort?.abort(),this.abortHandler=void 0}}var q=i(8990);let X=1;function Y(e){const t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===y.gm?0:(0,q.I)(e,"nr@id",(function(){return X++}))}function J(e){if("string"==typeof e&&e.length)return e.length;if("object"==typeof e){if("undefined"!=typeof ArrayBuffer&&e instanceof ArrayBuffer&&e.byteLength)return e.byteLength;if("undefined"!=typeof Blob&&e instanceof Blob&&e.size)return e.size;if(!("undefined"!=typeof FormData&&e instanceof FormData))try{return(0,C.A)(e).length}catch(e){return}}}var Q=i(8139),ee=i(7836),te=i(3434);const re={},ne=["open","send"];function ie(e){var t=e||ee.ee;const r=function(e){return(e||ee.ee).get("xhr")}(t);if(void 0===y.gm.XMLHttpRequest)return r;if(re[r.debugId]++)return r;re[r.debugId]=1,(0,Q.u)(t);var n=(0,te.YM)(r),i=y.gm.XMLHttpRequest,o=y.gm.MutationObserver,a=y.gm.Promise,s=y.gm.setInterval,c="readystatechange",u=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],d=[],f=y.gm.XMLHttpRequest=function(e){const t=new i(e),o=r.context(t);try{r.emit("new-xhr",[t],o),t.addEventListener(c,(a=o,function(){var e=this;e.readyState>3&&!a.resolved&&(a.resolved=!0,r.emit("xhr-resolved",[],e)),n.inPlace(e,u,"fn-",b)}),(0,O.jT)(!1))}catch(e){(0,l.R)(15,e);try{r.emit("internal-error",[e])}catch(e){}}var a;return t};function h(e,t){n.inPlace(t,["onreadystatechange"],"fn-",b)}if(function(e,t){for(var r in e)t[r]=e[r]}(i,f),f.prototype=i.prototype,n.inPlace(f.prototype,ne,"-xhr-",b),r.on("send-xhr-start",(function(e,t){h(e,t),function(e){d.push(e),o&&(p?p.then(v):s?s(v):(g=-g,m.data=g))}(t)})),r.on("open-xhr-start",h),o){var p=a&&a.resolve();if(!s&&!a){var g=1,m=document.createTextNode(g);new o(v).observe(m,{characterData:!0})}}else t.on("fn-end",(function(e){e[0]&&e[0].type===c||v()}));function v(){for(var e=0;e<d.length;e++)h(0,d[e]);d.length&&(d=[])}function b(e,t){return t}return r}var oe="fetch-",ae=oe+"body-",se=["arrayBuffer","blob","json","text","formData"],ce=y.gm.Request,ue=y.gm.Response,de="prototype";const le={};function fe(e){const t=function(e){return(e||ee.ee).get("fetch")}(e);if(!(ce&&ue&&y.gm.fetch))return t;if(le[t.debugId]++)return t;function r(e,r,n){var i=e[r];"function"==typeof i&&(e[r]=function(){var e,r=[...arguments],o={};t.emit(n+"before-start",[r],o),o[ee.P]&&o[ee.P].dt&&(e=o[ee.P].dt);var a=i.apply(this,r);return t.emit(n+"start",[r,e],a),a.then((function(e){return t.emit(n+"end",[null,e],a),e}),(function(e){throw t.emit(n+"end",[e],a),e}))})}return le[t.debugId]=1,se.forEach((e=>{r(ce[de],e,ae),r(ue[de],e,ae)})),r(y.gm,"fetch",oe),t.on(oe+"end",(function(e,r){var n=this;if(r){var i=r.headers.get("content-length");null!==i&&(n.rxSize=i),t.emit(oe+"done",[null,r],n)}else t.emit(oe+"done",[e],n)})),t}var he=i(7485);class pe{constructor(e){this.agentRef=e}generateTracePayload(t){const r=this.agentRef.loader_config;if(!this.shouldGenerateTrace(t)||!r)return null;var n=(r.accountID||"").toString()||null,i=(r.agentID||"").toString()||null,o=(r.trustKey||"").toString()||null;if(!n||!i)return null;var a=(0,e.ZF)(),s=(0,e.el)(),c=Date.now(),u={spanId:a,traceId:s,timestamp:c};return(t.sameOrigin||this.isAllowedOrigin(t)&&this.useTraceContextHeadersForCors())&&(u.traceContextParentHeader=this.generateTraceContextParentHeader(a,s),u.traceContextStateHeader=this.generateTraceContextStateHeader(a,c,n,i,o)),(t.sameOrigin&&!this.excludeNewrelicHeader()||!t.sameOrigin&&this.isAllowedOrigin(t)&&this.useNewrelicHeaderForCors())&&(u.newrelicHeader=this.generateTraceHeader(a,s,c,n,i,o)),u}generateTraceContextParentHeader(e,t){return"00-"+t+"-"+e+"-01"}generateTraceContextStateHeader(e,t,r,n,i){return i+"@nr=0-1-"+r+"-"+n+"-"+e+"----"+t}generateTraceHeader(e,t,r,n,i,o){if(!("function"==typeof y.gm?.btoa))return null;var a={v:[0,1],d:{ty:"Browser",ac:n,ap:i,id:e,tr:t,ti:r}};return o&&n!==o&&(a.d.tk=o),btoa((0,C.A)(a))}shouldGenerateTrace(e){return this.agentRef.init?.distributed_tracing?.enabled&&this.isAllowedOrigin(e)}isAllowedOrigin(e){var t=!1;const r=this.agentRef.init?.distributed_tracing;if(e.sameOrigin)t=!0;else if(r?.allowed_origins instanceof Array)for(var n=0;n<r.allowed_origins.length;n++){var i=(0,he.D)(r.allowed_origins[n]);if(e.hostname===i.hostname&&e.protocol===i.protocol&&e.port===i.port){t=!0;break}}return t}excludeNewrelicHeader(){var e=this.agentRef.init?.distributed_tracing;return!!e&&!!e.exclude_newrelic_header}useNewrelicHeaderForCors(){var e=this.agentRef.init?.distributed_tracing;return!!e&&!1!==e.cors_use_newrelic_header}useTraceContextHeadersForCors(){var e=this.agentRef.init?.distributed_tracing;return!!e&&!!e.cors_use_tracecontext_headers}}var ge=i(9300),me=i(7295),ve=["load","error","abort","timeout"],be=ve.length,ye=(0,_.dV)().o.REQ,we=(0,_.dV)().o.XHR;const Re="X-NewRelic-App-Data";class xe extends T{static featureName=ge.T;constructor(e){super(e,ge.T),this.dt=new pe(e),this.handler=(e,t,r,n)=>(0,s.p)(e,t,r,n,this.ee);try{const e={xmlhttprequest:"xhr",fetch:"fetch",beacon:"beacon"};y.gm?.performance?.getEntriesByType("resource").forEach((t=>{if(t.initiatorType in e&&0!==t.responseStatus){const r={status:t.responseStatus},i={rxSize:t.transferSize,duration:Math.floor(t.duration),cbTime:0};Te(r,t.name),this.handler("xhr",[r,i,t.startTime,t.responseEnd,e[t.initiatorType]],void 0,n.K7.ajax)}}))}catch(e){}fe(this.ee),ie(this.ee),function(e,t,r,i){function o(e){var t=this;t.totalCbs=0,t.called=0,t.cbTime=0,t.end=A,t.ended=!1,t.xhrGuids={},t.lastSize=null,t.loadCaptureCalled=!1,t.params=this.params||{},t.metrics=this.metrics||{},e.addEventListener("load",(function(r){E(t,e)}),(0,O.jT)(!1)),y.lR||e.addEventListener("progress",(function(e){t.lastSize=e.loaded}),(0,O.jT)(!1))}function a(e){this.params={method:e[0]},Te(this,e[1]),this.metrics={}}function u(t,r){e.loader_config.xpid&&this.sameOrigin&&r.setRequestHeader("X-NewRelic-ID",e.loader_config.xpid);var n=i.generateTracePayload(this.parsedOrigin);if(n){var o=!1;n.newrelicHeader&&(r.setRequestHeader("newrelic",n.newrelicHeader),o=!0),n.traceContextParentHeader&&(r.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&r.setRequestHeader("tracestate",n.traceContextStateHeader),o=!0),o&&(this.dt=n)}}function d(e,r){var n=this.metrics,i=e[0],o=this;if(n&&i){var a=J(i);a&&(n.txSize=a)}this.startTime=(0,c.t)(),this.body=i,this.listener=function(e){try{"abort"!==e.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==e.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof r.onload)&&"function"==typeof o.end)&&o.end(r)}catch(e){try{t.emit("internal-error",[e])}catch(e){}}};for(var s=0;s<be;s++)r.addEventListener(ve[s],this.listener,(0,O.jT)(!1))}function l(e,t,r){this.cbTime+=e,t?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof r.onload||"function"!=typeof this.end||this.end(r)}function f(e,t){var r=""+Y(e)+!!t;this.xhrGuids&&!this.xhrGuids[r]&&(this.xhrGuids[r]=!0,this.totalCbs+=1)}function p(e,t){var r=""+Y(e)+!!t;this.xhrGuids&&this.xhrGuids[r]&&(delete this.xhrGuids[r],this.totalCbs-=1)}function g(){this.endTime=(0,c.t)()}function m(e,r){r instanceof we&&"load"===e[0]&&t.emit("xhr-load-added",[e[1],e[2]],r)}function v(e,r){r instanceof we&&"load"===e[0]&&t.emit("xhr-load-removed",[e[1],e[2]],r)}function b(e,t,r){t instanceof we&&("onload"===r&&(this.onload=!0),("load"===(e[0]&&e[0].type)||this.onload)&&(this.xhrCbStart=(0,c.t)()))}function w(e,r){this.xhrCbStart&&t.emit("xhr-cb-time",[(0,c.t)()-this.xhrCbStart,this.onload,r],r)}function R(e){var t,r=e[1]||{};if("string"==typeof e[0]?0===(t=e[0]).length&&y.RI&&(t=""+y.gm.location.href):e[0]&&e[0].url?t=e[0].url:y.gm?.URL&&e[0]&&e[0]instanceof URL?t=e[0].href:"function"==typeof e[0].toString&&(t=e[0].toString()),"string"==typeof t&&0!==t.length){t&&(this.parsedOrigin=(0,he.D)(t),this.sameOrigin=this.parsedOrigin.sameOrigin);var n=i.generateTracePayload(this.parsedOrigin);if(n&&(n.newrelicHeader||n.traceContextParentHeader))if(e[0]&&e[0].headers)s(e[0].headers,n)&&(this.dt=n);else{var o={};for(var a in r)o[a]=r[a];o.headers=new Headers(r.headers||{}),s(o.headers,n)&&(this.dt=n),e.length>1?e[1]=o:e.push(o)}}function s(e,t){var r=!1;return t.newrelicHeader&&(e.set("newrelic",t.newrelicHeader),r=!0),t.traceContextParentHeader&&(e.set("traceparent",t.traceContextParentHeader),t.traceContextStateHeader&&e.set("tracestate",t.traceContextStateHeader),r=!0),r}}function x(e,t){this.params={},this.metrics={},this.startTime=(0,c.t)(),this.dt=t,e.length>=1&&(this.target=e[0]),e.length>=2&&(this.opts=e[1]);var r,n=this.opts||{},i=this.target;"string"==typeof i?r=i:"object"==typeof i&&i instanceof ye?r=i.url:y.gm?.URL&&"object"==typeof i&&i instanceof URL&&(r=i.href),Te(this,r);var o=(""+(i&&i instanceof ye&&i.method||n.method||"GET")).toUpperCase();this.params.method=o,this.body=n.body,this.txSize=J(n.body)||0}function T(e,t){if(this.endTime=(0,c.t)(),this.params||(this.params={}),(0,me.iW)(this.params))return;let i;this.params.status=t?t.status:0,"string"==typeof this.rxSize&&this.rxSize.length>0&&(i=+this.rxSize);const o={txSize:this.txSize,rxSize:i,duration:(0,c.t)()-this.startTime};r("xhr",[this.params,o,this.startTime,this.endTime,"fetch"],this,n.K7.ajax)}function A(e){const t=this.params,i=this.metrics;if(!this.ended){this.ended=!0;for(let t=0;t<be;t++)e.removeEventListener(ve[t],this.listener,!1);t.aborted||(0,me.iW)(t)||(i.duration=(0,c.t)()-this.startTime,this.loadCaptureCalled||4!==e.readyState?null==t.status&&(t.status=0):E(this,e),i.cbTime=this.cbTime,r("xhr",[t,i,this.startTime,this.endTime,"xhr"],this,n.K7.ajax))}}function E(e,r){e.params.status=r.status;var i=function(e,t){var r=e.responseType;return"json"===r&&null!==t?t:"arraybuffer"===r||"blob"===r||"json"===r?J(e.response):"text"===r||""===r||void 0===r?J(e.responseText):void 0}(r,e.lastSize);if(i&&(e.metrics.rxSize=i),e.sameOrigin&&r.getAllResponseHeaders().indexOf(Re)>=0){var o=r.getResponseHeader(Re);o&&((0,s.p)(h.rs,["Ajax/CrossApplicationTracing/Header/Seen"],void 0,n.K7.metrics,t),e.params.cat=o.split(", ").pop())}e.loadCaptureCalled=!0}t.on("new-xhr",o),t.on("open-xhr-start",a),t.on("open-xhr-end",u),t.on("send-xhr-start",d),t.on("xhr-cb-time",l),t.on("xhr-load-added",f),t.on("xhr-load-removed",p),t.on("xhr-resolved",g),t.on("addEventListener-end",m),t.on("removeEventListener-end",v),t.on("fn-end",w),t.on("fetch-before-start",R),t.on("fetch-start",x),t.on("fn-start",b),t.on("fetch-done",T)}(e,this.ee,this.handler,this.dt),this.importAggregator(e,(()=>i.e(478).then(i.bind(i,3845))))}}function Te(e,t){var r=(0,he.D)(t),n=e.params||e;n.hostname=r.hostname,n.port=r.port,n.protocol=r.protocol,n.host=r.hostname+":"+r.port,n.pathname=r.pathname,e.parsedOrigin=r,e.sameOrigin=r.sameOrigin}const Ae={},Ee=["pushState","replaceState"];function Se(e){const t=function(e){return(e||ee.ee).get("history")}(e);return!y.RI||Ae[t.debugId]++||(Ae[t.debugId]=1,(0,te.YM)(t).inPlace(window.history,Ee,"-")),t}var _e=i(3738);function Ne(e){p(u.BL,(function(t=Date.now()){const r=t-y.WN;r<0&&(0,l.R)(62,t),(0,s.p)(h.XG,[u.BL,{time:r}],void 0,n.K7.metrics,e.ee),e.addToTrace({name:u.BL,start:t,origin:"nr"}),(0,s.p)(u.Pl+u.hG,[r,u.BL],void 0,n.K7.genericEvents,e.ee)}),e)}const{He:Oe,bD:Ie,d3:Pe,Kp:je,TZ:ke,Lc:Ce,uP:Le,Rz:Me}=_e;class He extends T{static featureName=ke;constructor(e){var t;super(e,ke),t=e,p(u.U2,(function(e){if(!(e&&"object"==typeof e&&e.name&&e.start))return;const r={n:e.name,s:e.start-y.WN,e:(e.end||e.start)-y.WN,o:e.origin||"",t:"api"};r.s<0||r.e<0||r.e<r.s?(0,l.R)(61,{start:r.s,end:r.e}):(0,s.p)("bstApi",[r],void 0,n.K7.sessionTrace,t.ee)}),t),Ne(e);if(!(0,R.V)(e.init))return void this.deregisterDrain();const r=this.ee;let o;Se(r),this.eventsEE=(0,Q.u)(r),this.eventsEE.on(Le,(function(e,t){this.bstStart=(0,c.t)()})),this.eventsEE.on(Ce,(function(e,t){(0,s.p)("bst",[e[0],t,this.bstStart,(0,c.t)()],void 0,n.K7.sessionTrace,r)})),r.on(Me+Pe,(function(e){this.time=(0,c.t)(),this.startPath=location.pathname+location.hash})),r.on(Me+je,(function(e){(0,s.p)("bstHist",[location.pathname+location.hash,this.startPath,this.time],void 0,n.K7.sessionTrace,r)}));try{o=new PerformanceObserver((e=>{const t=e.getEntries();(0,s.p)(Oe,[t],void 0,n.K7.sessionTrace,r)})),o.observe({type:Ie,buffered:!0})}catch(e){}this.importAggregator(e,(()=>i.e(478).then(i.bind(i,575))),{resourceObserver:o})}}var De=i(6344);class Ke extends T{static featureName=De.TZ;#n;#i;constructor(e){var t;let r;super(e,De.TZ),t=e,p(u.CH,(function(){(0,s.p)(u.CH,[],void 0,n.K7.sessionReplay,t.ee)}),t),function(e){p(u.Tb,(function(){(0,s.p)(u.Tb,[],void 0,n.K7.sessionReplay,e.ee)}),e)}(e),this.#i=e;try{r=JSON.parse(localStorage.getItem("".concat(E.H3,"_").concat(E.uh)))}catch(e){}(0,w.SR)(e.init)&&this.ee.on(De.G4.RECORD,(()=>this.#o())),this.#a(r)?(this.#n=r?.sessionReplayMode,this.#s()):this.importAggregator(this.#i,(()=>i.e(478).then(i.bind(i,6167)))),this.ee.on("err",(e=>{this.#i.runtime.isRecording&&(this.errorNoticed=!0,(0,s.p)(De.G4.ERROR_DURING_REPLAY,[e],void 0,this.featureName,this.ee))}))}#a(e){return e&&(e.sessionReplayMode===E.g.FULL||e.sessionReplayMode===E.g.ERROR)||(0,w.Aw)(this.#i.init)}#c=!1;async#s(e){if(!this.#c){this.#c=!0;try{const{Recorder:t}=await Promise.all([i.e(478),i.e(249)]).then(i.bind(i,8589));this.recorder??=new t({mode:this.#n,agentIdentifier:this.agentIdentifier,trigger:e,ee:this.ee,agentRef:this.#i}),this.recorder.startRecording(),this.abortHandler=this.recorder.stopRecording}catch(e){this.parent.ee.emit("internal-error",[e])}this.importAggregator(this.#i,(()=>i.e(478).then(i.bind(i,6167))),{recorder:this.recorder,errorNoticed:this.errorNoticed})}}#o(){this.featAggregate?this.featAggregate.mode!==E.g.FULL&&this.featAggregate.initializeRecording(E.g.FULL,!0):(this.#n=E.g.FULL,this.#s(De.Qb.API),this.recorder&&this.recorder.parent.mode!==E.g.FULL&&(this.recorder.parent.mode=E.g.FULL,this.recorder.stopRecording(),this.recorder.startRecording(),this.abortHandler=this.recorder.stopRecording))}}var Ue=i(3962);function Fe(e){const t=e.ee.get("tracer");function r(){}p(u.dT,(function(e){return(new r).get("object"==typeof e?e:{})}),e);const i=r.prototype={createTracer:function(r,i){var o={},a=this,d="function"==typeof i;return(0,s.p)(h.xV,["API/createTracer/called"],void 0,n.K7.metrics,e.ee),e.runSoftNavOverSpa||(0,s.p)(u.hw+"tracer",[(0,c.t)(),r,o],a,n.K7.spa,e.ee),function(){if(t.emit((d?"":"no-")+"fn-start",[(0,c.t)(),a,d],o),d)try{return i.apply(this,arguments)}catch(e){const r="string"==typeof e?new Error(e):e;throw t.emit("fn-err",[arguments,this,r],o),r}finally{t.emit("fn-end",[(0,c.t)()],o)}}}};["actionText","setName","setAttribute","save","ignore","onEnd","getContext","end","get"].forEach((t=>{p.apply(this,[t,function(){return(0,s.p)(u.hw+t,[(0,c.t)(),...arguments],this,e.runSoftNavOverSpa?n.K7.softNav:n.K7.spa,e.ee),this},e,i])})),p(u.PA,(function(){e.runSoftNavOverSpa?(0,s.p)(u.hw+"routeName",[performance.now(),...arguments],void 0,n.K7.softNav,e.ee):(0,s.p)(u.Pl+"routeName",[(0,c.t)(),...arguments],this,n.K7.spa,e.ee)}),e)}class We extends T{static featureName=Ue.TZ;constructor(e){if(super(e,Ue.TZ),Fe(e),!y.RI||!(0,_.dV)().o.MO)return;const t=Se(this.ee);Ue.tC.forEach((e=>{(0,O.sp)(e,(e=>{a(e)}),!0)}));const r=()=>(0,s.p)("newURL",[(0,c.t)(),""+window.location],void 0,this.featureName,this.ee);t.on("pushState-end",r),t.on("replaceState-end",r);try{this.removeOnAbort=new AbortController}catch(e){}(0,O.sp)("popstate",(e=>(0,s.p)("newURL",[e.timeStamp,""+window.location],void 0,this.featureName,this.ee)),!0,this.removeOnAbort?.signal);let n=!1;const o=new((0,_.dV)().o.MO)(((e,t)=>{n||(n=!0,requestAnimationFrame((()=>{(0,s.p)("newDom",[(0,c.t)()],void 0,this.featureName,this.ee),n=!1})))})),a=(0,x.s)((e=>{(0,s.p)("newUIEvent",[e],void 0,this.featureName,this.ee),o.observe(document.body,{attributes:!0,childList:!0,subtree:!0,characterData:!0})}),100,{leading:!0});this.abortHandler=function(){this.removeOnAbort?.abort(),o.disconnect(),this.abortHandler=void 0},this.importAggregator(e,(()=>i.e(478).then(i.bind(i,4393))),{domObserver:o})}}var Be=i(7378);const Ge={},Ve=["appendChild","insertBefore","replaceChild"];function ze(e){const t=function(e){return(e||ee.ee).get("jsonp")}(e);if(!y.RI||Ge[t.debugId])return t;Ge[t.debugId]=!0;var r=(0,te.YM)(t),n=/[?&](?:callback|cb)=([^&#]+)/,i=/(.*)\.([^.]+)/,o=/^(\w+)(\.|$)(.*)$/;function a(e,t){if(!e)return t;const r=e.match(o),n=r[1];return a(r[3],t[n])}return r.inPlace(Node.prototype,Ve,"dom-"),t.on("dom-start",(function(e){!function(e){if(!e||"string"!=typeof e.nodeName||"script"!==e.nodeName.toLowerCase())return;if("function"!=typeof e.addEventListener)return;var o=(s=e.src,c=s.match(n),c?c[1]:null);var s,c;if(!o)return;var u=function(e){var t=e.match(i);if(t&&t.length>=3)return{key:t[2],parent:a(t[1],window)};return{key:e,parent:window}}(o);if("function"!=typeof u.parent[u.key])return;var d={};function l(){t.emit("jsonp-end",[],d),e.removeEventListener("load",l,(0,O.jT)(!1)),e.removeEventListener("error",f,(0,O.jT)(!1))}function f(){t.emit("jsonp-error",[],d),t.emit("jsonp-end",[],d),e.removeEventListener("load",l,(0,O.jT)(!1)),e.removeEventListener("error",f,(0,O.jT)(!1))}r.inPlace(u.parent,[u.key],"cb-",d),e.addEventListener("load",l,(0,O.jT)(!1)),e.addEventListener("error",f,(0,O.jT)(!1)),t.emit("new-jsonp",[e.src],d)}(e[0])})),t}const Ze={};function qe(e){const t=function(e){return(e||ee.ee).get("promise")}(e);if(Ze[t.debugId])return t;Ze[t.debugId]=!0;var r=t.context,n=(0,te.YM)(t),i=y.gm.Promise;return i&&function(){function e(r){var o=t.context(),a=n(r,"executor-",o,null,!1);const s=Reflect.construct(i,[a],e);return t.context(s).getCtx=function(){return o},s}y.gm.Promise=e,Object.defineProperty(e,"name",{value:"Promise"}),e.toString=function(){return i.toString()},Object.setPrototypeOf(e,i),["all","race"].forEach((function(r){const n=i[r];e[r]=function(e){let i=!1;[...e||[]].forEach((e=>{this.resolve(e).then(a("all"===r),a(!1))}));const o=n.apply(this,arguments);return o;function a(e){return function(){t.emit("propagate",[null,!i],o,!1,!1),i=i||!e}}}})),["resolve","reject"].forEach((function(r){const n=i[r];e[r]=function(e){const r=n.apply(this,arguments);return e!==r&&t.emit("propagate",[e,!0],r,!1,!1),r}})),e.prototype=i.prototype;const o=i.prototype.then;i.prototype.then=function(...e){var i=this,a=r(i);a.promise=i,e[0]=n(e[0],"cb-",a,null,!1),e[1]=n(e[1],"cb-",a,null,!1);const s=o.apply(this,e);return a.nextPromise=s,t.emit("propagate",[i,!0],s,!1,!1),s},i.prototype.then[te.Jt]=o,t.on("executor-start",(function(e){e[0]=n(e[0],"resolve-",this,null,!1),e[1]=n(e[1],"resolve-",this,null,!1)})),t.on("executor-err",(function(e,t,r){e[1](r)})),t.on("cb-end",(function(e,r,n){t.emit("propagate",[n,!0],this.nextPromise,!1,!1)})),t.on("propagate",(function(e,r,n){this.getCtx&&!r||(this.getCtx=function(){if(e instanceof Promise)var r=t.context(e);return r&&r.getCtx?r.getCtx():this})}))}(),t}const Xe={},Ye="setTimeout",$e="setInterval",Je="clearTimeout",Qe="-start",et=[Ye,"setImmediate",$e,Je,"clearImmediate"];function tt(e){const t=function(e){return(e||ee.ee).get("timer")}(e);if(Xe[t.debugId]++)return t;Xe[t.debugId]=1;var r=(0,te.YM)(t);return r.inPlace(y.gm,et.slice(0,2),Ye+"-"),r.inPlace(y.gm,et.slice(2,3),$e+"-"),r.inPlace(y.gm,et.slice(3),Je+"-"),t.on($e+Qe,(function(e,t,n){e[0]=r(e[0],"fn-",null,n)})),t.on(Ye+Qe,(function(e,t,n){this.method=n,this.timerDuration=isNaN(e[1])?0:+e[1],e[0]=r(e[0],"fn-",this,n)})),t}const rt={};function nt(e){const t=function(e){return(e||ee.ee).get("mutation")}(e);if(!y.RI||rt[t.debugId])return t;rt[t.debugId]=!0;var r=(0,te.YM)(t),n=y.gm.MutationObserver;return n&&(window.MutationObserver=function(e){return this instanceof n?new n(r(e,"fn-")):n.apply(this,arguments)},MutationObserver.prototype=n.prototype),t}const{TZ:it,d3:ot,Kp:at,$p:st,wW:ct,e5:ut,tH:dt,uP:lt,rw:ft,Lc:ht}=Be;class pt extends T{static featureName=it;constructor(e){if(super(e,it),Fe(e),!y.RI)return;try{this.removeOnAbort=new AbortController}catch(e){}let t,r=0;const n=this.ee.get("tracer"),o=ze(this.ee),a=qe(this.ee),u=tt(this.ee),d=ie(this.ee),l=this.ee.get("events"),f=fe(this.ee),h=Se(this.ee),p=nt(this.ee);function g(e,t){h.emit("newURL",[""+window.location,t])}function m(){r++,t=window.location.hash,this[lt]=(0,c.t)()}function v(){r--,window.location.hash!==t&&g(0,!0);var e=(0,c.t)();this[ut]=~~this[ut]+e-this[lt],this[ht]=e}function b(e,t){e.on(t,(function(){this[t]=(0,c.t)()}))}this.ee.on(lt,m),a.on(ft,m),o.on(ft,m),this.ee.on(ht,v),a.on(ct,v),o.on(ct,v),this.ee.on("fn-err",((...t)=>{t[2]?.__newrelic?.[e.agentIdentifier]||(0,s.p)("function-err",[...t],void 0,this.featureName,this.ee)})),this.ee.buffer([lt,ht,"xhr-resolved"],this.featureName),l.buffer([lt],this.featureName),u.buffer(["setTimeout"+at,"clearTimeout"+ot,lt],this.featureName),d.buffer([lt,"new-xhr","send-xhr"+ot],this.featureName),f.buffer([dt+ot,dt+"-done",dt+st+ot,dt+st+at],this.featureName),h.buffer(["newURL"],this.featureName),p.buffer([lt],this.featureName),a.buffer(["propagate",ft,ct,"executor-err","resolve"+ot],this.featureName),n.buffer([lt,"no-"+lt],this.featureName),o.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"],this.featureName),b(f,dt+ot),b(f,dt+"-done"),b(o,"new-jsonp"),b(o,"jsonp-end"),b(o,"cb-start"),h.on("pushState-end",g),h.on("replaceState-end",g),window.addEventListener("hashchange",g,(0,O.jT)(!0,this.removeOnAbort?.signal)),window.addEventListener("load",g,(0,O.jT)(!0,this.removeOnAbort?.signal)),window.addEventListener("popstate",(function(){g(0,r>1)}),(0,O.jT)(!0,this.removeOnAbort?.signal)),this.abortHandler=this.#r,this.importAggregator(e,(()=>i.e(478).then(i.bind(i,5592))))}#r(){this.removeOnAbort?.abort(),this.abortHandler=void 0}}var gt=i(3333);class mt extends T{static featureName=gt.TZ;constructor(e){super(e,gt.TZ);const t=[e.init.page_action.enabled,e.init.performance.capture_marks,e.init.performance.capture_measures,e.init.user_actions.enabled,e.init.performance.resources.enabled];var r;if(r=e,p(u.hG,((e,t)=>V(e,t,r)),r),function(e){p(u.fF,(function(){(0,s.p)(u.Pl+u.fF,[(0,c.t)(),...arguments],void 0,n.K7.genericEvents,e.ee)}),e)}(e),Ne(e),z(e),function(e){p(u.V1,(function(t,r){const i=(0,c.t)(),{start:o,end:a,customAttributes:d}=r||{},f={customAttributes:d||{}};if("object"!=typeof f.customAttributes||"string"!=typeof t||0===t.length)return void(0,l.R)(57);const h=(e,t)=>null==e?t:"number"==typeof e?e:e instanceof PerformanceMark?e.startTime:Number.NaN;if(f.start=h(o,0),f.end=h(a,i),Number.isNaN(f.start)||Number.isNaN(f.end))(0,l.R)(57);else{if(f.duration=f.end-f.start,!(f.duration<0))return(0,s.p)(u.Pl+u.V1,[f,t],void 0,n.K7.genericEvents,e.ee),f;(0,l.R)(58)}}),e)}(e),y.RI&&(e.init.user_actions.enabled&&(gt.Zp.forEach((e=>(0,O.sp)(e,(e=>(0,s.p)("ua",[e],void 0,this.featureName,this.ee)),!0))),gt.qN.forEach((e=>{const t=(0,x.s)((e=>{(0,s.p)("ua",[e],void 0,this.featureName,this.ee)}),500,{leading:!0});(0,O.sp)(e,t)}))),e.init.performance.resources.enabled&&y.gm.PerformanceObserver?.supportedEntryTypes.includes("resource"))){new PerformanceObserver((e=>{e.getEntries().forEach((e=>{(0,s.p)("browserPerformance.resource",[e],void 0,this.featureName,this.ee)}))})).observe({type:"resource",buffered:!0})}t.some((e=>e))?this.importAggregator(e,(()=>i.e(478).then(i.bind(i,8019)))):this.deregisterDrain()}}var vt=i(2646);const bt=new Map;function yt(e,t,r,n){if("object"!=typeof t||!t||"string"!=typeof r||!r||"function"!=typeof t[r])return(0,l.R)(29);const i=function(e){return(e||ee.ee).get("logger")}(e),o=(0,te.YM)(i),a=new vt.y(ee.P);a.level=n.level,a.customAttributes=n.customAttributes;const s=t[r]?.[te.Jt]||t[r];return bt.set(s,a),o.inPlace(t,[r],"wrap-logger-",(()=>bt.get(s))),i}var wt=i(1910);class Rt extends T{static featureName=W.TZ;constructor(e){var t;super(e,W.TZ),t=e,p(u.$9,((e,r)=>G(e,r,t)),t),function(e){p(u.Wb,((t,r,{customAttributes:n={},level:i=W.p_.INFO}={})=>{yt(e.ee,t,r,{customAttributes:n,level:i})}),e)}(e),z(e);const r=this.ee;["log","error","warn","info","debug","trace"].forEach((e=>{(0,wt.i)(y.gm.console[e]),yt(r,y.gm.console,e,{level:"log"===e?"info":e})})),this.ee.on("wrap-logger-end",(function([e]){const{level:t,customAttributes:n}=this;(0,B.R)(r,e,n,t)})),this.importAggregator(e,(()=>i.e(478).then(i.bind(i,5288))))}}new class extends r{constructor(e){var t;(super(),y.gm)?(this.features={},(0,_.bQ)(this.agentIdentifier,this),this.desiredFeatures=new Set(e.features||[]),this.desiredFeatures.add(S),this.runSoftNavOverSpa=[...this.desiredFeatures].some((e=>e.featureName===n.K7.softNav)),(0,a.j)(this,e,e.loaderType||"agent"),t=this,p(u.cD,(function(e,r,n=!1){if("string"==typeof e){if(["string","number","boolean"].includes(typeof r)||null===r)return g(t,e,r,u.cD,n);(0,l.R)(40,typeof r)}else(0,l.R)(39,typeof e)}),t),function(e){p(u.Dl,(function(t){if("string"==typeof t||null===t)return g(e,"enduser.id",t,u.Dl,!0);(0,l.R)(41,typeof t)}),e)}(this),function(e){p(u.nb,(function(t){if("string"==typeof t||null===t)return g(e,"application.version",t,u.nb,!1);(0,l.R)(42,typeof t)}),e)}(this),function(e){p(u.d3,(function(){e.ee.emit("manual-start-all")}),e)}(this),this.run()):(0,l.R)(21)}get config(){return{info:this.info,init:this.init,loader_config:this.loader_config,runtime:this.runtime}}get api(){return this}run(){try{const e=function(e){const t={};return o.forEach((r=>{t[r]=!!e[r]?.enabled})),t}(this.init),t=[...this.desiredFeatures];t.sort(((e,t)=>n.P3[e.featureName]-n.P3[t.featureName])),t.forEach((t=>{if(!e[t.featureName]&&t.featureName!==n.K7.pageViewEvent)return;if(this.runSoftNavOverSpa&&t.featureName===n.K7.spa)return;if(!this.runSoftNavOverSpa&&t.featureName===n.K7.softNav)return;const r=function(e){switch(e){case n.K7.ajax:return[n.K7.jserrors];case n.K7.sessionTrace:return[n.K7.ajax,n.K7.pageViewEvent];case n.K7.sessionReplay:return[n.K7.sessionTrace];case n.K7.pageViewTiming:return[n.K7.pageViewEvent];default:return[]}}(t.featureName).filter((e=>!(e in this.features)));r.length>0&&(0,l.R)(36,{targetFeature:t.featureName,missingDependencies:r}),this.features[t.featureName]=new t(this)}))}catch(e){(0,l.R)(22,e);for(const e in this.features)this.features[e].abortHandler?.();const t=(0,_.Zm)();delete t.initializedAgents[this.agentIdentifier]?.features,delete this.sharedAggregator;return t.ee.get(this.agentIdentifier).abort(),!1}}}({features:[xe,S,P,He,Ke,j,Z,mt,Rt,We,pt],loaderType:"spa"})})()})();</script>
+
+    <meta id="custom-text" data-referral-block-button="Learn more">
+  </head>
+
+  <body data-no-turbolink="true" class="revamped_lecture_player">
+          <meta http-content='IE=Edge' http-equiv='X-UA-Compatible'>
+      <meta content='width=device-width,initial-scale=1.0' name='viewport'>
+<meta id="fedora-keys" data-commit-sha="d92436c82044e12083e293e7ce641fb47de492f6" data-env="production" data-sentry-public-dsn="https://8149a85a83fa4ec69640c43ddd69017d@sentry.io/120346" data-stripe="pk_live_hkgvgSBxG4TAl3zGlXiB1KUX" data-track-all-ahoy="false" data-track-changes-ahoy="false" data-track-clicks-ahoy="false" data-track-sumbits-ahoy="false" data-filepicker="ADNupMnWyR7kCWRvm76Laz" data-iris-url="https://eventable.internal.teachable.com" /><meta id="fedora-data" data-id="118340384" data-name="Abhinit" data-email="abhinitmodi@gmail.com" data-school-id="1424582" data-joined-at="&quot;2025-05-23T22:22:39Z&quot;" data-wistia-identifier="1424582:student:118340384" data-gravatar-url="https://s.gravatar.com/avatar/00ddc770cd1952c655ee4b517c78a823?d=mm" data-custom-role-course-permissions="false" data-report-card="{&quot;2791880&quot;:{&quot;id&quot;:1030780546,&quot;course_id&quot;:2791880,&quot;percent_complete&quot;:91,&quot;has_full_access&quot;:false,&quot;is_active&quot;:true,&quot;enrolled_at&quot;:&quot;2025-05-23T22:22:39Z&quot;,&quot;completed_at&quot;:&quot;2025-05-31T19:57:57Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T19:00:28Z&quot;,&quot;certificate_serial_number&quot;:null,&quot;certificate_page_id&quot;:null,&quot;certificate_issued_at&quot;:null,&quot;completed_lecture_count&quot;:10,&quot;completed_lecture_ids&quot;:[61523808,61523809,61523821,61523822,61523834,61523835,61523849,61523883,61523884,62743414],&quot;access_limited_at&quot;:null,&quot;days_enrolled&quot;:89},&quot;meta&quot;:{&quot;cached_at&quot;:&quot;2025-08-19T19:00:29Z&quot;}}" data-course-ids="[2791880]" data-role="student" data-completed-lecture-ids="[61523808,61523809,61523821,61523822,61523834,61523835,61523849,61523883,61523884,62743414,null]" data-school-id="1424582" data-school-launched="true" data-preview="logged_in" data-turn-off-fedora-branding="true" data-plan-supports-whitelabeling="true" data-powered-by-text="Powered by" data-asset-path="//https://fedora.teachablecdn.com/assets/footer/teachable-logomark-white-31d2296978598bacace50e6d48a2e1223c20a9b074af424acdd465676f81560f.svg" data-school-preferences="{&quot;ssl_forced&quot;:&quot;true&quot;,&quot;bnpl_allowed&quot;:&quot;true&quot;,&quot;phone_enabled&quot;:&quot;false&quot;,&quot;paypal_enabled&quot;:&quot;true&quot;,&quot;phone_required&quot;:&quot;false&quot;,&quot;gifting_enabled&quot;:&quot;true&quot;,&quot;autoplay_lectures&quot;:&quot;true&quot;,&quot;clickwrap_enabled&quot;:&quot;false&quot;,&quot;comments_threaded&quot;:&quot;true&quot;,&quot;community_enabled&quot;:&quot;false&quot;,&quot;course_blocks_beta&quot;:&quot;true&quot;,&quot;legacy_back_office&quot;:&quot;false&quot;,&quot;themeable_disabled&quot;:&quot;false&quot;,&quot;back_office_enabled&quot;:&quot;true&quot;,&quot;comments_moderation&quot;:&quot;false&quot;,&quot;eu_vat_tax_eligible&quot;:&quot;true&quot;,&quot;charge_exclusive_tax&quot;:&quot;true&quot;,&quot;send_receipts_emails&quot;:&quot;true&quot;,&quot;autocomplete_lectures&quot;:&quot;true&quot;,&quot;class_periods_enabled&quot;:&quot;false&quot;,&quot;tax_inclusive_pricing&quot;:&quot;true&quot;,&quot;authors_can_manage_pbc&quot;:&quot;true&quot;,&quot;css_properties_enabled&quot;:&quot;false&quot;,&quot;preenrollments_enabled&quot;:&quot;false&quot;,&quot;new_text_editor_enabled&quot;:&quot;false&quot;,&quot;require_terms_agreement&quot;:&quot;true&quot;,&quot;send_new_comment_emails&quot;:&quot;true&quot;,&quot;send_drip_content_emails&quot;:&quot;true&quot;,&quot;ssl_forced_from_creation&quot;:&quot;true&quot;,&quot;turn_off_fedora_branding&quot;:&quot;true&quot;,&quot;allow_comment_attachments&quot;:&quot;true&quot;,&quot;authors_can_email_students&quot;:&quot;false&quot;,&quot;authors_can_manage_coupons&quot;:&quot;false&quot;,&quot;custom_email_limit_applied&quot;:&quot;false&quot;,&quot;send_abandoned_cart_emails&quot;:&quot;true&quot;,&quot;teachable_accounts_enabled&quot;:&quot;true&quot;,&quot;teachable_payments_enabled&quot;:&quot;true&quot;,&quot;authors_can_import_students&quot;:&quot;false&quot;,&quot;authors_can_publish_courses&quot;:&quot;false&quot;,&quot;internal_subscriptions_beta&quot;:&quot;true&quot;,&quot;recaptcha_enabled_on_signup&quot;:&quot;true&quot;,&quot;single_page_checkout_enabled&quot;:&quot;true&quot;,&quot;authors_can_set_course_prices&quot;:&quot;false&quot;,&quot;send_lead_confirmation_emails&quot;:&quot;true&quot;,&quot;affiliate_cookie_duration_days&quot;:&quot;365&quot;,&quot;authors_can_issue_certificates&quot;:&quot;false&quot;,&quot;store_student_cards_separately&quot;:&quot;true&quot;,&quot;affiliate_external_urls_enabled&quot;:&quot;true&quot;,&quot;authors_can_manage_certificates&quot;:&quot;false&quot;,&quot;authors_can_manage_course_pages&quot;:&quot;false&quot;,&quot;disable_js_course_event_tracking&quot;:&quot;false&quot;,&quot;exclusive_vat_on_custom_gateways&quot;:&quot;true&quot;,&quot;send_certificate_issuance_emails&quot;:&quot;true&quot;,&quot;owner_teachable_accounts_required&quot;:&quot;true&quot;,&quot;prevent_payment_plan_cancellation&quot;:&quot;true&quot;,&quot;automatically_add_disqus_attachments&quot;:&quot;true&quot;,&quot;recalc_course_pct_on_lecture_publish&quot;:&quot;false&quot;,&quot;send_confirmation_instructions_emails&quot;:&quot;true&quot;,&quot;send_limited_time_unenrollment_emails&quot;:&quot;true&quot;,&quot;turn_off_myteachable_sign_up_branding&quot;:&quot;false&quot;}" data-accessible-features="[&quot;bulk_importing_users&quot;,&quot;bulk_enroll_students&quot;,&quot;manually_importing_users&quot;,&quot;native_certificates&quot;,&quot;admin_seats&quot;,&quot;custom_roles&quot;,&quot;earnings_statements&quot;,&quot;teachable_payments&quot;,&quot;teachable_u&quot;,&quot;course_compliance&quot;,&quot;page_editor_v2&quot;,&quot;page_editor_v2_only&quot;,&quot;certificates_editor_v2&quot;,&quot;drip_content&quot;,&quot;custom_domain&quot;,&quot;coupons&quot;,&quot;graded_quizzes&quot;,&quot;email&quot;,&quot;course_reports&quot;,&quot;webhooks&quot;,&quot;integrations&quot;,&quot;zapier_action_create_user&quot;,&quot;teachable_payments_payout_view&quot;,&quot;upsells&quot;,&quot;facebook_pixel&quot;,&quot;user_search_filters&quot;,&quot;user_tags&quot;,&quot;multiple_course_pages&quot;,&quot;proration_upgrade_flow&quot;,&quot;cross_border_payments&quot;,&quot;limited_time_enrollments&quot;,&quot;sales_tax_on_student_checkout&quot;,&quot;warroom_jan_22_blocks&quot;,&quot;paid_integrations&quot;,&quot;sales_analytics_retool&quot;,&quot;new_device_confirmation&quot;,&quot;elasticsearch_users&quot;,&quot;elasticsearch_transactions&quot;,&quot;reset_progress&quot;,&quot;fraud_warnings&quot;,&quot;paypal_through_tp&quot;,&quot;new_creator_checkout&quot;,&quot;circle_oauth&quot;]" data-course-data="{&quot;is_lecture_order_enforced&quot;:false,&quot;is_minimum_quiz_score_enforced&quot;:false,&quot;is_video_completion_enforced&quot;:false,&quot;minimum_quiz_score&quot;:0.0,&quot;maximum_quiz_retakes&quot;:0}" data-course-url="https://learn.theaiedge.io/courses/2791880" data-course-id="2791880" data-lecture-id="61523849" data-lecture-url="https://learn.theaiedge.io/courses/2791880/lectures/61523849" data-quiz-strings="{&quot;check&quot;:&quot;Check&quot;,&quot;error&quot;:&quot;Select an answer.&quot;,&quot;label&quot;:&quot;Quiz&quot;,&quot;next&quot;:&quot;Continue&quot;,&quot;previous&quot;:&quot;Back&quot;,&quot;scored&quot;:&quot;You scored&quot;,&quot;retake&quot;:&quot;Retake Quiz&quot;,&quot;retry&quot;:&quot;You need a score of at least %{minimumQuizScore}% to continue - you may retake this quiz %{retakes} more time(s).&quot;,&quot;request&quot;:&quot;You need a score of at least %{minimumQuizScore}% to continue - a request has been sent to the school owner to reset your score. You will be notified if the school owner allows you to retake this quiz.&quot;}" data-file-upload2025="true" data-transloadit-api-key="VsWuQtwW19YT2LAVdnmMuA8OUHziOHIQ" /><meta id="analytics-keys" name="analytics" data-analytics="{}" />
+    
+    
+    <!-- Preview bar -->
+    
+
+
+
+
+
+    <!-- Lecture Header -->
+<header class='full-width half-height is-signed-in'>
+<!-- HEADER for Free Plan -->
+
+
+
+
+  <div class='lecture-left'>
+    <a class='nav-icon-back' aria-label='Back to course curriculum' data-no-turbolink="true" role='button' href='/courses/enrolled/2791880'>
+      <svg width="24" height="24" title="Back to course curriculum">
+        <use xlink:href="#icon__Home"></use>
+      </svg>
+    </a>
+    <div class="dropdown settings-dropdown" role='menubar'>
+      <a href='#' class='nav-icon-settings dropdown-toggle nav-focus' aria-label='Settings Menu' aria-haspopup='true' role='menuitem' id='settings_menu' data-toggle='dropdown'>
+        <svg width="24" height="24" title="Settings Menu">
+          <use xlink:href="#icon__Settings"></use>
+        </svg>
+      </a>
+      <ul class="dropdown-menu left-caret" role="menu" aria-labelledby="settings_menu">
+  <!-- AUTOPLAY -->
+  <li class="nav-focus" aria-label="menuitem">
+    <div class="switch" id="switch-autoplay-lectures">
+      <input id="custom-toggle-autoplay" class="custom-toggle custom-toggle-round" name="toggle-autoplay" type="checkbox" aria-label="Autoplay">
+      <label for="custom-toggle-autoplay"></label>
+    </div>
+    <span aria-labelledby="switch-autoplay-lectures">Autoplay</span>
+  </li>
+  <!-- AUTOCOMPLETE -->
+  <li class="nav-focus" aria-label="menuitem">
+    <div class="switch" id="switch-autocomplete-lectures">
+      <input id="custom-toggle-autocomplete" class="custom-toggle custom-toggle-round" name="toggle-autocomplete" type="checkbox" aria-label="Autocomplete">
+      <label for="custom-toggle-autocomplete"></label>
+    </div>
+    <span aria-labelledby="switch-autocomplete-lectures">Autocomplete</span>
+  </li>
+</ul>
+
+    </div>
+    <a class="nav-icon-list show-xs hidden-sm hidden-md hidden-lg collapsed" aria-label='Course Sidebar' role="button" data-toggle="collapse" href="#courseSidebar" aria-expanded="false" aria-controls="courseSidebar">
+        <svg width="24" height="24" title="Course Sidebar">
+          <use xlink:href="#icon__FormatListBulleted"></use>
+        </svg>
+      </a>
+  </div>
+  
+  <div class='lecture-nav'>
+    <a class='nav-btn' href='' role='button' id='lecture_previous_button'>
+        <svg width="24" height="24" aria-hidden='true'>
+          <use xlink:href="#icon__ArrowBack"></use>
+         </svg>
+      &nbsp;
+      <span class='nav-text'>Previous Lesson</span>
+    </a>
+    <a
+      class='nav-btn complete'
+      data-cpl-tooltip='You must complete all lesson material before progressing.'
+      data-vpl-tooltip='90% of each video must be completed. You have completed %{progress_completed} of the current video.'
+      data-orl-tooltip='Response is required to continue.'
+      href=''
+      id='lecture_complete_button'
+      role='button'
+    >
+      <span class='nav-text'>Complete and Continue</span>
+      &nbsp;
+      <svg width="24" height="24" aria-hidden='true'>
+          <use xlink:href="#icon__ArrowForward"></use>
+        </svg>
+    </a>
+  </div>
+  
+</header>
+
+    <section class="lecture-page-layout ">
+      
+<div role="navigation" class='course-sidebar lecture-page navbar-collapse navbar-sidebar-collapse' id='courseSidebar'>
+  <div class='course-sidebar-head'>
+    <h2>Build Production-Ready LLMs From Scratch - Projects</h2>
+    <!-- Course Progress -->
+    
+    <div
+      class='course-progress  lecture-page is-at-top'>
+      <div class='progressbar'>
+        <div class='progressbar-fill' style='min-width: 91%;'></div>
+      </div>
+      <div class='small course-progress-percentage'>
+        <span class='percentage'>
+          91%
+        </span>
+        COMPLETE
+      </div>
+    </div>
+    
+  </div>
+  <!-- Lecture list on courses page (enrolled user) -->
+
+  <div class='row lecture-sidebar'>
+    
+    <div class='col-sm-12 course-section'>
+      <div role="heading" aria-level="3" class='section-title' data-release-date=""
+        data-days-until-dripped=""
+        data-is-dripped-by-date="" data-course-id="2791880">
+        <span class="section-lock v-middle">
+          <svg width="24" height="24">
+            <use xlink:href="#icon__LockClock"></use>
+          </svg>&nbsp;
+        </span>
+        The Transformer Architecture
+      </div>
+      <ul class='section-list'>
+        
+        <li data-lecture-id="61523808" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523808' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523808'
+            data-ss-event-type='link' data-ss-lecture-id='61523808'
+            data-ss-position='1' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523808' id='sidebar_link_61523808'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 1
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+        <li data-lecture-id="61523809" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523809' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523809'
+            data-ss-event-type='link' data-ss-lecture-id='61523809'
+            data-ss-position='1' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523809' id='sidebar_link_61523809'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Code"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 1 Feedback
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class='col-sm-12 course-section'>
+      <div role="heading" aria-level="3" class='section-title' data-release-date=""
+        data-days-until-dripped=""
+        data-is-dripped-by-date="" data-course-id="2791880">
+        <span class="section-lock v-middle">
+          <svg width="24" height="24">
+            <use xlink:href="#icon__LockClock"></use>
+          </svg>&nbsp;
+        </span>
+        Training LLMs to Follow Instructions
+      </div>
+      <ul class='section-list'>
+        
+        <li data-lecture-id="61523821" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523821' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523821'
+            data-ss-event-type='link' data-ss-lecture-id='61523821'
+            data-ss-position='2' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523821' id='sidebar_link_61523821'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 2
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+        <li data-lecture-id="61523822" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523822' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523822'
+            data-ss-event-type='link' data-ss-lecture-id='61523822'
+            data-ss-position='2' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523822' id='sidebar_link_61523822'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 2 Feedback
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class='col-sm-12 course-section'>
+      <div role="heading" aria-level="3" class='section-title' data-release-date=""
+        data-days-until-dripped=""
+        data-is-dripped-by-date="" data-course-id="2791880">
+        <span class="section-lock v-middle">
+          <svg width="24" height="24">
+            <use xlink:href="#icon__LockClock"></use>
+          </svg>&nbsp;
+        </span>
+        How to Scale Model Training
+      </div>
+      <ul class='section-list'>
+        
+        <li data-lecture-id="61523834" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523834' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523834'
+            data-ss-event-type='link' data-ss-lecture-id='61523834'
+            data-ss-position='3' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523834' id='sidebar_link_61523834'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 3
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+        <li data-lecture-id="61523835" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523835' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523835'
+            data-ss-event-type='link' data-ss-lecture-id='61523835'
+            data-ss-position='3' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523835' id='sidebar_link_61523835'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 3 Feedback
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class='col-sm-12 course-section'>
+      <div role="heading" aria-level="3" class='section-title' data-release-date=""
+        data-days-until-dripped=""
+        data-is-dripped-by-date="" data-course-id="2791880">
+        <span class="section-lock v-middle">
+          <svg width="24" height="24">
+            <use xlink:href="#icon__LockClock"></use>
+          </svg>&nbsp;
+        </span>
+        How to Fine-Tune LLMs
+      </div>
+      <ul class='section-list'>
+        
+        <li data-lecture-id="61523883" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523883' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523883'
+            data-ss-event-type='link' data-ss-lecture-id='61523883'
+            data-ss-position='4' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523883' id='sidebar_link_61523883'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 4
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+        <li data-lecture-id="61523884" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523884' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523884'
+            data-ss-event-type='link' data-ss-lecture-id='61523884'
+            data-ss-position='4' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523884' id='sidebar_link_61523884'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 4 Feedback
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class='col-sm-12 course-section'>
+      <div role="heading" aria-level="3" class='section-title' data-release-date=""
+        data-days-until-dripped=""
+        data-is-dripped-by-date="" data-course-id="2791880">
+        <span class="section-lock v-middle">
+          <svg width="24" height="24">
+            <use xlink:href="#icon__LockClock"></use>
+          </svg>&nbsp;
+        </span>
+        How to Deploy LLMs
+      </div>
+      <ul class='section-list'>
+        
+        <li data-lecture-id="61523849" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523849' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523849'
+            data-ss-event-type='link' data-ss-lecture-id='61523849'
+            data-ss-position='5' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523849' id='sidebar_link_61523849'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 5
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class='col-sm-12 course-section'>
+      <div role="heading" aria-level="3" class='section-title' data-release-date=""
+        data-days-until-dripped=""
+        data-is-dripped-by-date="" data-course-id="2791880">
+        <span class="section-lock v-middle">
+          <svg width="24" height="24">
+            <use xlink:href="#icon__LockClock"></use>
+          </svg>&nbsp;
+        </span>
+        Building the Application Layer
+      </div>
+      <ul class='section-list'>
+        
+        <li data-lecture-id="62743414" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/62743414' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/62743414'
+            data-ss-event-type='link' data-ss-lecture-id='62743414'
+            data-ss-position='6' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/62743414' id='sidebar_link_62743414'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Subject"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 6
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+        <li data-lecture-id="61523865" data-lecture-url='/courses/the-large-language-bootcamp2/lectures/61523865' class='section-item incomplete'>
+          <a class='item' data-no-turbolink='true' data-ss-course-id='2791880'
+            data-ss-event-name='Lecture: Navigation Sidebar' data-ss-event-href='/courses/the-large-language-bootcamp2/lectures/61523865'
+            data-ss-event-type='link' data-ss-lecture-id='61523865'
+            data-ss-position='6' data-ss-school-id='1424582'
+            data-ss-user-id='118340384' href='/courses/the-large-language-bootcamp2/lectures/61523865' id='sidebar_link_61523865'>
+            <span class='status-container'>
+              <span class='status-icon'>
+                &nbsp;
+              </span>
+            </span>
+            <div class='title-container'>
+              <span class='lecture-icon v-middle'>
+                <svg width="24" height="24">
+                  <use xlink:href="#icon__Code"></use>
+                </svg>
+              </span>
+              <span class='lecture-name'>
+                Project 6 Feedback
+                
+                
+              </span>
+            </div>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+      <!-- Lecture Content -->
+<div role="main" class="course-mainbar lecture-content full-width-content enforce-maximum-content-width">
+  <!-- Meta tag for tracking lecture progress -->
+  <meta id="lecture-completion-data" data-last-lecture-id="61523865" data-last-lecture-url="/courses/2791880/lectures/61523865" data-is-completed="true" data-can-access-lecture="true" data-compliance-enabled="false" data-is-open-response-required="false" data-unanswered-open-response-question-ids="[]" data-valid-for-completion="true" />
+  <h2 id="lecture_heading" class="section-title dsp-flex-xs flex-align-items-center-xs" data-lecture-id="61523849" data-next-lecture-id="62743414" data-lecture-url="/courses/2791880/lectures/61523849" data-next-lecture-url="/courses/2791880/lectures/62743414", data-previous-lecture-url="/courses/2791880/lectures/61523884" data-previous-lecture-id="61523884" >
+    <svg width="24" height="24">
+        <use xlink:href="#icon__Subject"></use>
+      </svg>
+    &nbsp;
+    Project 5
+</h2>
+
+  <!-- Attachment Blocks -->
+
+  <div class='lecture-attachment lecture-attachment-type-text' id="lecture-attachment-114265918">
+    <div class="attachment-data"></div>
+    
+      <div class="attachment-data"></div>
+<div class="lecture-text-container">
+<p><h1 class="ql-align-center">Deploying an LLM Endpoint</h1><h1 class="ql-align-center">Optional: Cost Money!</h1><p>I am using Gitfront, which allows me to share a private Github repository without having to add the students as collaborators. To clone the repo, just run:</p><pre class="ql-syntax" spellcheck="false">git clone https://gitfront.io/r/TheAiEdge/XWKcjv76ci9V/LLM-bootcamp-homework.git
+</pre><p>This homework is going to be a bit different! You won't need to submit anything, and you won't receive feedback, at least not in the usual way. The feedback you receive will come from your success in actually deploying the different applications and being able to query the endpoints from the clients. I am providing you with most of the code, and that is the main reason why there is nothing to submit. The difficulty is not in the coding aspect but in the ability to plug everything together correctly. Enjoy! </p><p>We are going to deploy an LLM in three manners:</p><ul><li class="">Deploying a fully managed dedicated endpoint with HuggingFace</li><li class="">Deploying a custom application with vLLM</li><li class="">Deploying an OpenAI-compatible server with vLLM</li></ul><p>Be careful! Every deployment in this project costs money, so manage what you are ready to spend for learning purposes!</p><h2>Deploying a fully managed dedicated endpoint with HuggingFace</h2><h3>The Deployment</h3><p>Deploying a fully managed dedicated endpoint is the easiest way to deploy an LLM, but it doesn't provide a lot of flexibility and can require dependency on a third-party provider. There are a few third-party providing access to those capabilities:</p><ul><li class="">HuggingFace: <a href="https://ui.endpoints.huggingface.co" rel="noopener noreferrer" target="_blank">https://ui.endpoints.huggingface.co/</a></li><li class="">AWS Bedrock: <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html" rel="noopener noreferrer" target="_blank">https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html</a></li><li class="">Replicate: <a href="https://replicate.com" rel="noopener noreferrer" target="_blank">https://replicate.com/</a></li><li class="">...</li></ul><p>Let's try to do it with HuggingFace. Let's assume that we have trained or fine-tuned a model&nbsp;and want to expose an endpoint. As an example, let's use Microsoft's&nbsp;<a href="https://huggingface.co/microsoft/Phi-3-mini-4k-instruct" rel="noopener noreferrer" target="_blank">Phi-3-mini-4k-instruct</a>&nbsp;model. We could do the same thing with our own private model.</p><p>Go to that model's page, click on "Deploy," and choose "Inference Endpoints (dedicated)".</p><p class="ql-align-center"><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/PaC36piERvmJRlxAkIL5_Untitled+design.png" style="width: 373px;"></p><p>You should end up on the <a href="https://ui.endpoints.huggingface.co/damienbenveniste/new" rel="noopener noreferrer" target="_blank">https://ui.endpoints.huggingface.co</a> website. From there, choose your model repository, your cloud services, and your machine. <img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/Sbm00zcyQjmQLgkrwPas_Screenshot+2024-08-11+at+10.04.12%E2%80%AFPM.png"></p><p><br class="softbreak"></p><p>Personally, I made sure to scale to 0 after 15 minutes of inactivity. Also, I selected a protected endpoint because it should not be publicly accessible. In real production, we are more likely to need to choose a private endpoint as we are unlikely to need access beyond a VPC.</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/teZfrZTRxyKEI9NLLN9b_Screenshot+2024-08-11+at+10.08.50%E2%80%AFPM.png"></p><p>You can also change the advanced configuration as you prefer:</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/mZO8uoESpaBt8bMSJcDg_Screenshot+2024-08-11+at+10.16.13%E2%80%AFPM.png"></p><p>You can now click on "create the endpoint". After initialization, the endpoint should be running:</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/0cemdHbgSBGCKMSNkXtM_Screenshot+2024-08-11+at+10.19.46%E2%80%AFPM.png"><br class="softbreak"></p><h3>Querying the Endpoint with an HTTP request</h3><p>We can now hit this API by using the <code>requests</code> package.</p><pre class="ql-syntax" spellcheck="false">import requests
+
+API_URL = "[YOUR ENDPOINT URL]"
+headers = {
+	"Accept" : "application/json",
+	"Authorization": "Bearer [YOUR HUGGING FACE TOKEN]",
+	"Content-Type": "application/json" 
+}
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+
+text = "How are you?"
+
+output = query({
+	"inputs": text,
+	"parameters": {}
+})
+
+output
+</pre><p>Let's take the input text "How are you?" for example. If you run this text input a few times, you will notice that the model's answer is just text completion. To fix that, we need to understand how the model was fine-tuned for instruction. On the <a href="https://huggingface.co/microsoft/Phi-3-mini-4k-instruct" rel="noopener noreferrer" target="_blank">model page</a>, you will find the way the prompt has been formatted at training time to induce instruction answering:</p><pre class="ql-syntax" spellcheck="false">&lt;|system|&gt;
+You are a helpful assistant.&lt;|end|&gt;
+&lt;|user|&gt;
+How are you?&lt;|end|&gt;
+&lt;|assistant|&gt; 
+</pre><p>Modify the input text to induce helpful answers from the model.<br class="softbreak"></p><p>We can also induce more randomness in the model answers by using the multinomial sampling strategy:</p><pre class="ql-syntax" spellcheck="false">output = query({
+	"inputs": text
+	"parameters": {
+		"top_k": 50,
+		"top_p": 0.9,
+		"temperature": 0.7,
+		"do_sample": True
+	}
+}) 
+</pre><p>Here, <code>top_k</code> means that we are only going to sample from the top 50 tokens based on probability and <code>top_p</code> means we are choosing from the smallest possible set of tokens whose cumulative probability exceeds the probability <code>top_p</code>.<br class="softbreak"></p><h3>Using the OpenAI API</h3><p>Instead of using the requests package, we can directly use the OpenAI package, which provides a few utilities. The <code>chat.completions</code> API will directly format the prompts in the right format for instructions. Make sure to install the package:</p><p><code>pip install openai</code></p><p>For example, we can stream the results using Server-Sent Events (SSE):</p><pre class="ql-syntax" spellcheck="false">from openai import OpenAI
+
+client = OpenAI(
+	base_url="[YOUR ENDPOINT URL]", 
+	api_key="[YOUR HUGGING FACE TOKEN] "
+)
+
+chat_completion = client.chat.completions.create(
+	model="microsoft/Phi-3-mini-4k-instruct",
+	messages=[
+    {
+        "role": "user",
+        "content": "How are you?"
+    }
+],
+	stream=True,
+	max_tokens=20,
+)
+
+for message in chat_completion:
+	print(message.choices[0].delta.content, end="")
+</pre><h3>Using LangChain</h3><p>We can also use LangChain to interact with this endpoint. Install the necessary packages:</p><p><code>pip install langchain langchain-openai</code></p><p>And we can obtain a very similar behavior:</p><pre class="ql-syntax" spellcheck="false">from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage
+
+# Create a ChatOpenAI instance with custom configuration
+chat = ChatOpenAI(
+    model="microsoft/Phi-3-mini-4k-instruct", 
+    openai_api_base="[YOUR ENDPOINT URL]/v1", 
+    openai_api_key=[YOUR HUGGING FACE TOKEN],
+    max_tokens=20,
+)
+
+# Create a message
+message = HumanMessage(content="How are you?")
+
+# Generate the response
+response = chat.stream([message])
+for chunk in response:
+    print(chunk.content, end="", flush=True)
+</pre><p>This can be useful if we want to build chains. As an example, here is how we can create a prompt template, use the model and parse the resulting output into a Python list:</p><pre class="ql-syntax" spellcheck="false">from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import NumberedListOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+
+# Create a ChatOpenAI instance with custom configuration
+chat = ChatOpenAI(
+    model="microsoft/Phi-3-mini-4k-instruct", 
+    openai_api_base="[YOUR ENDPOINT URL]/v1", 
+    openai_api_key=[YOUR HUGGING FACE TOKEN],
+    max_tokens=100,
+)
+
+prompt = """
+Generate a numbered list of 3 objects belonging to the following category
+
+CATEGORY: {category}
+
+LIST:"""
+
+prompt = ChatPromptTemplate.from_template(prompt)
+chain = prompt | model | NumberedListOutputParser()
+chain.invoke({'category': "country"})
+
+&gt; ['India', 'Brazil', 'Australia']
+</pre><h2>Deploying a custom application with vLLM</h2><h3>Deploying a simple application</h3><p>Deploying a fully managed endpoint doesn't provide much flexibility in the way the model is deployed. For example, we may want to deploy multiple endpoints with different settings or capture intermediary data into a database.</p><p>In this part, we are going to deploy a FastAPI application as a Docker image by using the <a href="https://huggingface.co/spaces" rel="noopener noreferrer" target="_blank">HuggingFace Spaces</a> to host the endpoint. HuggingFace Spaces is not meant per se to be used as production-level backend applications, but it provides us with a simple hosting platform. Typically, it is used to build application demos. Here, we are going to use it to host a custom endpoint.</p><p>Go to the HuggingFace website and create a space:</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/yCeURYYKRsmY3CoQ2SPC_Untitled+design+%281%29.png" style="width: 631px;"><br class="softbreak"></p><p>Choose a space name and select a blank docker SDK:</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/TZWmn037SeiYRQmH1lAo_Screenshot+2024-08-12+at+6.37.57%E2%80%AFPM.png"></p><p>Make sure to choose hardware large enough to host the model:</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/7HjV265jSAKAZLDR3yd0_Screenshot+2024-08-12+at+6.40.04%E2%80%AFPM.png"></p><p>You can now create the space. Once the space is created, you should see a template a create a small FastAPI application. Let's run this application to make sure we can deploy this endpoint. Clone the repo:</p><pre class="ql-syntax" spellcheck="false">git clone https://huggingface.co/spaces/damienbenveniste/deploy-fastapi
+</pre><p>In that repo, create a <code>requirements.txt</code> file:</p><pre class="ql-syntax" spellcheck="false">fastapi
+uvicorn[standard]
+</pre><p>Create an <code>app.py</code> file:</p><pre class="ql-syntax" spellcheck="false">from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def greet_json():
+    return {"Hello": "World!"}
+</pre><p>This will expose an endpoint at the root of the URL. Create a Dockerfile:</p><pre class="ql-syntax" spellcheck="false"># Use Python 3.9 as the base image
+FROM python:3.9
+
+# Create a new user named 'user' with user ID 1000 and create their home directory
+RUN useradd -m -u 1000 user
+
+# Switch to the newly created user
+USER user
+
+# Add the user's local bin directory to the PATH
+ENV PATH="/home/user/.local/bin:$PATH"
+
+# Set the working directory in the container to /app
+WORKDIR /app
+
+# Copy the requirements.txt file from the host to the container
+# The --chown=user ensures the copied file is owned by our 'user'
+COPY --chown=user ./requirements.txt requirements.txt
+
+# Install the Python dependencies listed in requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# Copy the rest of the application code from the host to the container
+# Again, ensure the copied files are owned by 'user'
+COPY --chown=user . /app
+
+# Specify the command to run when the container starts
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]
+</pre><p>This will copy the files, install the dependencies, and run the app. Now let's commit those files to the repo:</p><pre class="ql-syntax" spellcheck="false">git add requirements.txt app.py Dockerfile
+git commit -m "Add application file"
+git push
+</pre><p>This will automatically run the image.</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/pkpUJ9zaQsFbBKrsUFln_Screenshot+2024-08-12+at+7.05.10%E2%80%AFPM.png"></p><p>Once the application is running, we can query this endpoint. To find the endpoint URL, click on "Embed this space":</p><p class="ql-align-center"><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/Ah1qqzjBRdWPNfJzL4aA_Untitled+design+%282%29.png" style="width: 549px;"><br class="softbreak"></p><p>And you will find the URL under "Direct URL":</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/lkQBHyJaRaSg3uBfaATw_Screenshot+2024-08-12+at+7.10.09%E2%80%AFPM.png"><br class="softbreak"></p><p>You should now be able to query the API by running the following script:</p><pre class="ql-syntax" spellcheck="false">import requests
+
+url = "https://damienbenveniste-deploy-fastapi.hf.space"
+response = requests.get(url)
+response.json()['Hello']
+
+&gt; 'World!'
+</pre><h3>Deploying a Steaming LLM application</h3><p>We are now ready to deploy a more complex application. We are going to use <a href="https://docs.vllm.ai/en/latest/index.html" rel="noopener noreferrer" target="_blank">vLLM</a> to build an endpoint with streaming capability. vLLM offers some advantages compared to a dedicated endpoint:</p><ul><li class="">Inference Speed and Throughput: vLLM is designed for high-performance inference, often achieving significantly faster inference speeds compared to standard implementations. This is especially noticeable for larger models or when handling multiple requests simultaneously.</li><li class="">Efficient Memory Management: vLLM uses advanced techniques like PagedAttention for more efficient memory usage. This allows it to handle longer sequences and more concurrent requests with the same hardware resources.</li><li class="">Continuous Batching: vLLM can dynamically batch requests, even if they arrive at different times. This leads to better GPU utilization and higher overall throughput.</li><li class="">KV Cache Management: vLLM efficiently manages the key-value cache, which is crucial for autoregressive generation. This results in faster generation for long sequences.</li><li class="">Flexible Deployment: With vLLM, you have more control over the deployment environment. You can fine-tune parameters to match your specific hardware and use case.</li><li class="">Cost-Effectiveness: By maximizing hardware utilization, vLLM can potentially reduce the number of GPUs needed to serve a given load, leading to cost savings.</li><li class="">Support for Various Models: vLLM supports a wide range of models, including those from HuggingFace, allowing you to use different models without changing your infrastructure.</li></ul><p><code><a href="https://docs.vllm.ai/en/latest/dev/engine/async_llm_engine.html" rel="noopener noreferrer" target="_blank">AsyncLLMEngine</a></code> is a class from the vLLM library. It's designed for efficient, asynchronous inference of large language models. It allows for parallel processing of multiple requests and efficient use of GPU resources. Async allows the server to handle multiple requests concurrently without blocking. This is crucial for a web service that might receive many requests simultaneously.</p><pre class="ql-syntax" spellcheck="false">from vllm import AsyncLLMEngine
+
+engine = AsyncLLMEngine.from_engine_args(
+    AsyncEngineArgs(
+        model='microsoft/Phi-3-mini-4k-instruct',
+    )
+)
+</pre><p><strong>Question</strong> - In the <code>AsyncEngineArgs</code> select the additional parameters to make this deployment efficient. Specifically, consider:</p><ul><li class=""><code>max_num_batched_tokens</code>: Sets the maximum number of tokens that can be processed in a single batch. Make sure to accommodate for the memory constraints of GPU hosting the application.</li><li class=""><code>max_num_seqs</code>: Limits the maximum number of sequences that can be processed concurrently. Smaller numbers will reduce the memory pressure on the GPU.</li><li class=""><code>gpu_memory_utilization</code>: Sets the target GPU memory utilization. Adjust to make more efficient use of available GPU memory.</li><li class=""><code>max_model_len</code>: Specifies the maximum sequence length the model can handle.</li><li class=""><code>enforce_eager</code>: Disables or enables CUDA graph optimization. This can be useful for debugging or when CUDA graph optimization causes issues.</li><li class=""><code>dtype='half'</code>: Sets the data type for model parameters to half-precision (float16). This reduces memory usage and can speed up computations, especially on GPUs with good half-precision performance.</li></ul><p>For now, make a few educated guesses and you can come back to fine-tune those values later.</p><p>To avoid having to spend too much time figuring out the specificity of SSE in FastAPI, I am giving you a base code.</p><p>The function <code>generate_stream</code> is an asynchronous generator that produces a stream of text from a language model. Asynchronous functions can pause their execution, allowing other code to run while waiting for operations to complete.</p><ul><li class=""><code>prompt</code>: The initial text to start the generation.</li><li class=""><code>max_tokens</code>: The maximum number of tokens (words or word pieces) to generate.</li><li class=""><code>temperature</code>: Controls the randomness of the generation. Higher values (e.g., 1.0) make output more random, while lower values (e.g., 0.1) make it more deterministic.</li></ul><p><code><a href="https://docs.vllm.ai/en/latest/dev/sampling_params.html" rel="noopener noreferrer" target="_blank">SamplingParams</a></code> configures how the text generation will behave. It uses the <code>temperature</code> and <code>max_tokens</code> values passed to the function.<code>async for</code> is an asynchronous loop that works with asynchronous generators.</p><p><code>engine.generate()</code> is an instance of the language model that generates text based on the given prompt and parameters. The loop will receive chunks of generated text one at a time rather than waiting for the entire text to be generated.</p><p>The <code>request_id</code> is used by vLLM to track different generation requests, especially useful in scenarios with multiple concurrent requests. Using a UUID ensures that each request has a unique identifier, preventing conflicts between different generation tasks.</p><p><code>yield</code> is used in generator functions to produce a series of values over time rather than computing them all at once. The yielded string follows the Server-Sent Events (SSE) format:</p><ul><li class="">It starts with <code>"data: "</code>.</li><li class="">The content is a JSON string containing the generated text.</li><li class="">It ends with two newlines (<code>\n\n</code>) to signal the end of an SSE message.</li></ul><p>After the generation is complete, we yield a special "DONE" signal, also in SSE format, to indicate that the stream has ended.</p><p>Let's now examine this class:</p><pre class="ql-syntax" spellcheck="false">class GenerationRequest(BaseModel):
+    prompt: str
+    max_tokens: int = 100
+    temperature: float = 0.7
+</pre><p>FastAPI uses classes like <code>GenerationRequest</code> for several important reasons:</p><ol><li class=""><strong>Automatic Request Parsing</strong>: When a client sends a JSON request to your FastAPI app, FastAPI automatically converts that JSON into a <code>GenerationRequest</code> object. This means you don't have to manually parse the JSON in your route function.</li><li class=""><strong>Data Validation</strong>: FastAPI uses the type hints (<code>: str</code>, <code>: int</code>, <code>: float</code>) to validate incoming data. If someone sends a request with <code>max_tokens</code> as a string instead of an integer, FastAPI will automatically return an error response.</li><li class=""><strong>Default Values</strong>: The <code>= 100</code> for <code>max_tokens</code> and <code>= 0.7</code> for <code>temperature</code> provide default values. This means if a client doesn't specify these in their request, your app will still have valid values to work with.</li><li class=""><strong>Self-Documenting APIs</strong>: FastAPI uses this class to automatically generate OpenAPI (Swagger) documentation. This gives you a free, interactive API documentation page where developers can see exactly what data they need to send.</li><li class=""><strong>Type Safety in Your Code</strong>: Inside your route functions, you can use this class with full Python-type hinting support. This helps catch errors early and enables better IDE autocomplete.</li></ol><p>Here's how it is used:</p><pre class="ql-syntax" spellcheck="false">@app.post("/generate")
+async def generate_text(request: GenerationRequest):
+    # FastAPI has already:
+    # 1. Parsed the JSON request body
+    # 2. Validated the data types
+    # 3. Applied default values if needed
+    
+    # You can now use the data directly:
+    generated_text = your_text_generator(
+        prompt=request.prompt,
+        max_tokens=request.max_tokens,
+        temperature=request.temperature
+    )
+    return {"generated_text": generated_text}
+</pre><p><br class="softbreak"></p><p>The function <code>generate_text</code> is a FastAPI route that handles POST requests to "/generate-stream". It's designed to stream generated text back to the client as it's being produced rather than waiting for all the text to be generated before sending a response.</p><pre class="ql-syntax" spellcheck="false">@app.post("/generate-stream")
+</pre><p>This line tells FastAPI that this function should handle POST requests to the "/generate-stream" endpoint.</p><pre class="ql-syntax" spellcheck="false">async def generate_text(request: Request):
+</pre><p>This defines an asynchronous function that takes a <code>Request</code> object as a parameter. Using <code>async</code> allows the function to handle multiple requests efficiently.</p><pre class="ql-syntax" spellcheck="false">data = await request.json()
+gen_request = GenerationRequest(**data)
+</pre><ul><li class=""><code>await request.json()</code> asynchronously reads the JSON body of the request.</li><li class=""><code>GenerationRequest(**data)</code> creates a <code>GenerationRequest</code> object from the JSON data, validating it in the process.</li></ul><pre class="ql-syntax" spellcheck="false">return StreamingResponse(
+    generate_stream(gen_request.prompt, gen_request.max_tokens, gen_request.temperature),
+    media_type="text/event-stream"
+)
+</pre><ul><li class=""><code>StreamingResponse</code> is used to send a streaming response back to the client.</li><li class=""><code>generate_stream()</code> is called with the parameters from the request. This function is expected to be a generator that yields chunks of text.</li><li class=""><code>media_type="text/event-stream"</code> indicates that this is a Server-Sent Events (SSE) stream, a format for sending real-time updates from server to client.</li></ul><pre class="ql-syntax" spellcheck="false">except Exception as e:
+    return StreamingResponse(
+        iter([f"data: {json.dumps({'error': str(e)})}\n\n"]),
+        media_type="text/event-stream"
+    )
+</pre><p>If an exception occurs, it returns a streaming response with an error message, maintaining the SSE format.<br class="softbreak"></p><p>To deploy the modified application, simply push it to the Github repo:</p><pre class="ql-syntax" spellcheck="false">git add app.py
+git commit -m "added streaming endpoint"
+git push
+</pre><h3>Querying the Endpoint with an SSE client<br class="softbreak"></h3><p>Now, we are ready to query this endpoint. We are using the <code><a href="https://pypi.org/project/sseclient/" rel="noopener noreferrer" target="_blank">sseclient</a></code> package. This is a Python client library for iterating over HTTP Server-Sent Event (SSE) streams. I am providing you with a starting code <code>client.py</code> to test if your endpoint is correctly deployed.<br class="softbreak"></p><h2>Deploying an OpenAI-compatible server with vLLM</h2><p>In the lectures, we deployed vLLM on an EC2 machine, but it was not a very safe and automated deployment. Let's try to do better, but let's use the HuggingFace Spaces again for simplicity.</p><p>Let's create a new space with a blank Docker template:</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/4ZzKw7PR7KzrRnBlnHtJ_Screenshot+2024-08-15+at+10.17.42%E2%80%AFPM.png"></p><p>Once created, let's clone the repo on our local machine:</p><pre class="ql-syntax" spellcheck="false">git clone https://huggingface.co/spaces/damienbenveniste/deploy-vllm
+</pre><p>This time, the application is going to be composed of a Dockerfile that is going to run the command:</p><pre class="ql-syntax" spellcheck="false">vllm serve model
+</pre><p>To deploy an OpenAI API-compatible server. You can see how it is done here: <a href="https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html" rel="noopener noreferrer" target="_blank">https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html</a></p><p>I am providing you with the <code>entrypoint.sh</code> file with additional functionalities:</p><pre class="ql-syntax" spellcheck="false">MODEL=${MODEL:-"microsoft/Phi-3-mini-4k-instruct"}
+DTYPE=${DTYPE:-"half"}
+MAX_NUM_BATCHED_TOKENS=${MAX_NUM_BATCHED_TOKENS:-512}
+MAX_NUM_SEQS=${MAX_NUM_SEQS:-16}
+GPU_MEMORY_UTILIZATION=${GPU_MEMORY_UTILIZATION:-0.85}
+MAX_MODEL_LEN=${MAX_MODEL_LEN:-512}
+ENFORCE_EAGER=${ENFORCE_EAGER:-true}
+</pre><p>These lines set default values for various parameters. The <code>${VARIABLE:-default}</code> syntax means:</p><ul><li class="">Use the value of <code>VARIABLE</code> if it's set</li><li class="">Otherwise, use the specified default value</li></ul><p>This allows flexibility: users can override these values by setting environment variables, but if they don't, the script uses sensible defaults. If you click the "settings" of your space, you will able to inject environment variables to change them:</p><p><img data-imageloader="" data-imageloader-src="https://uploads.teachablecdn.com/attachments/nRUsZ7ORTO8lb8mg0Uus_Screenshot+2024-08-15+at+10.32.09%E2%80%AFPM.png"></p><pre class="ql-syntax" spellcheck="false">for dir in /tmp/huggingface /tmp/cache /tmp/numba_cache /tmp/outlines_cache /tmp/config; do
+    if [ ! -d "$dir" ]; then
+        mkdir -p "$dir"
+    fi
+    chmod -R 777 "$dir"
+    echo "Permissions for $dir:"
+    ls -la "$dir"
+done
+</pre><p>This loop:</p><ul><li class="">Checks if each specified directory exists</li><li class="">Creates the directory if it doesn't exist</li><li class="">Sets permissions to 777 (read, write, execute for all users)</li><li class="">Prints out the permissions for verification</li></ul><p>These directories are used for caching and temporary storage, which can significantly speed up operations.</p><pre class="ql-syntax" spellcheck="false">CMD="vllm serve $MODEL \
+--host 0.0.0.0 \
+--port 8000 \
+--dtype $DTYPE \
+--max-num-batched-tokens $MAX_NUM_BATCHED_TOKENS \
+--max-num-seqs $MAX_NUM_SEQS \
+--gpu-memory-utilization $GPU_MEMORY_UTILIZATION \
+--max-model-len $MAX_MODEL_LEN"
+</pre><p>This constructs the main command to run vLLM. It:</p><ul><li class="">Specifies the model to use</li><li class="">Sets the host to 0.0.0.0 (listen on all network interfaces)</li><li class="">Sets the port to 8000</li><li class="">Configures various parameters using the values set earlier</li></ul><pre class="ql-syntax" spellcheck="false">if [ "$ENFORCE_EAGER" = "true" ]; then
+    CMD="$CMD --enforce-eager"
+fi
+</pre><p>This adds the <code>--enforce-eager</code> flag to the command only if <code>ENFORCE_EAGER</code> is set to "true". This flag can affect how the model is loaded and executed.</p><pre class="ql-syntax" spellcheck="false">exec $CMD
+</pre><p>Execute the command using <code>exec</code>, which replaces the current process with the new command.</p><p>I am also providing you with the Dockerfile to run that command:</p><pre class="ql-syntax" spellcheck="false">FROM vllm/vllm-openai:latest
+</pre><p>This line specifies the base image for our Docker container. We're using the official vLLM image, which comes pre-installed with vLLM and its dependencies. The <code>:latest</code> tag means we're using the most recent version of this image.</p><pre class="ql-syntax" spellcheck="false">ENV HF_HOME="/tmp/huggingface"
+ENV XDG_CACHE_HOME="/tmp/cache"
+ENV NUMBA_CACHE_DIR="/tmp/numba_cache"
+ENV OUTLINES_CACHE_DIR="/tmp/outlines_cache"
+ENV VLLM_USE_MODELSCOPE="false"
+ENV VLLM_DISABLE_USAGE_STATS="true"
+ENV XDG_CONFIG_HOME="/tmp/config"
+</pre><p>These lines set environment variables within the container:</p><ul><li class=""><code>HF_HOME</code>, <code>XDG_CACHE_HOME</code>, <code>NUMBA_CACHE_DIR</code>, <code>OUTLINES_CACHE_DIR</code>: Specify directories for various caching purposes, improving performance and managing storage.</li><li class=""><code>VLLM_USE_MODELSCOPE="false"</code>: Disables the use of ModelScope, a model hub similar to Hugging Face.</li><li class=""><code>VLLM_DISABLE_USAGE_STATS="true"</code>: Disables the collection of usage statistics by vLLM.</li><li class=""><code>XDG_CONFIG_HOME</code>: Sets the directory for user-specific configuration files.</li></ul><pre class="ql-syntax" spellcheck="false">ENV PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+</pre><p>This line adds common binary locations to the PATH environment variable, ensuring that the container can find and execute necessary commands.</p><pre class="ql-syntax" spellcheck="false">WORKDIR /app
+</pre><p>This sets the working directory inside the container to <code>/app</code>. Subsequent commands will be run from this directory.</p><pre class="ql-syntax" spellcheck="false">COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+</pre><p>These lines:</p><ul><li class="">Copy the <code>entrypoint.sh</code> script from the host machine into the <code>/app</code> directory in the container.</li><li class="">Make the script executable using <code>chmod +x</code>.</li></ul><pre class="ql-syntax" spellcheck="false">EXPOSE 8000
+</pre><p>This line informs Docker that the container will listen on port 8000 at runtime. It doesn't actually publish the port; it's more of a documentation feature.</p><pre class="ql-syntax" spellcheck="false">ENTRYPOINT ["/app/entrypoint.sh"]
+</pre><p>This specifies that when the container starts, it should run the <code>entrypoint.sh</code> script. This script is responsible for setting up the environment and starting the vLLM server.</p><p>By pushing those files to the repo, the server should start:</p><pre class="ql-syntax" spellcheck="false">git add entrypoint.sh Dockerfile
+git commit -m "Add application file"
+git push
+</pre><p>Once the server is started, you should be able to connect to it by running the <code>client.py</code> file.<br class="softbreak"></p></p>
+</div>
+
+    
+  </div>
+
+  <div class='lecture-attachment lecture-attachment-type-native_comments' id="lecture-attachment-114265919">
+    <div class="attachment-data"></div>
+    
+  </div>
+
+
+<!-- Complete and Continue Button -->
+<a
+  class='btn complete lecture-complete'
+  data-cpl-tooltip='You must complete all lesson material before progressing.'
+  data-vpl-tooltip='90% of each video must be completed. You have completed %{progress_completed} of the current video.'
+  href=''
+  role='button'
+  id="lecture_content_complete_button"
+  >
+<span class='nav-text'>Complete and Continue</span>
+&nbsp;
+<svg width="24" height="24" aria-hidden='true'>
+    <use xlink:href="#icon__ArrowForward"></use>
+  </svg>
+</a>
+
+
+<!-- Comments -->
+
+  <div class='lecture-attachment'>
+    <div class="comments attachment-block-wrapper">
+  <div role="heading" aria-level="3" class="attachment-block-label">
+    Discussion
+  </div>
+  <div id="comments_settings" class="comments-settings hidden" data-thread-endpoint="/api/v1/comments/?commentable_type=Attachment&amp;commentable_id=114265919&amp;threaded=true" data-i18n="{&quot;post_title&quot;:&quot;Post a comment&quot;,&quot;post_placeholder&quot;:&quot;Leave a comment...&quot;,&quot;post_success&quot;:&quot;Your comment was posted.&quot;,&quot;post_moderation&quot;:&quot;Your comment was posted, but it needs to be approved by the school owner before it shows up.&quot;,&quot;post_fail&quot;:&quot;Sorry, your comment could not be posted at this time :(&quot;,&quot;post_comment&quot;:&quot;Post Comment&quot;,&quot;save_comment&quot;:&quot;Save Comment&quot;,&quot;view_comment&quot;:&quot;View comment&quot;,&quot;reply&quot;:&quot;Reply&quot;,&quot;ago&quot;:&quot;ago&quot;,&quot;now&quot;:&quot;now&quot;,&quot;instructor&quot;:&quot;Instructor&quot;,&quot;awaiting_review&quot;:&quot;Awaiting Review&quot;,&quot;comments&quot;:&quot;comments&quot;,&quot;notifications_participating_thread&quot;:&quot;Notify me when someone comments on a discussion I&#39;ve commented in.&quot;,&quot;notifications_responses&quot;:&quot;Notify me when someone responds to my comments.&quot;,&quot;notifications_author&quot;:&quot;Notify me when someone comments in one of my courses.&quot;,&quot;has_been_removed&quot;:&quot;This comment has been removed.&quot;,&quot;add_image&quot;:&quot;Add Image&quot;,&quot;view_thread&quot;:&quot;View the rest of this thread&quot;,&quot;approve&quot;:&quot;Approve&quot;,&quot;edit&quot;:&quot;Edit&quot;,&quot;delete&quot;:&quot;Delete&quot;,&quot;permalink&quot;:&quot;Link&quot;,&quot;load_more&quot;:&quot;Load more&quot;,&quot;add_text_error&quot;:&quot;Please add text to the comment.&quot;,&quot;comment_responses_email&quot;:&quot;Email me when someone responds to my comments.&quot;,&quot;comment_discussion_email&quot;:&quot;Email me when someone comments on a discussion I&#39;ve commented in.&quot;}" data-attachments-enabled="true" data-filepicker-key="ADNupMnWyR7kCWRvm76Laz"></div>
+  
+    
+    <h4 class="comments__heading">Post a comment</h4>
+    <div class="comments__wrapper">
+      <div class="comments__block comments__block--indent-level-0 comments__block--student comments__block--new" id="new_comment_container">
+
+  <div class="commenter-profile">
+    <img
+      class="gravatar"
+      src="https://s.gravatar.com/avatar/00ddc770cd1952c655ee4b517c78a823?d=mm"
+      alt="Abhinit">
+
+    <label class="comments__block-box__meta-tag comments__block-box__meta-tag-instructor label label-default">
+      Instructor
+    </label>
+  </div>
+
+  <div class="comments__block-box new-comment-form">
+    <div class="comment-arrow-border">
+      <div class="comment-arrow"></div>
+    </div>
+    <div class="comments__block-box__meta">
+      <div class="comments__block-box__meta-name">Abhinit</div>
+      <div class="comments__block-box__meta-now">now</div>
+    </div>
+    <form
+      action="/api/v1/comments"
+      class="new-comment-form"
+      method="post"
+      target="_blank"
+      rel="noopener"
+      data-type="json"
+      data-remote="true"
+      id="new_comment_form"
+      data-comment-handler="create_comment">
+      <div class="alert alert-success comments__block-box__alert--posted" id="posted_msg">
+        Your comment was posted.
+      </div>
+      <div class="alert alert-warning comments__block-box__alert--review" id="review_msg">
+        <i class='fa fa-check'></i>
+        Your comment was posted, but it needs to be approved by the school owner before it shows up.
+      </div>
+      <div class="alert alert-danger comments__block-box__alert--failed" id="failed_msg">
+        Sorry, your comment could not be posted at this time :(
+      </div>
+      <div class="alert alert-danger comments__block-box__alert--too-long" id="too_long_msg">
+        "Comments have a maximum of 10000 characters."
+      </div>
+      <div
+        class="alert alert-danger text-error"
+        id="text_error_alert"
+        id="text_error_msg">
+        Please add text to the comment.
+      </div>
+      <input
+        type="hidden"
+        name="comments[commentable_type]"
+        value="Attachment">
+      <input
+        type="hidden"
+        name="comments[commentable_id]"
+        value="114265919">
+      
+
+      <div class="comment-editor">
+        <textarea
+          aria-label="Comment box"
+          placeholder="Leave a comment..."
+          name="comments[body]"
+          maxlength="10000"
+          id="comment_body"></textarea>
+        <div class="new attachments-editor hidden" id="attachments_editor">
+          <a
+            href="#"
+            class='add-attachment'
+            id="add_attachment"
+            data-comment-handler="add_image">
+            <img src="https://fedora.teachablecdn.com/assets/icon-image-add-2bb59d5f21dbca28cca9cf9e6530fc84f468b86806ca92da9e2bdafa2aa398d0.svg" alt="Add Image">
+          </a>
+          <ul class="attachments" data-editable-attachments="true"></ul>
+        </div>
+      </div>
+      <input
+        class='btn btn-primary pull-right btn-md'
+        type="submit"
+        value="Post Comment">
+    </form>
+  </div>
+</div>
+
+    </div>
+    
+  
+
+  <h4 class="comments__heading">
+    <span id="comments_total">1</span> comments
+  </h4>
+  <div class="comments__wrapper" id="comments_wrapper">
+    
+  </div>
+
+  <div class="comments__heading">
+    <a class="comments-pagination-link hidden" id="comments_pagination" data-comment-handler="load_more">
+      Load more
+    </a>
+  </div>
+
+</div>
+
+
+  </div>
+
+
+
+<div id='empty_box'></div>
+<!-- Scroll to current lecture link position in sidebar -->
+
+</div>
+
+    </section>
+    <!-- No lecture footer in the new redesign -->
+
+    
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'971dcdd38aa325da',t:'MTc1NTY1MDA1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
