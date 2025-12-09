@@ -6,7 +6,7 @@ class Model:
 
     @staticmethod
     def get_model_for_LM(model_id):
-        # TODO: implement the method to get the base model with a language modeling head. 
+        # Load causal LM model and tokenizer for language modeling tasks
         model = AutoModelForCausalLM.from_pretrained(model_id)
         tokenizer = AutoTokenizer.from_pretrained(model_id)
         tokenizer.pad_token = tokenizer.eos_token
@@ -17,7 +17,7 @@ class Model:
     
     @staticmethod
     def get_model_for_reward(model_id):
-        # TODO: implement the method to get the reward model with a sequence classification head.
+        # Load sequence classification model for reward modeling (single scalar output)
         model = AutoModelForSequenceClassification.from_pretrained(model_id, num_labels=1)
         tokenizer = AutoTokenizer.from_pretrained(model_id) 
         tokenizer.pad_token = tokenizer.eos_token
@@ -28,8 +28,8 @@ class Model:
     
     @staticmethod
     def get_model_for_PPO(model_id, reward_model_id):
-        # TODO: implement the method to get the PPO model with 
-        # a language modeling head and a value head as well.
+        # Load PPO components: policy model, reward model, and value model
+        # Value model initialized from reward model weights
         reward_model = AutoModelForSequenceClassification.from_pretrained(reward_model_id, num_labels=1)
         value_model = AutoModelForSequenceClassification.from_pretrained(reward_model_id, num_labels=1)
         policy_model = AutoModelForCausalLM.from_pretrained(model_id)
@@ -46,8 +46,7 @@ class Model:
     
     @staticmethod
     def get_model_for_PPO_ValueHead(model_id):
-        # TODO: implement the method to get the PPO model with 
-        # a language modeling head and a value head as well.
+        # Load CausalLM with integrated value head for PPO training
         model = AutoModelForCausalLMWithValueHead.from_pretrained(model_id)
         tokenizer = AutoTokenizer.from_pretrained(model_id)
         tokenizer.pad_token = tokenizer.eos_token

@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-# TODO: replace by yours
+# HuggingFace configuration from environment
 HUGGINGFACE_TOKEN = os.environ.get('HF_TOKEN')
 REPO_NAME = 'training_experiments'
 EVAL_SPLIT = 0.2
@@ -20,8 +20,7 @@ class BaseTrainer:
         self.output_dir = output_dir
         self.result_file = result_file
         self.eval_split = eval_split
-        # TODO: make sure to export you Hugging Face Token:
-        # export HF_TOKEN=[YOUR TOKEN]
+        # Authenticate with HuggingFace Hub for model pushing
         login(token=HUGGINGFACE_TOKEN)
 
     def split_dataset(self, dataset):

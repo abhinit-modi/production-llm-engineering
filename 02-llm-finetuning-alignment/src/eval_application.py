@@ -3,7 +3,7 @@ import argparse
 
 
 def run(training_type):
-    # TODO: implement the right model_id and result_file
+    # Run evaluation for each model variant with corresponding output file
     if training_type == 'base':
         Evaluator.run(
             model_id='openai-community/gpt2',

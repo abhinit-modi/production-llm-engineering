@@ -49,7 +49,7 @@ async def generate_stream(response: Generator, callback: Optional[Callable[[str]
     full_response = ""
     try:
         for chunk in response:
-            # TODO: Implement the function in to send the streaming chunks of data. 
+            # Format and yield SSE chunks from LLM streaming response
             data = f"chunk: {chunk.choices[0].delta.content}"
             full_response += chunk.choices[0].delta.content
             yield f"data: {data}\n\n"
@@ -87,12 +87,7 @@ async def simple_stream(request: UserRequest):
 
 @app.post("/history/stream")
 async def history_stream(request: UserRequest, db: Session = Depends(get_db)):  
-    # TODO:  Let's implement the "/history/stream" endpoint. The endpoint should follow those steps:
-    # - The endpoint receives the request
-    # - The new user question is saved in the database by using add_message
-    # - The user request is used to pull the chat history of the user
-    # - We use the chat history with the streaming_with_history function.
-    # - Add a callback to capture the response from the assistant
+    # Chat with conversation history: save message -> get history -> stream response -> save response
     try:
         new_message = add_message(db, request.question, MessageType.USER, request.username)
         chat_history = get_user_chat_history(db, request.username)
@@ -108,12 +103,7 @@ async def history_stream(request: UserRequest, db: Session = Depends(get_db)):
 
 @app.post("/rag/stream")
 async def rag_stream(request: UserRequest, db: Session = Depends(get_db)):  
-    # TODO: Let's implement the "/rag/stream" endpoint. The endpoint should follow those steps:
-    # - The endpoint receives the request
-    # - The new user question is saved in the database by using add_message
-    # - The user request is used to pull the chat history of the user
-    # - We use the chat history with the streaming_with_rag function.
-    # - Add a callback to capture the response from the assistant
+    # RAG chat: save message -> get history -> retrieve docs -> stream response -> save response
     try:
         add_message(db, request.question, MessageType.USER, request.username)
         chat_history = get_user_chat_history(db, request.username)
@@ -129,12 +119,7 @@ async def rag_stream(request: UserRequest, db: Session = Depends(get_db)):
 
 @app.post("/filtered_rag/stream")
 async def filtered_rag_stream(request: UserRequest, db: Session = Depends(get_db)):  
-    # TODO: Let's implement the "/filtered_rag/stream" endpoint. The endpoint should follow those steps:
-    # - The endpoint receives the request
-    # - The new user question is saved in the database by using add_message
-    # - The user request is used to pull the chat history of the user
-    # - We use the chat history with the streaming_with_rag function with hybrid_search = True.
-    # - Add a callback to capture the response from the assistant
+    # Hybrid RAG: combines semantic + keyword search for improved retrieval
     try:
         add_message(db, request.question, MessageType.USER, request.username)
         chat_history = get_user_chat_history(db, request.username)

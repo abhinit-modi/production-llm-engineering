@@ -9,9 +9,7 @@ TOTAL_TRAINING_STEPS = 1000
 class LoRATrainer:
 
     def __init__(self, model, tokenizer, data_collator, group_size_ratio) -> None:
-        # TODO: Complete the LoRATrainer to train with AdamW and a cosine scheduler 
-        # with warmup. You can use the AdamW Pytorch class and 
-        # the get_cosine_schedule_with_warmup function. 
+        # Initialize trainer with AdamW optimizer and cosine LR schedule with warmup
         self.model = model
         self.tokenizer = tokenizer
         self.data_collator = data_collator
@@ -49,6 +47,6 @@ class LoRATrainer:
         self.save()
 
     def save(self):
-        # TODO: Implement the LoRATrainer.save function.
+        # Save LoRA adapter weights and tokenizer to HuggingFace Hub
         self.model.save_pretrained("./lora_model", push_to_hub=True)
         self.tokenizer.save_pretrained("./lora_model", push_to_hub=True)

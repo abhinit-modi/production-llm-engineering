@@ -6,13 +6,7 @@ from training import LoRATrainer
 GROUP_SIZE_RATIO = 1/4
 
 def run():
-    # TODO: implement:
-    # - get the data
-    # - load the model
-    # - get the data collator
-    # - get the trainer
-    # - process the data
-    # - train the model
+    # Main training pipeline: load data -> prepare model -> tokenize -> train
     data = DataLoader.get_data()
     print(f"Loaded {len(data)} examples from the dataset.")
     print(f"First example: {data[0]}")

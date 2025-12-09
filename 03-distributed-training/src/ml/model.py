@@ -10,13 +10,8 @@ class Model:
         )
 
     def _get_model(self, model_id, num_labels):
-        # TODO: Implement the Model class in to get the model and its tokenizer. 
-        # Make sure to set the padding token.
-        # tokenizer.pad_token = tokenizer.eos_token
-        # model.config.pad_token_id = tokenizer.pad_token_id
-        # 
-        # I make the assumption that the model is a AutoModelForSequenceClassification model, 
-        # therefore I provide the num_labels attribute
+        # Load sequence classification model and tokenizer
+        # Configure padding token (required for GPT-2 style models)
         model = AutoModelForSequenceClassification.from_pretrained(
             model_id, 
             num_labels=num_labels

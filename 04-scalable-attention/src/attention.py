@@ -25,45 +25,40 @@ class SparseAttention(LlamaAttention):
         
         # get the dimensions
         batch_size, seq_len, hidden_size = hidden_states.size()
-        # TODO: establish the group size
+        # Calculate group size based on sequence length and ratio
         group_size = int(seq_len * self.group_size_ratio)
-        # TODO: compute the number of groups
+        # Compute number of groups for grouped attention
         num_group = seq_len // group_size
 
-        # TODO: In Llama 3, the linear layers used to project into keys, queries, and values 
-        # are called q_proj, k_proj, and v_proj, and they are attributes of the class. 
-        # Compute the keys, queries and values in the forward function from the hidden_states.
+        # Project hidden states to queries, keys, and values using Llama's projections
         queries = self.q_proj(hidden_states)
         keys = self.k_proj(hidden_states)
         values = self.v_proj(hidden_states)
 
-        # TODO: Reshape the keys, queries, and values to have the shapes 
-        # [batch_size, seq_len, num_heads, head_dim]. 
-        # num_heads and head_dim are attributes of the class
+        # Reshape to separate heads: [batch_size, seq_len, num_heads, head_dim]
         queries = queries.reshape(batch_size, seq_len, self.num_heads, self.head_dim)
         keys = keys.reshape(batch_size, seq_len, self.num_heads, self.head_dim)
         values = values.reshape(batch_size, seq_len, self.num_heads, self.head_dim)
 
-        # TODO: Then transpose the dimensions to get tensors of size 
+        # Transpose to [batch_size, num_heads, seq_len, head_dim] for attention
         queries = queries.permute(0, 2, 1, 3)  # [batch_size, num_heads, seq_len, head_dim]
         keys = keys.permute(0, 2, 1, 3)        # [batch_size, num_heads, seq_len, head_dim]
         values = values.permute(0, 2, 1, 3)    # [batch_size, num_heads, seq_len, head_dim]
 
-        # TODO: rotate the keys and queries with RoPE.
+        # Apply rotary position embeddings to queries and keys
         cos, sin = self.rotary_embed(values, seq_len)
         queries, keys = apply_rotary_pos_emb(queries, keys, cos, sin, position_ids)
 
-        # TODO: Apply the function repeat_kv to potentially increase 
-        # the number of heads for the keys and values.
+        # Repeat KV heads for grouped-query attention compatibility
         keys = repeat_kv(keys, self.num_key_value_groups)
         values = repeat_kv(values, self.num_key_value_groups)
 
-        # TODO: apply the shift function to the queries, keys, and values
+        # Apply shift operation for sparse grouped attention
         queries = self.shift(queries, batch_size, seq_len, group_size, self.num_heads, self.head_dim)
         keys = self.shift(keys, batch_size, seq_len, group_size, self.num_heads, self.head_dim)
         values = self.shift(values, batch_size, seq_len, group_size, self.num_heads, self.head_dim)
 
-        # TODO: compute the interaction matrix between the queries and the keys
+        # Compute scaled dot-product attention scores
         interaction_matrix = torch.matmul(queries, keys.transpose(-1, -2)) / math.sqrt(self.head_dim)
 
         # compute local mask
@@ -76,24 +71,20 @@ class SparseAttention(LlamaAttention):
             num_heads=self.num_heads
         )
 
-        # TODO: add the local attention masks to the interaction matrix and apply the softmax transformation
+        # Apply local attention mask and softmax normalization
         attn_weights = nn.functional.softmax(local_mask + interaction_matrix, dim=-1)
         
-        # TODO: compute the new hidden states by computing the product between the values and the self-attentions.
+        # Compute context by applying attention weights to values
         new_hidden_states = torch.matmul(attn_weights, values)
         
-        # TODO: At this point, the new hidden states should have a dimension 
-        # [batch_size * num_group, num_heads, group_size, head_dim]. Reshape the hidden states 
-        # to have dimension [batch_size, seq_len, num_heads, head_dim]
+        # Reshape from [batch_size * num_group, num_heads, group_size, head_dim]
+        # back to [batch_size, seq_len, num_heads, head_dim]
         new_hidden_states = new_hidden_states.permute(0, 2, 1, 3).reshape(batch_size, seq_len, self.num_heads, self.head_dim)
 
-        # TODO: Don't forget that half of the heads are shifted by -group_size // 2, 
-        # so let's shift the new hidden states by group_size // 2.
+        # Reverse the shift for the shifted heads (roll back by +group_size//2)
         new_hidden_states[:,:,self.num_heads//2:,:] = new_hidden_states[:,:,self.num_heads//2:,:].roll(group_size // 2, dims=1)
 
-        # TODO: finally, let's reshape the hidden states back to [batch_size, seq_len, hidden_size], 
-        # and project the resulting tensor with the output layer o_proj.
-
+        # Merge heads and apply output projection
         new_hidden_states = new_hidden_states.reshape(batch_size, seq_len, self.hidden_size)
         new_hidden_states = self.o_proj(new_hidden_states)
 
@@ -103,17 +94,11 @@ class SparseAttention(LlamaAttention):
         return new_hidden_states, attn_weights, past_key_value
     
     def shift(self, qkv, batch_size, seq_len, group_size, num_heads, head_dim):      
-        # TODO: Implement the function. qkv can be any of the queries, keys, or values.
-        # - First, use the roll function to shift half the heads by -group_size // 2.
-        # - Then transpose the resulting tensor into the shape [batch_size, seq_len, num_heads, head_dim]
-        # - Then reshape the resulting tensor into the shape 
-        # [batch_size * (seq_len / group_size), group_size, num_heads, head_dim]. 
-        # The idea is instead of having batch_size samples of input size seq_len, 
-        # we are going to increase the number of samples to batch_size * (seq_len / group_size) 
-        # or batch_size / group_size_ratio, but reduce the input size to group_size.
-        # - Finally, transpose the resulting tensor to [batch_size * (seq_len / group_size), num_heads, group_size, head_dim].
+        # Shift operation for sparse grouped attention:
+        # 1. Roll half the heads by -group_size//2 to enable cross-group information flow
+        # 2. Reshape to increase batch dimension while reducing sequence length to group_size
+        # 3. Final shape: [batch_size * num_groups, num_heads, group_size, head_dim]
 
-        # batch_size, num_heads, seq_len, head_dim = qkv.size()
         qkv[:,num_heads//2:,:,:] = qkv[:,num_heads//2:,:,:].roll(-group_size // 2, dims=2)
         qkv = qkv.reshape(batch_size, seq_len, num_heads, head_dim)
         qkv = qkv.reshape(batch_size * (seq_len // group_size), group_size, num_heads, head_dim)

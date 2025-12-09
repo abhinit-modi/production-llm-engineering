@@ -15,7 +15,7 @@ class RewardModelTrainer(BaseTrainer):
         ):
         super().__init__(model, tokenizer, num_epoch, batch_size, output_dir)
 
-        # TODO: set up the training arguments
+        # Configure reward model training arguments
         self.tokenizer = tokenizer
         self.args = RewardConfig(
             output_dir=output_dir,
@@ -27,9 +27,7 @@ class RewardModelTrainer(BaseTrainer):
         )
 
     def train(self, tokenized_data):
-        # TODO: Use the RewardTrainer to set up the training. 
-        # Call the train method of the RewardTrainer class, 
-        # and don't forget to push the model to the model hub.
+        # Train reward model to score chosen vs rejected responses
         train_dataset, eval_dataset = self.split_dataset(tokenized_data)
         print(f"Train dataset size: {len(train_dataset)}")
         trainer = RewardTrainer(
@@ -63,7 +61,7 @@ class RLHFTrainer(BaseTrainer):
         self.value_model = value_model
         self.reward_model = reward_model
 
-        # TODO: implement the training arguments with the PPOConfig. 
+        # Configure PPO training arguments
         self.args = PPOConfig(
             output_dir=output_dir,
             per_device_train_batch_size=batch_size,
@@ -74,7 +72,7 @@ class RLHFTrainer(BaseTrainer):
         )
 
     def train(self, tokenized_data):
-        # TODO: implement the trainer with the PPOTrainer
+        # Train policy with PPO using reward and value models
         train_dataset, eval_dataset = self.split_dataset(tokenized_data)
         print(f"Train dataset size: {len(train_dataset)}")
         trainer = PPOTrainer(
@@ -105,7 +103,7 @@ class RLHFTrainer(BaseTrainer):
             ref_model=None
         )
 
-        # TODO: implement the generation_kwargs that will be used in the PPOTrainer.generate method 
+        # Generation config for policy rollouts
         generation_kwargs = {
             "min_length": -1,
             "top_k": 0.0,
@@ -113,7 +111,7 @@ class RLHFTrainer(BaseTrainer):
             "do_sample": True,
             "pad_token_id": self.tokenizer.eos_token_id,
         }
-        # TODO: Implement the reward_pipeline by using your reward model and pipeline function
+        # Create reward pipeline for scoring generated responses
         reward_pipeline = pipeline(
             "text-classification",
             model=self.reward_model,
@@ -129,24 +127,24 @@ class RLHFTrainer(BaseTrainer):
                 print(f"Input text: {input_text[0]}")
                 
                 #### Get response from SFTModel
-                # TODO: Generate the response_tensors from the query_tensors
+                # Generate responses from policy model
                 response_tensors = self.policy_model.generate(query_tensors, **generation_kwargs)
                 print(f"Generated response tensors: {response_tensors[0]}")
 
-                # TODO: Decode the response_tensors by using the tokenizer
+                # Decode generated tokens to text
                 batch["response"] = self.tokenizer.batch_decode(response_tensors, skip_special_tokens=True)
                 print(f"Decoded response: {batch['response'][0]}")
             
                 #### Compute reward score
-                # TODO: Create the input text for the reward_pipeline by using batch["goal"] and batch["response"]
+                # Format prompt-response pairs for reward scoring
                 texts = [f"Question: {q}\nAnswer: {r}" for q, r in zip(input_text, batch["response"])]
 
-                # TODO: Pass the input text to the reward_pipeline and extract the score output.
+                # Get reward scores from the reward model
                 rewards = reward_pipeline(texts)
                 print(f"Rewards: {rewards[0]}")
             
                 #### Run PPO step
-                # TODO: Update the PPO model by using the query_tensors, response_tensors,  and rewards.
+                # Update policy using PPO with computed rewards
                 stats = trainer.optimizer.step(query_tensors, response_tensors, rewards)
                 trainer.log_stats(stats, batch, rewards)
         

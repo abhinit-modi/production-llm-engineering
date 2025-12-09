@@ -3,9 +3,7 @@ from huggingface_hub import login
 
 class DataConnector:
     
-    # TODO:  Implement the DataConnector to pull the data from the path. 
-    # As an example, you can choose to pull the data from the datasets 
-    # package with the load_dataset function.
+    # Load dataset from HuggingFace hub by path
 
     @staticmethod
     def get_data(path):

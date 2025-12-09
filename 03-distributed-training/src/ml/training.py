@@ -14,7 +14,7 @@ import os
 HF_TOKEN = os.environ['HF_TOKEN']
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# TODO: Initialize the wandb library by using the login function
+# Initialize Weights & Biases for experiment tracking
 import wandb
 wandb.login()
 wandb.init(
@@ -32,51 +32,47 @@ class BasicTrainer:
         self.optimizer = optim.Adam(params=model.parameters())
 
     def train(self, tokenized_data):
-        # TODO: implement train. There are a few steps to follow in the train function:
-        # from the tokenized data, we need to create the data loaders
+        # Standard PyTorch training loop with W&B logging
+        # Create train/eval data loaders from tokenized data
         train_dataloader, eval_dataloader = self.create_dataloaders(tokenized_data)
 
-        # TODO: we need to project the model onto the right device (.to(device))
+        # Move model to GPU/CPU device
         self.model.to(device)
 
         for epoch_index, epoch in enumerate(range(self.num_epochs)):
-            # TODO: set the model up in train mode: model.train()
+            # Set model to training mode
             self.model.train()
             for batch_index, batch in enumerate(train_dataloader):
-                # TODO: zero out the optimizer: optimizer.zero_grad() 
+                # Zero gradients before backward pass
                 self.optimizer.zero_grad()
-                # TODO: we project the data batch onto the right device
+                # Move batch tensors to device
                 batch = {k: v.to(device) for k, v in batch.items()}
-                # TODO: we feed the batch to the model and get the model outputs
+                # Forward pass
                 outputs = self.model(**batch)
-                # TODO: we call the backward function on the loss function: loss.backward()
+                # Backward pass
                 loss = outputs.loss
                 loss.backward()
-                # TODO: we step the optimizer: optimizer.step()
+                # Update weights
                 self.optimizer.step()
                 wandb.log({'epoch': epoch_index+1, 'loss': loss.item(), 'step': f'{(epoch_index+1)*(batch_index+1)}'})
             
             eval_metric = self.eval(self.model, eval_dataloader)
             print(f"Epoch {epoch + 1}/{self.num_epochs}, Eval Metric: {eval_metric}")
             wandb.log({'accuracy': eval_metric, 'epoch': epoch_index+1})
-
-            # TODO: as an optional task, we can implement an early stopping to avoid overfitting.
         
 
     def eval(self, model, eval_dataloader):
-        # TODO: Implement eval. The eval function computes a validation metric on the validation data. 
-        # You can use the evaluate package to get access to the evaluation metric you prefer:
+        # Evaluate model accuracy on validation set
         accuracy_metric = evaluate.load("accuracy")
 
-        # To accurately compute the validation metric on the validation dataset, there are a few steps:
-        # - You need to set the model in eval mode: model.eval()
+        # Set model to evaluation mode (disables dropout, etc.)
         model.eval()
         all_predictions = []
         all_labels = []
-        # - When you iterate through each batch in the eval_dataloader, you need to project the data on the right device:
+        # Iterate through validation batches
         for batch in eval_dataloader: 
             batch = {k: v.to(device) for k,v in batch.items()}
-            # - You need to infer the batch with the model without aggregating the gradients: with torch.no_grad()
+            # Inference without gradient computation
             with torch.no_grad():
                 outputs = model(**batch) 
                 preds = outputs.logits.argmax(dim=-1)
@@ -84,29 +80,24 @@ class BasicTrainer:
                 all_predictions.append(preds)
                 all_labels.append(batch['labels'])
             
-        # - You need to compare the prediction to the labels to compute the metric. For example:
+        # Compute accuracy metric across all batches
         eval_metric = accuracy_metric.compute(
             predictions=torch.cat(all_predictions), 
             references=torch.cat(all_labels)
         )
         
-        # You can then return the evaluation metric
         return eval_metric
 
     def create_dataloaders(self, tokenized_data):
 
-        # TODO: Use the torch.utils.data.DataLoader class to create iterators around the data. 
-        # Make sure to create a data loader for the training data and one for the validation data.
+        # Create PyTorch DataLoaders for train and validation sets
         train_dataloader, eval_dataloader = torch.utils.data.DataLoader(tokenized_data['train'], shuffle=True, batch_size=self.batch_size), torch.utils.data.DataLoader(tokenized_data['validation'], shuffle=False, batch_size=self.batch_size) 
         return train_dataloader, eval_dataloader
     
     def save(self, model):
-        # TODO: Let's save the model to the HuggingFace model hub. Implement the save function:
-        # - Give a name to the repo
+        # Save model and tokenizer to HuggingFace Hub
         repo_name = "Abhinit/HW3-basic-trainer"
-        # - call the login function with your HuggingFace token
         login(token=HF_TOKEN)
-        # - call push_to_hub on the model and tokenizer
         model.push_to_hub(repo_name)
         self.tokenizer.push_to_hub(repo_name)
     
@@ -127,27 +118,20 @@ class AcceleratedTrainer:
             zero_stage=2,  # Enable ZeRO Stage 2 for memory efficiency
         )
 
-        # TODO: instantiate as class attribute an accelerator
+        # Initialize Accelerator with W&B logging and DeepSpeed ZeRO-2
         self.accelerator = Accelerator(log_with="wandb", deepspeed_plugin=deepseed_plugin)
-        # TODO: We then need to set up the accelerator to log with wandb. Pass the argument log_with="wandb"
-
-        # TODO: Enable Zero Redundancy Optimizer Strategy. 
-        # You may need to update the deepspeed package in the requirements.txt.
 
     def train(self, tokenized_data):
         
         train_dataloader, eval_dataloader = self.create_dataloaders(tokenized_data=tokenized_data)
         
-        # TODO: use the prepare function to prepare the model, optimizer, train_dataloader, 
-        # and eval_dataloader for distributed training. 
-        # Because of this, we don't need to project the model and the data on the device, 
-        # as Accelerate does it automatically.
+        # Prepare model, optimizer, and dataloaders for distributed training
+        # Accelerate handles device placement automatically
         model, optimizer, train_dataloader, eval_dataloader = self.accelerator.prepare(
             self.model, self.optimizer, train_dataloader, eval_dataloader
         )
 
-        # TODO: Just before the code training the model, we need to initialize the tracker 
-        # with the init_trackers function. You can pass additional hyperparameters to that function
+        # Initialize W&B tracker for experiment logging
         self.accelerator.init_trackers(project_name="HW3-accelerate")
 
         for epoch_index, epoch in enumerate(range(self.num_epochs)):
@@ -162,17 +146,13 @@ class AcceleratedTrainer:
             print(f"Epoch {epoch + 1}/{self.num_epochs}, Eval Metric: {eval_metric}")
             self.accelerator.log({'epoch': epoch_index+1, 'accuracy': eval_metric})
         
-        # TODO: At the end of the training, make sure to disconnect the tracker
+        # Cleanup: disconnect tracker after training completes
         self.accelerator.end_training()
 
 
     def eval(self, model, eval_dataloader):
-        # TODO: With Accelerate, we cannot directly compute the evaluation metrics 
-        # as the data is spread across multiple machines or processes, 
-        # so we need to bring it back to the main thread. 
-        # To do that, we use the function gather. 
-        # Modify the eval function by using the gather function 
-        # before computing the evaluation metric.
+        # Distributed evaluation: gather predictions from all processes
+        # before computing metrics on the main process
         accuracy_metric = evaluate.load('accuracy')
         model.eval()
         all_preds=[]
@@ -194,21 +174,15 @@ class AcceleratedTrainer:
 
     def create_dataloaders(self, tokenized_data):
 
-        # TODO: Use the torch.utils.data.DataLoader class to create iterators around the data. 
-        # Make sure to create a data loader for the training data and one for the validation data.
+        # Create PyTorch DataLoaders for train and validation sets
         train_dataloader, eval_dataloader = torch.utils.data.DataLoader(tokenized_data['train'], shuffle=True, batch_size=self.batch_size), torch.utils.data.DataLoader(tokenized_data['validation'], shuffle=False, batch_size=self.batch_size) 
         return train_dataloader, eval_dataloader
     
     def save(self, model):
-        # TODO:  Before we can save the model, we need to undo what the prepare function did. 
-        # For that, we need to call the unwrap_model function.
-        #  Modify the save function by calling the unwrap_model function before saving it to the hub.
+        # Unwrap model from Accelerate wrapper before saving
         model = self.accelerator.unwrap_model(model)
-        # TODO: Let's save the model to the HuggingFace model hub. Implement the save function:
-        # - Give a name to the repo
+        # Save model and tokenizer to HuggingFace Hub
         repo_name = "Abhinit/HW3-accelerate-trainer"
-        # - call the login function with your HuggingFace token
         login(token=HF_TOKEN)
-        # - call push_to_hub on the model and tokenizer
         model.push_to_hub(repo_name)
         self.tokenizer.push_to_hub(repo_name)

@@ -31,8 +31,7 @@ class DataIndexer:
         self.pinecone_client = Pinecone(api_key=os.environ.get('PINECONE_API_KEY'))
 
         if index_name not in self.pinecone_client.list_indexes().names():
-            # TODO: create your index if it doesn't exist. Use the create_index function. 
-            # Make sure to choose the dimension that corresponds to your embedding model
+            # Create Pinecone serverless index with embedding dimension matching the model
             self.pinecone_client.create_index(
                 name=self.index_name,
                 dimension=len(self.embedding_client.embeddings.create("test").data[0].embedding),  # type: ignore
@@ -42,7 +41,7 @@ class DataIndexer:
                 ))
 
         self.index = self.pinecone_client.Index(self.index_name)
-        # TODO: make sure to build the index.
+        # Initialize local ChromaDB index for source filtering
         self.source_index = self.get_source_index()
 
     def get_source_index(self):
@@ -78,8 +77,7 @@ class DataIndexer:
         return index
     
     def embed_data(self,  data: list[CodeDoc]) -> list[list[float]]:
-        # TODO: implement the function. The function takes a list of CodeDoc and returns 
-        # a list of the related embeddings
+        # Generate embeddings for a batch of documents using OpenAI API
         response = self.embedding_client.embeddings.create(
             input=[doc.content for doc in data],
             model="text-embedding-3-small"
@@ -96,14 +94,13 @@ class DataIndexer:
         for i in range(0, len(docs), batch_size):
             batch = docs[i: i + batch_size]
 
-            # TODO: create a list of the vector representations of each text data in the batch
+            # Generate embeddings for the batch
             values = self.embed_data(batch)
 
-            # TODO: create a list of unique identifiers for each element in the batch with the uuid package.
+            # Create unique IDs for each vector
             vector_ids = [str(uuid.uuid4()) for _ in range(len(batch))]
 
-            # TODO: create a list of dictionaries representing the metadata. You can use the model_dump() on 
-            # a CodeDoc instance
+            # Extract metadata from Pydantic models
             metadatas = [{
                     **doc.model_dump(),
                 } for doc in batch]
@@ -117,7 +114,7 @@ class DataIndexer:
             } for vector_id, value, metadata in zip(vector_ids, values, metadatas)]
 
             try: 
-                # TODO: Use the function upsert to upload the data to the database.
+                # Upsert vectors to Pinecone index
                 upsert_response = self.index.upsert(
                     vectors=vectors,  # type: ignore
                     namespace='langchain_repo'
@@ -127,7 +124,7 @@ class DataIndexer:
                 print(e)
 
     def search(self, text_query, top_k=5, hybrid_search=False) -> list[CodeDoc]:
-        # TODO: embed the text_query by using the embedding model
+        # Embed query text for similarity search
         vector = self.embedding_client.embeddings.create(input=text_query, model="text-embedding-3-small").data[0].embedding
 
         filter = None
@@ -143,8 +140,7 @@ class DataIndexer:
             filter = {"source": {"$in": sources}}
             print(f"Sources: {sources}")
 
-         # TODO: use the vector representation of the text_query to 
-         # search the database by using the query function.
+        # Query Pinecone for similar vectors with optional source filtering
         result = self.index.query(
             vector=vector,
             top_k=top_k,
@@ -155,9 +151,7 @@ class DataIndexer:
 
         docs = []
         for res in result["matches"]:
-            # TODO: use the model_validate() function to create a 
-            # CodeDoc instance from the result's metadata.
-            # e.g. doc = CodeDoc.model_validate(res["metadata"])
+            # Parse result metadata into CodeDoc Pydantic model
             doc = CodeDoc.model_validate(res["metadata"])
             docs.append(doc)
 

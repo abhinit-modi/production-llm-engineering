@@ -15,7 +15,7 @@ class SupervisedTrainer(BaseTrainer):
         ):
         super().__init__(model, tokenizer, num_epoch, batch_size, output_dir, result_file)
         
-        # TODO: set up the training arguments
+        # Configure supervised fine-tuning arguments
         self.args = SFTConfig(
             output_dir=output_dir,
             per_device_train_batch_size=batch_size,
@@ -24,17 +24,14 @@ class SupervisedTrainer(BaseTrainer):
             report_to='none',
             push_to_hub=True,
         )
-        # TODO: set up the data collator to prepare the data for training. 
-        # I suggest using the DataCollatorForCompletionOnlyLM data collator
+        # Data collator that masks prompt tokens, only training on completions
         self.collator = DataCollatorForCompletionOnlyLM(
             tokenizer=tokenizer,
             response_template="Answer:",
         )
 
     def train(self, dataset):
-        # TODO: Use the SFTTrainer to set up the training. 
-        # Call the train method of the SFTTrainer class, 
-        # and don't forget to push the model to the model hub.
+        # Train with SFTTrainer for instruction fine-tuning
         train_dataset, eval_dataset = self.split_dataset(dataset)
         print(f"Train dataset size: {len(train_dataset)}")
         trainer = SFTTrainer(

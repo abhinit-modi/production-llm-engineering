@@ -8,19 +8,12 @@ import uuid
 
 app = FastAPI()
 
-# TODO: In the AsyncEngineArgs select the additional parameters 
-# to make this deployment efficient. Specifically, consider:
-# - max_num_batched_tokens: Sets the maximum number of tokens that can be processed 
-# in a single batch. Make sure to accommodate for the memory constraints of GPU hosting the application.
-# - max_num_seqs: Limits the maximum number of sequences that can 
-# be processed concurrently. Smaller numbers will reduce the memory pressure on the GPU.
-# - gpu_memory_utilization: Sets the target GPU memory utilization. 
-# Adjust to make more efficient use of available GPU memory.
-# - max_model_len: Specifies the maximum sequence length the model can handle.
-# - enforce_eager: Disables or enables CUDA graph optimization. This can be useful 
-# for debugging or when CUDA graph optimization causes issues.
-# - dtype='half': Sets the data type for model parameters to half-precision 
-# (float16). This reduces memory usage and can speed up computations, especially on GPUs with good half-precision performance.
+# vLLM async engine configuration optimized for production:
+# - max_num_batched_tokens: 512 (controls batch size for memory efficiency)
+# - max_num_seqs: 16 (concurrent sequence limit)
+# - gpu_memory_utilization: 0.85 (reserve 15% for overhead)
+# - dtype: half (FP16 for faster inference)
+# - enforce_eager: True (disable CUDA graphs for stability)
 engine = AsyncLLMEngine.from_engine_args(
     AsyncEngineArgs(
         model='microsoft/Phi-3-mini-4k-instruct',

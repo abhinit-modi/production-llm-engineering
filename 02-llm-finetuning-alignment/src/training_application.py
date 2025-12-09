@@ -10,7 +10,7 @@ from training.train_orpo import MyORPOTrainer
 import argparse
 
 def run(training_type, training_mode='local'):
-    # TODO: implement this function.
+    # Main training orchestration for different alignment methods
     trainer = None
     processed_data = None
 

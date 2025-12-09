@@ -18,27 +18,27 @@ class EfficientSlidingWindowMultiheadAttention(nn.Module):
         self.qkv_linear = nn.Linear(hidden_size, hidden_size * 3)
         self.out = nn.Linear(hidden_size, hidden_size)
 
-        # TODO: create a position embedding attribute with RoPE
+        # Initialize RoPE for rotary position embeddings
         self.rope = RoPE(rotation_matrix)
 
     def forward(self, x):
         batch_size, seq_length, _ = x.size()
         padding = self.window_size // 2
 
-        # TODO: create the queries, keys and values
+        # Project input to queries, keys, and values
         qkv = self.qkv_linear(x)
         qkv = qkv.reshape(batch_size, seq_length, self.num_heads, 3 * self.head_dim)
         qkv = qkv.permute(0, 2, 1, 3)  # Reorder to (batch_size, num_heads, seq_length, 3 * head_dim)
         queries, keys, values = qkv.chunk(3, dim=-1)
 
-        # TODO: rotate the queries and keys using RoPE
+        # Apply rotary position embeddings to queries and keys
         queries, keys = self.rope(queries, keys)
 
-        # TODO: pad the keys and values
+        # Pad keys and values for sliding window boundaries
         keys = F.pad(keys, (0, 0, padding, padding), "constant", 0)
         values = F.pad(values, (0, 0, padding, padding), "constant", 0)
 
-        # TODO: Create sliding windows for keys and values
+        # Create sliding windows for keys and values using unfold
         # q, k and v are (batch_size, num_heads, seq_length, head_dim)
         # k_w and v_w are (batch_size, num_heads, num_windows, head_dim, window_size)
         # We select upto seq_len windows because, seq_len queries can attend to seq_len values ONLY
@@ -46,7 +46,7 @@ class EfficientSlidingWindowMultiheadAttention(nn.Module):
         values_windowed = values.unfold(2, self.window_size, 1)[:, :, :seq_length, :, :]
         
         
-        # TODO: Compute attention scores
+        # Compute scaled dot-product attention scores with einsum
         # q is of size (batch_size, num_heads, seq_length, head_dim)
         # k_w is (batch_size, num_heads, seq_len, head_dim, window_size)
         # scores is (batch_size, num_heads, seq_len, window_size)
@@ -54,16 +54,16 @@ class EfficientSlidingWindowMultiheadAttention(nn.Module):
         scores = scores / (self.head_dim ** 0.5)
         attention = F.softmax(scores, dim=-1)
 
-        # TODO: multiply attentions to values_windows
+        # Apply attention weights to values using einsum
         # values_windows (batch_size, num_heads, seq_len, head_dim, window_size)
         # attention is (batch_size, num_heads, seq_len, window_size)
         # context is (batch_size, seq_len, num_heads, head_dim)
         context = torch.einsum('bnsw,bnshw->bsnh', attention, values_windowed)
 
-        # TODO: Merge heads and combine the last two dimensions
+        # Merge attention heads back to hidden dimension
         context = context.reshape(batch_size, seq_length, self.hidden_size)
 
-        # TODO: perform the final linear transformation
+        # Final output projection
         output = self.out(context)
         return output
    

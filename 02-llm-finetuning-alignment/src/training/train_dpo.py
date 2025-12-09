@@ -18,7 +18,7 @@ class MyDPOTrainer(BaseTrainer):
         ):
         super().__init__(model, tokenizer, num_epoch, batch_size, output_dir, result_file)
         
-        # TODO: Set the training arguments up with the DPOConfig
+        # Configure DPO training arguments
         self.args = DPOConfig(
             output_dir=output_dir,
             per_device_train_batch_size=batch_size,
@@ -29,9 +29,7 @@ class MyDPOTrainer(BaseTrainer):
         )
 
     def train(self, dataset):
-        # TODO:  Set the training up with the DPOTrainer.  
-        # Call the train method of the DPOTrainer class, 
-        # and don't forget to push the model to the model hub
+        # Train with DPOTrainer using reference model for KL divergence
         model_ref = copy.deepcopy(self.model)
         train_dataset, eval_dataset = self.split_dataset(dataset)
         print(f"Train dataset size: {len(train_dataset)}")

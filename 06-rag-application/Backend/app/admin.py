@@ -1,7 +1,7 @@
 from sqladmin import ModelView
 from models import User, Message
 
-# TODO: add the column you want to see in the admin UI
+# SQLAdmin views for database management UI
 class UserAdmin(ModelView, model=User):
     column_list = ['id', 'username']
 

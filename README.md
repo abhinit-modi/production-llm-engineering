@@ -85,11 +85,3 @@ Each project contains its own `requirements.txt`. To run a specific project:
 cd <project-folder>
 pip install -r requirements.txt
 ```
-
-## Skills Demonstrated
-
-- **LLM Architecture**: Deep understanding of transformer components and attention mechanisms
-- **Training Pipelines**: Supervised learning, RLHF, preference optimization (DPO/ORPO)
-- **Distributed Systems**: Multi-GPU training, memory optimization, cloud infrastructure
-- **Production ML**: Model serving, containerization, streaming APIs
-- **Full-Stack AI**: Backend APIs, database integration, frontend interfaces

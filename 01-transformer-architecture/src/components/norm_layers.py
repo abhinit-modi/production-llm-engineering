@@ -9,7 +9,7 @@ class RMSNorm(nn.Module):
         self.weight = nn.Parameter(torch.ones(hidden_size))
 
     def _norm(self, x):
-        # TODO: implement the normalization
+        # RMS normalization: x / sqrt(mean(x^2) + eps)
         return x / torch.sqrt(x.pow(2).mean(-1, keepdim=True) + self.eps)
 
     def forward(self, x):

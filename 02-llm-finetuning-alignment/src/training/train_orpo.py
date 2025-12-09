@@ -17,7 +17,7 @@ class MyORPOTrainer(BaseTrainer):
         ):
         super().__init__(model, tokenizer, num_epoch, batch_size, output_dir, result_file)
         
-        # TODO: Set the training arguments up with the ORPOConfig
+        # Configure ORPO training arguments with gradient accumulation
         self.args = ORPOConfig(
             output_dir=output_dir,
             per_device_train_batch_size=2,
@@ -28,9 +28,7 @@ class MyORPOTrainer(BaseTrainer):
         )
 
     def train(self, dataset):
-        # TODO:  Set the training up with the ORPOTrainer.  
-        # Call the train method of the ORPOTrainer class, 
-        # and don't forget to push the model to the model hub
+        # Train with ORPOTrainer (no reference model needed)
         train_dataset, eval_dataset = self.split_dataset(dataset)
         print(f"Train dataset size: {len(train_dataset)}")
         trainer = ORPOTrainer(

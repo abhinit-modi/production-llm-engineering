@@ -24,13 +24,13 @@ class Transformer(nn.Module):
         period = 10000.0
         self.rotation_matrix = get_rotation_matrix(head_dim, max_seq_len, period)
 
-        # TODO: instantiate the components
+        # Initialize embedding, transformer blocks, and output projection
         self.embedding = nn.Embedding(vocabulary_size, hidden_size)
         self.blocks = [TransformerBlock(hidden_size, num_heads, window_size, d_ff, num_experts, n_experts_per_token, self.rotation_matrix) for _ in range(n_blocks)]
         self.out = nn.Linear(hidden_size, vocabulary_size)
 
     def forward(self, x):
-        # TODO: implement for the forward method
+        # Forward pass: embed -> transformer blocks -> project to vocabulary
         x = self.embedding(x)
         for block in self.blocks:
             x = block(x)

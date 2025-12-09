@@ -13,19 +13,9 @@ class DataProcessor:
         }
     
     def prepare_for_supervised_training(self, dataset):
-        # TODO: implement the method. 
-        # The method should return 2 columns named "completion" and "prompt".
-        # 
-        # - The "prompt" should have the form of "Question: {goal}\nAnswer: ", 
-        # because it is the way the instructions get presented 
-        # to the models in the PIQA test of the Evaluation Harness.
-        # The {goal} represents the text of the original "goal" column.
-        # 
-        # - The "completion" is the solution that corresponds to the "label" column. 
-        # The returned dataset doesn't need to be tokenized, 
-        # but it should be in a DatasetDict format. 
-        # You could decide to return a validation dataset as well 
-        # to get better visibility during your training.
+        # Format data for supervised fine-tuning with prompt-completion pairs
+        # Output format matches PIQA evaluation: "Question: {goal}\nAnswer: {solution}"
+        # The correct solution is selected based on the label column
         def prepare_for_training(example):
             return {
                 'text': f"Question: {example['goal']}\nAnswer: {example['sol1'] if example['label'] == 0 else example['sol2']}",
@@ -37,12 +27,8 @@ class DataProcessor:
    
 
     def prepare_for_reward_training(self, dataset):
-        # TODO: The prepare_for_reward_training method should do the following things:
-        # - create two new columns, "chosen" and "rejected," from the original data.
-        # The "chosen" column should have the following format:
-        # "Question: {goal}\nAnswer: {chosen_solution}"
-        # and the "rejected" column should have the following format:
-        # "Question: {goal}\nAnswer: {rejected_solution}"
+        # Format data for reward model training with chosen/rejected pairs
+        # Creates "chosen" and "rejected" columns with full prompt-answer format
         def prepare_for_reward(example):
             chosen_solution = example['sol1'] if example['label'] == 0 else example['sol2']
             rejected_solution = example['sol2'] if example['label'] == 0 else example['sol1']
@@ -52,13 +38,8 @@ class DataProcessor:
             }
         
         def tokenize_for_reward_training(examples):
-            # TODO: The RewardTrainer expects the data 
-            # to be tokenized with very specific column names:
-            # - "input_ids_chosen"
-            # - "attention_mask_chosen"
-            # - "input_ids_rejected"
-            # - "attention_mask_rejected"
-            # Implement the method to tokenize the data using the expected format for the RewardTrainer.
+            # Tokenize with RewardTrainer-expected column names:
+            # input_ids_chosen, attention_mask_chosen, input_ids_rejected, attention_mask_rejected
 
             chosen_tokenized = self.tokenizer(examples['chosen'], add_special_tokens=False, truncation=True, max_length=self.max_seq_len, padding='max_length')
             rejected_tokenized = self.tokenizer(examples['rejected'], add_special_tokens=False, truncation=True, max_length=self.max_seq_len, padding='max_length')
@@ -72,9 +53,8 @@ class DataProcessor:
         return tokenized_data
     
     def prepare_for_ppo_training(self, dataset):
-        # TODO:  Implement the method. 
-        # We just need to add the indicators "Question: {goal}\nAnswer: " 
-        # and tokenize the resulting text.
+        # Format data for PPO training: prompt-only format for generation
+        # Creates "Question: {goal}\nAnswer: " prompts for the policy to complete
         def prepare_for_ppo(example):
             return {
                 'text': f"Question: {example['goal']}\nAnswer: "
@@ -92,13 +72,8 @@ class DataProcessor:
         return tokenized_dataset
     
     def prepare_for_dpo_training(self, dataset):
-        # TODO: implement the metho. The HuggingFace DPOTrainer 
-        # expects a very specific format of the input data. 
-        # We don't need to input data to be tokenized, 
-        # but we need three columns with those names:
-        # - 'prompt': in our case, the 'goal' column.
-        # - 'chosen': the correct response
-        # - 'rejected': the wrong response
+        # Format data for DPO training with prompt/chosen/rejected columns
+        # DPOTrainer expects untokenized data with these specific column names
         def prepare_for_dpo(example):
             chosen_solution = example['sol1'] if example['label'] == 0 else example['sol2']
             rejected_solution = example['sol2'] if example['label'] == 0 else example['sol1']
@@ -111,13 +86,8 @@ class DataProcessor:
         return processed_dataset
     
     def prepare_for_orpo_training(self, dataset):
-        # TODO: implement the metho. The HuggingFace ORPOTrainer 
-        # expects a very specific format of the input data. 
-        # We don't need to input data to be tokenized, 
-        # but we need three columns with those names:
-        # - 'prompt': in our case, the 'goal' column.
-        # - 'chosen': the correct response
-        # - 'rejected': the wrong response
+        # Format data for ORPO training with prompt/chosen/rejected columns
+        # ORPOTrainer expects untokenized data with these specific column names
         def prepare_for_orpo(example):
             chosen_solution = example['sol1'] if example['label'] == 0 else example['sol2']
             rejected_solution = example['sol2'] if example['label'] == 0 else example['sol1']
