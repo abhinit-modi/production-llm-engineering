@@ -1,7 +1,7 @@
 from sagemaker.huggingface import HuggingFace
 import os
 
-role = 'arn:aws:iam::951719175793:role/service-role/AmazonSageMaker-ExecutionRole-20250620T120866'
+role = os.environ.get('SAGEMAKER_EXECUTION_ROLE', 'arn:aws:iam::YOUR_ACCOUNT_ID:role/service-role/YOUR_SAGEMAKER_EXECUTION_ROLE')
 
 huggingface_estimator = HuggingFace(
         entry_point='training_application.py',

@@ -1,5 +1,12 @@
 from evaluation.evaluate import Evaluator
 import argparse
+import os
+
+# Configurable model repository names (set via environment variables)
+SFT_MODEL_ID = os.environ.get('SFT_MODEL_ID', 'YOUR_USERNAME/sft-model')
+PPO_MODEL_ID = os.environ.get('PPO_MODEL_ID', 'YOUR_USERNAME/ppo-model')
+DPO_MODEL_ID = os.environ.get('DPO_MODEL_ID', 'YOUR_USERNAME/dpo-model')
+ORPO_MODEL_ID = os.environ.get('ORPO_MODEL_ID', 'YOUR_USERNAME/orpo-model')
 
 
 def run(training_type):
@@ -11,22 +18,22 @@ def run(training_type):
         )
     elif training_type == 'supervised':
         Evaluator.run(
-            model_id='Abhinit/HW2-supervised',
+            model_id=SFT_MODEL_ID,
             result_file='supervised_results.jsonl'
         )
     elif training_type == 'ppo':
         Evaluator.run(
-            model_id='Abhinit/HW2-ppo',
+            model_id=PPO_MODEL_ID,
             result_file='ppo_results.jsonl'
         )
     elif training_type == 'dpo':
         Evaluator.run(
-            model_id='Abhinit/HW2-dpo',
+            model_id=DPO_MODEL_ID,
             result_file='dpo_results.jsonl'
         )
     elif training_type == 'orpo':
         Evaluator.run(
-            model_id='Abhinit/HW2-orpo',
+            model_id=ORPO_MODEL_ID,
             result_file='orpo_results.jsonl'
         )
     else: 

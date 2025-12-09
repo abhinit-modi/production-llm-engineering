@@ -8,6 +8,11 @@ from training.train_dpo import MyDPOTrainer
 from training.train_orpo import MyORPOTrainer
 
 import argparse
+import os
+
+# Configurable model repository names (set via environment variables)
+REWARD_MODEL_ID = os.environ.get('REWARD_MODEL_ID', 'YOUR_USERNAME/reward-model')
+SFT_MODEL_ID = os.environ.get('SFT_MODEL_ID', 'YOUR_USERNAME/sft-model')
 
 def run(training_type, training_mode='local'):
     # Main training orchestration for different alignment methods
@@ -45,8 +50,8 @@ def run(training_type, training_mode='local'):
         trainer = RewardModelTrainer(model=model, tokenizer=tokenizer)
 
     elif training_type == 'ppo':
-        reward_model_id = 'Abhinit/HW2-reward'
-        model_id = 'Abhinit/HW2-supervised'
+        reward_model_id = REWARD_MODEL_ID
+        model_id = SFT_MODEL_ID
         policy_model, tokenizer, reward_model, value_model = Model.get_model_for_PPO(model_id, reward_model_id)
         data_path = 'ybisk/piqa'
 
@@ -66,7 +71,7 @@ def run(training_type, training_mode='local'):
         )
 
     elif training_type == 'dpo':
-        model_id = 'Abhinit/HW2-supervised'
+        model_id = SFT_MODEL_ID
 
         model, tokenizer = Model.get_model_for_LM(model_id)
         data_path = 'ybisk/piqa'
@@ -82,7 +87,7 @@ def run(training_type, training_mode='local'):
         trainer = MyDPOTrainer(model=model, tokenizer=tokenizer)
 
     elif training_type == 'orpo':
-        model_id = 'Abhinit/HW2-supervised'
+        model_id = SFT_MODEL_ID
         model, tokenizer = Model.get_model_for_LM(model_id)
         data_path = 'ybisk/piqa'
         if training_mode == 'aws':

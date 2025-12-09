@@ -18,8 +18,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 import wandb
 wandb.login()
 wandb.init(
-    project="HW3",  # Specify your project
-    entity="learnx") 
+    project=os.environ.get("WANDB_PROJECT", "distributed-training"),
+    entity=os.environ.get("WANDB_ENTITY")) 
 
 
 class BasicTrainer:
@@ -96,7 +96,7 @@ class BasicTrainer:
     
     def save(self, model):
         # Save model and tokenizer to HuggingFace Hub
-        repo_name = "Abhinit/HW3-basic-trainer"
+        repo_name = os.environ.get("HF_REPO_NAME", "YOUR_USERNAME/basic-trainer")
         login(token=HF_TOKEN)
         model.push_to_hub(repo_name)
         self.tokenizer.push_to_hub(repo_name)
@@ -182,7 +182,7 @@ class AcceleratedTrainer:
         # Unwrap model from Accelerate wrapper before saving
         model = self.accelerator.unwrap_model(model)
         # Save model and tokenizer to HuggingFace Hub
-        repo_name = "Abhinit/HW3-accelerate-trainer"
+        repo_name = os.environ.get("HF_REPO_NAME", "YOUR_USERNAME/accelerate-trainer")
         login(token=HF_TOKEN)
         model.push_to_hub(repo_name)
         self.tokenizer.push_to_hub(repo_name)
